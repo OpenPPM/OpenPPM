@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectCharterMMMGroup" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d27b0ba-3a97-4536-85e7-5c69803e41c5">
+	<property name="ireport.zoom" value="1.8150000000000004"/>
+	<property name="ireport.x" value="229"/>
+	<property name="ireport.y" value="0"/>
+	<style name="padding_1">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+	</style>
+	<style name="header" forecolor="#2F6CBF" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontName="Verdana" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="text" style="padding_1" forecolor="#333333" isBlankWhenNull="true" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="headerBox" style="padding_1" forecolor="#000000" fill="Solid" pattern="" fontName="Verdana" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="box" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#F2F2F2" fill="Solid" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.25" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="footer" style="padding_1" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="importantBox" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#DBE5F1" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="0.25"/>
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+			<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#F2F2F2" isBold="true">
+		<pen lineWidth="0.0" lineColor="#333333"/>
+		<box>
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.25" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="box_1" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#F2F2F2" fill="Solid" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="0">
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.0" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="box_1_1" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#F2F2F2" fill="Solid" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="0.5" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.0" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.5" lineColor="#333333"/>
+		</box>
+	</style>
+	<subDataset name="sellers" uuid="7fd1c96f-7807-4c2e-aab6-3b1ba0b74883">
+		<parameter name="TOTAL" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="infrastructures" uuid="430aca53-1378-496a-95bd-7f33f9111d01">
+		<parameter name="TOTAL" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="licenses" uuid="43db1926-2fd6-46c7-be64-683c232b50d2">
+		<parameter name="TOTAL" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="work" uuid="1d4c4064-01a8-4031-965c-ad4fff0c67b6">
+		<parameter name="TOTAL" class="java.lang.String"/>
+		<parameter name="EFFORT" class="java.lang.String"/>
+		<field name="name" class="java.lang.String"/>
+		<field name="department" class="java.lang.String"/>
+		<field name="effort" class="java.lang.String"/>
+		<field name="rate" class="java.lang.String"/>
+		<field name="workCost" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="documents" uuid="bc8f0295-3b10-4618-939b-265e174bf16c">
+		<parameter name="TRANSLATION_MAP" class="java.util.Map"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="milestones" uuid="a2775e15-69d2-48b3-815f-6fa4c34b463e">
+		<parameter name="TRANSLATION_MAP" class="java.util.Map"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="fecha" class="java.lang.String">
+			<fieldDescription><![CDATA[fecha]]></fieldDescription>
+		</field>
+		<field name="nombre" class="java.lang.String">
+			<fieldDescription><![CDATA[nombre]]></fieldDescription>
+		</field>
+		<field name="realDate" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="deliverables" uuid="de3dc9bd-b5ec-436a-ab14-ccec106cd841">
+		<parameter name="TRANSLATION_MAP" class="java.util.Map"/>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="value" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="IMG_DIR" class="java.lang.String"/>
+	<field name="projectName" class="java.lang.String"/>
+	<field name="projectManager" class="java.lang.String"/>
+	<field name="budgetYear" class="java.lang.String"/>
+	<field name="code" class="java.lang.String"/>
+	<field name="program" class="java.lang.String"/>
+	<field name="objetivos" class="java.lang.String"/>
+	<field name="sponsor" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="businessNeed" class="java.lang.String"/>
+	<field name="restricciones" class="java.lang.String"/>
+	<field name="principalesRiesgos" class="java.lang.String"/>
+	<field name="supuestos" class="java.lang.String"/>
+	<field name="entregables" class="java.lang.String"/>
+	<field name="exclusiones" class="java.lang.String"/>
+	<field name="plannedStartDate" class="java.lang.String"/>
+	<field name="plannedFinishDate" class="java.lang.String"/>
+	<field name="duration" class="java.lang.String"/>
+	<field name="expenses" class="java.lang.String"/>
+	<field name="workCosts" class="java.lang.String"/>
+	<field name="po" class="java.lang.String"/>
+	<field name="investmentManager" class="java.lang.String"/>
+	<field name="sellersCost" class="java.lang.String"/>
+	<field name="sellers" class="java.lang.Object"/>
+	<field name="afecta" class="java.lang.Object"/>
+	<field name="depende" class="java.lang.Object"/>
+	<field name="infrastructures" class="java.lang.Object"/>
+	<field name="licenses" class="java.lang.Object"/>
+	<field name="infrastructuresCost" class="java.lang.String"/>
+	<field name="licensesCost" class="java.lang.String"/>
+	<field name="leadsAndDependents" class="java.lang.Object"/>
+	<field name="works" class="java.lang.Object"/>
+	<field name="effort" class="java.lang.String"/>
+	<field name="budget" class="java.lang.String"/>
+	<field name="logo" class="java.io.InputStream"/>
+	<field name="priority" class="java.lang.String"/>
+	<field name="totalValue" class="java.lang.String"/>
+	<field name="contractType" class="java.lang.String"/>
+	<field name="accountingCode" class="java.lang.String"/>
+	<field name="customer" class="java.lang.String"/>
+	<field name="documents" class="java.lang.Object"/>
+	<field name="milestones" class="java.lang.Object"/>
+	<field name="deliverables" class="java.lang.Object"/>
+	<field name="lessonsLearned" class="java.lang.String"/>
+	<field name="actualStartDate" class="java.lang.String"/>
+	<field name="actualFinishDate" class="java.lang.String"/>
+	<field name="projectResults" class="java.lang.String"/>
+	<field name="projectArchievement" class="java.lang.String"/>
+	<field name="actualCost" class="java.lang.String"/>
+	<field name="translationMap" class="java.util.Map"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="74" splitType="Stretch">
+			<image vAlign="Bottom" isUsingCache="true">
+				<reportElement uuid="b03274aa-f30d-4c6e-9437-8982e7f81da6" x="0" y="2" width="231" height="58"/>
+				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="b587f462-01fd-40b1-9125-39eb20b06379" style="header" x="231" y="16" width="324" height="24"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{po}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0258ade8-05e6-4cba-a79e-4af7f8672f11" style="headerBox" x="231" y="40" width="324" height="25"/>
+				<textElement textAlignment="Right" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CLOSURE.REPORT" ).toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="10"/>
+	</columnHeader>
+	<detail>
+		<band height="114" splitType="Prevent">
+			<textField>
+				<reportElement uuid="182952a0-309e-48d6-bea0-4444e4c98d0b" style="headerBox" x="0" y="0" width="360" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "PROJECT_NAME" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6fe3a895-2176-4824-b351-c36e722283c5" style="headerBox" x="360" y="0" width="102" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "PROJECT.BUDGET_YEAR" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="007ebc1e-e058-4ac4-adb4-d246b15f5674" style="importantBox" mode="Opaque" x="0" y="14" width="360" height="14" backcolor="#DBE5F1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{projectName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e5a6557f-4cd5-419a-92f7-95c89fc8999d" style="headerBox" x="0" y="28" width="276" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CHARTER_PDF.PROJECT_MANAGER" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3e13927f-b6c9-409a-931e-23d5630efcad" style="headerBox" x="276" y="28" width="279" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "PROGRAM" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="828adf93-c227-4a3d-84d4-84b2bf72810b" style="box" x="0" y="42" width="276" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{projectManager}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="40a7f4fb-d524-43d3-ad7a-533b0035b1c7" style="box" x="276" y="42" width="279" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{program}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f9133308-7f07-40a6-82fb-d52bbd77132c" style="box" x="276" y="71" width="279" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6e9405ec-1c50-4ab1-8352-5b0690f65180" style="headerBox" x="0" y="57" width="276" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "SPONSOR" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ab7522a9-08d4-4725-868b-fb4d9bafde62" style="headerBox" x="276" y="57" width="279" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CUSTOMER" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f3ed2fa6-6196-4bc3-823a-361504fd9bcf" style="headerBox" x="185" y="85" width="183" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "BAC_DESC_COMPLETE" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6ebb9374-bccb-4217-b40a-52aa7266d05e" style="box" x="185" y="99" width="183" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{budget}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b2591ca3-adb6-4be8-b610-9ebbb85435d7" style="box" x="0" y="71" width="276" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sponsor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4e97f3bf-6a7c-4643-9bed-44b250fad98f" style="box" x="462" y="14" width="93" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{accountingCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e77705de-7e2e-4308-bdc0-ba2e63fd81c9" style="headerBox" x="462" y="0" width="93" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "PROJECT_CODE" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="19e0e8f8-2201-4778-bf79-ff36ec96d494" style="box" x="360" y="14" width="102" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{budgetYear}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ca4b688c-30ac-4166-b62a-4d0d0c8a40a6" style="headerBox" x="0" y="85" width="185" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "TCV" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3286f509-10a5-45fd-87f8-4e1ca7b797de" style="box" x="0" y="99" width="185" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{totalValue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="576428fc-e73f-4050-a9e7-41a0b53667f2" style="headerBox" x="368" y="85" width="187" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "FOLLOWUP.ACTUAL_COST" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="82960715-2984-4b88-b198-d2b2d367e095" style="box" x="368" y="99" width="187" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{actualCost}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26" splitType="Prevent">
+			<textField>
+				<reportElement uuid="8dd8aaa5-ee41-42c1-8508-a63c52ca8f0b" style="headerBox" x="0" y="12" width="555" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CLOSURE.PROJECT_RESULTS" ).toString()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="64" splitType="Prevent">
+			<textField>
+				<reportElement uuid="aea73fc7-4979-4060-b8cf-86d13842ab73" style="headerBox" x="0" y="0" width="555" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CLOSURE.PROJECT_RESULTS" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="758bdc1b-d2b1-4c00-a89f-bf817a6ab583" style="box" x="0" y="0" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{projectResults}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="10" splitType="Prevent"/>
+		<band height="64" splitType="Prevent">
+			<textField>
+				<reportElement uuid="951bf2e2-60b0-4ac0-bf32-ac5f00aff707" style="headerBox" x="0" y="0" width="555" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CLOSURE.GOAL_ACHIEVEMENT" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e392b6c8-dbd4-4d0b-a760-dbab0f521442" style="box" x="0" y="14" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{projectArchievement}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="10" splitType="Prevent"/>
+		<band height="56" splitType="Prevent">
+			<textField>
+				<reportElement uuid="07e0b2e7-f3b4-4b1a-8e71-9abd89e4a8e3" style="headerBox" x="0" y="0" width="276" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "BASELINE_START" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1f317926-996a-4b1b-a7df-b4e575aba79b" style="headerBox" x="0" y="28" width="276" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "BASELINE_FINISH" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2a540707-e583-4537-9e60-3082a3c0e236" style="box" x="0" y="14" width="276" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{plannedStartDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="1c187af2-3895-4853-8dd5-f922830b98b8" style="box" x="0" y="42" width="276" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{plannedFinishDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1894876e-ef96-4efa-aa54-8a7833cc3ac8" style="headerBox" x="276" y="0" width="279" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "ACTIVITY.ACTUAL_INIT_DATE" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c6835caa-a345-42e8-972c-a4559086d423" style="headerBox" x="276" y="28" width="279" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "ACTIVITY.ACTUAL_END_DATE" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="25889628-9efc-40f7-8374-d829b3c44186" style="box" x="276" y="14" width="279" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{actualStartDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fcbb7c3e-5cfa-4839-9727-d429fd472f60" style="box" x="276" y="42" width="279" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{actualFinishDate}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="10"/>
+		<band height="41">
+			<printWhenExpression><![CDATA[$F{milestones} != null]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="ffabca41-b9e2-4fa1-b5f2-15407e450855" key="table 1" x="0" y="0" width="555" height="40"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="milestones" uuid="51ee5af4-b460-439e-9db2-8e8b5e24fec9">
+						<datasetParameter name="TRANSLATION_MAP">
+							<datasetParameterExpression><![CDATA[$F{translationMap}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$F{milestones}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="355" uuid="cfbdee97-065f-44ae-a89d-2b1652ccf541">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField evaluationTime="Report">
+								<reportElement uuid="1b87480c-5a86-41e3-a85e-3214d96ad719" style="headerBox" x="0" y="0" width="355" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "MILESTONES" ).toString()]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="1ae84e28-2d0f-4306-9178-49916084d656" style="text" mode="Transparent" x="0" y="0" width="286" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="4fc66797-e311-4c74-8c0c-3b0192d983c3">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="9a7a9c0d-0812-4814-a8a7-30006391e653" style="headerBox" x="0" y="0" width="100" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "MILESTONE.PLANNED_DATE" )]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="00e657a8-eee0-4b3f-97fc-15e1de353f19" style="text" mode="Transparent" x="0" y="0" width="100" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="6015315c-f110-491f-a528-ef36fcf68eed">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="57652edf-42b7-4ea2-9856-543ee328b44c" style="headerBox" x="0" y="0" width="100" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "MILESTONE.ACTUAL_DATE" ).toString()]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="34592a1f-190e-4be6-8ed6-982923ef64f2" style="text" mode="Transparent" x="0" y="0" width="100" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{realDate}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="10">
+			<printWhenExpression><![CDATA[$F{milestones} != null]]></printWhenExpression>
+		</band>
+		<band height="41" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{deliverables} != null]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="fab5a310-e94d-4301-bbfb-2043caf2e675" key="table 1" x="0" y="0" width="555" height="40"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="deliverables" uuid="9f839599-b2a8-4ec1-aed7-3fd4e66696f2">
+						<datasetParameter name="TRANSLATION_MAP">
+							<datasetParameterExpression><![CDATA[$F{translationMap}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$F{deliverables}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="371" uuid="d8580ec6-471f-432d-bc31-167181ad2e30">
+						<jr:columnHeader height="14" rowSpan="1">
+							<elementGroup>
+								<textField>
+									<reportElement uuid="d1a63bd7-4223-4082-9635-ad797fece34d" style="headerBox" x="0" y="0" width="371" height="14"/>
+									<textElement markup="none"/>
+									<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "DELIVERABLES" ).toString()]]></textFieldExpression>
+								</textField>
+							</elementGroup>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="16" rowSpan="1">
+							<textField>
+								<reportElement uuid="a85088dc-3572-4c13-949d-b6ea27f41010" style="text" mode="Transparent" x="0" y="0" width="371" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="183" uuid="038b6d43-95c3-480c-afe0-a21caf4d661b">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="25bb1605-ee71-4eae-8800-fdeaee36140d" style="headerBox" x="0" y="0" width="183" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "SETTING.PROJECT.COLUMN.FINISH" )]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="16" rowSpan="1">
+							<textField>
+								<reportElement uuid="2462139c-ef74-4d8c-ad5f-7acc239e8673" style="text" mode="Transparent" x="0" y="0" width="183" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="10">
+			<printWhenExpression><![CDATA[$F{deliverables} != null]]></printWhenExpression>
+		</band>
+		<band height="64">
+			<textField>
+				<reportElement uuid="94e8a56b-96d8-41e5-bf0b-e784936fb376" style="headerBox" x="0" y="0" width="555" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CLOSURE.LESSONS_LEARNED" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e1a60f2a-aeb0-490c-a32c-7e1176727e18" style="box" x="0" y="14" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{lessonsLearned}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="10"/>
+		<band height="40">
+			<printWhenExpression><![CDATA[$F{documents} != null]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="b4645e3b-27e3-4c03-b8fc-af7bc570ea21" key="table 1" x="0" y="0" width="555" height="40"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="documents" uuid="b0922125-cd2c-4c62-9e67-b7b8e346dcef">
+						<datasetParameter name="TRANSLATION_MAP">
+							<datasetParameterExpression><![CDATA[$F{translationMap}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$F{documents}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="234" uuid="9aef00ad-02c8-4d59-b04b-fb2e7fd6590f">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="80a4df2e-919a-4c05-8a48-3b5cea5e6e32" style="headerBox" x="0" y="0" width="234" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "DOCUMENT" )]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="38784a7c-9e43-4255-9505-6b459c5bc470" style="text" mode="Transparent" x="0" y="0" width="234" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="321" uuid="726210ee-cbc5-4c73-a7f4-bbea1c2acdae">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="d39cec73-84d0-4a9d-a1f6-615f22100fc3" style="headerBox" x="0" y="0" width="321" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get( "URL" ).toString()]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="eb825604-8ba0-4962-be9b-ac9da5ed803c" style="text" mode="Transparent" x="0" y="0" width="321" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="10">
+			<printWhenExpression><![CDATA[$F{documents} != null]]></printWhenExpression>
+		</band>
+		<band height="115">
+			<rectangle>
+				<reportElement uuid="0a321640-09c2-45dc-b6ac-62a2d0e8a23e" x="51" y="42" width="180" height="49" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="af9aed7a-0478-4384-83b6-7d712af02747" x="328" y="42" width="180" height="49"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#333333"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement uuid="d204e225-728d-40cf-b8a8-0290137ee413" style="footer" x="0" y="0" width="555" height="18"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "SIGN_OFF" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e67a160a-b022-4e2d-815c-47099cd602d7" style="headerBox" x="51" y="91" width="102" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CHARTER_PDF.PROJECT_MANAGER" ).toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f817967f-2eb0-4cd8-a57a-d9bff6a7b670" style="headerBox" x="328" y="91" width="102" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get( "CHARTER_PDF.PROJECT_SPONSOR" ).toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="27">
+			<staticText>
+				<reportElement uuid="22ff9d48-0d89-4da5-a574-6ffd76fb72bb" x="0" y="0" width="555" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OPEN PPM - Open Project Portfolio Management (OpenPPM)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22b8ba66-bcc5-4c14-9671-e260b7c3fd55" x="0" y="11" width="555" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[www.sourceforge.net/openppm]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,1086 @@
+[
+  {
+  "code": "1",
+  "name": "Sales",
+  "description": "",
+  "idCompany": "1",
+  "idPerfOrg": "2",
+  "idProject": "0",
+  "projectName": "Trabajo Joven.com",
+  "projectManager": "Cándido MaoÑo Larramendi",
+  "dateRaised": "22/12/2010",
+  "owner": {"code": "1", "name": "Carlos"},
+  "impactTime": "3",
+  "impactCost": "6",
+  "impactSatisfaction": "fgfgf",
+  "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "type": "Error",
+  "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+  "processGroup": "Other",
+  "ranking": "4",
+  "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      },
+      {
+        "id": "3",
+        "description": "03.- Description 3.",
+        "importance": "red"
+      }
+    ],
+  "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "green"
+      },
+      {
+        "id": "3",
+        "description": "03.- Description 3.",
+        "importance": "yellow"
+      },
+      {
+        "id": "4",
+        "description": "04.- Description 4.",
+        "importance": "red"
+      },
+      {
+        "id": "5",
+        "description": "05.- Description 5.",
+        "importance": "green"
+      }
+    ]
+  },
+  {
+    "code": "1",
+    "name": "Sales",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "0",
+    "projectName": "Trabajo Joven.com",
+    "projectManager": "Cándido MaoÑo Larramendi",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Error",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Marketing",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "Other",
+    "ranking": "4",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "green"
+      },
+      {
+        "id": "3",
+        "description": "03.- Description 3.",
+        "importance": "yellow"
+      },
+      {
+        "id": "4",
+        "description": "04.- Description 4.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },{
+  "code": "5",
+  "name": "Product Placement",
+  "description": "",
+  "idCompany": "1",
+  "idPerfOrg": "2",
+  "idProject": "n-a",
+  "projectName": "n-a",
+  "projectManager": "n-a",
+  "dateRaised": "22/12/2010",
+  "owner": {"code": "1", "name": "Carlos"},
+  "impactTime": "3",
+  "impactCost": "6",
+  "impactSatisfaction": "fgfgf",
+  "profile":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "program":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "customer":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "seller":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "contractType":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "geography":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "fundingSource":
+  {"code": "1",
+   "name": "dfdfd",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "type": "Good Practice",
+  "knowledgeArea":
+  {"code": "1",
+   "name": "Sales",
+   "description": "fgfgdf",
+   "idCompany": "2",
+   "idPerfOrg": "1"
+  },
+  "processGroup": "PMO",
+  "ranking": "2",
+  "actions":
+  [
+    {
+      "id": "1",
+      "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+      "importance": "green"
+    },
+    {
+      "id": "2",
+      "description": "02.- Description 2.",
+      "importance": "yellow"
+    }
+  ],
+  "recommendations":
+  [
+    {
+      "id": "1",
+      "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+      "importance": "red"
+    }
+  ]
+},
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  },
+  {
+    "code": "5",
+    "name": "Product Placement",
+    "description": "",
+    "idCompany": "1",
+    "idPerfOrg": "2",
+    "idProject": "n-a",
+    "projectName": "n-a",
+    "projectManager": "n-a",
+    "dateRaised": "22/12/2010",
+    "owner": {"code": "1", "name": "Carlos"},
+    "impactTime": "3",
+    "impactCost": "6",
+    "impactSatisfaction": "fgfgf",
+    "profile":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "program":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "customer":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "seller":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "contractType":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "geography":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "fundingSource":
+    {"code": "1",
+     "name": "dfdfd",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "type": "Good Practice",
+    "knowledgeArea":
+    {"code": "1",
+     "name": "Sales",
+     "description": "fgfgdf",
+     "idCompany": "2",
+     "idPerfOrg": "1"
+    },
+    "processGroup": "PMO",
+    "ranking": "2",
+    "actions":
+    [
+      {
+        "id": "1",
+        "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+        "importance": "green"
+      },
+      {
+        "id": "2",
+        "description": "02.- Description 2.",
+        "importance": "yellow"
+      }
+    ],
+    "recommendations":
+    [
+      {
+        "id": "1",
+        "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+        "importance": "red"
+      }
+    ]
+  }
+]

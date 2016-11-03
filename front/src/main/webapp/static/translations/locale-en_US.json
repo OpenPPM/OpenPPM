@@ -1,0 +1,421 @@
+{
+  "TITLE": "OpenPPM",
+  "HEADER": {
+    "DOCS_AND_MANUALS": "Docs & Manuals",
+    "PROFILE": "Profile",
+    "USER": "User",
+    "CONNECTION": {
+      "SWITCH_ROLE": "Switch",
+      "LOG_OFF": "Log Off"
+    }
+  },
+  "MENU": {
+    "INVESTMENTS": "Investments",
+    "PROJECTS": "Projects",
+    "PROGRAMS": "Programs",
+    "APPROVALS": "Approvals",
+    "TIME_APPROVALS": "Time approvals",
+    "EXPENSE_APPROVALS": "Expense approvals",
+    "RESOURCE_CAPACITY": "Resource management",
+    "RESOURCE_CAPACITY_PLANNING": "Resource capacity planning",
+    "RESOURCE_CAPACITY_RUNNING": "Resource capacity running",
+    "PAYMENT_PROJECTS": "Payments",
+    "LEARNED_LESSONS": "Lessons Learned",
+    "ORGANIZATIONAL_PROCESS_ASSETS": {
+      "ORGANIZATIONAL_PROCESS_ASSETS": "Organizational process assets",
+      "BASE_CALENDARS": "Base calendars",
+      "MAINTENANCE": "Maintenance"
+    },
+    "ASSIGNMENTS": "Assignments",
+    "TIME_SHEET": "Time sheet",
+    "EXPENSE_SHEET": "Expense sheet",
+    "RESOURCE_CALENDAR": "Resource calendar",
+    "PERFORMANCE_APPRAISALS": "Performance appraisals",
+    "KPI": "KPI",
+    "RESOURCE_POOL": "Resource pool",
+    "ASSIGNATIONS_APPROVALS": "Assignations approvals"
+  },
+  "TYPE": {
+    "OPPORTUNITY": "Opportunity",
+    "THREAT": "Threat",
+    "NAME": "Type"
+  },
+  "PROCESS_GROUP": {
+    "INITIATION": "Initiation",
+    "PLANNING": "Planning",
+    "EXECUTION": "Execution",
+    "MONITORING_AND_CONTROL": "Monitoring and Controlling",
+    "CLOSURE": "Closing",
+    "NAME": "Process Group"
+  },
+  "IMPACT_ON_SATISFACTION": {
+    "MINOR": "Minor",
+    "MODERATE": "Moderate",
+    "HIGH": "High"
+  },
+  "IMPORTANCE": {
+    "MINOR": "Minor",
+    "MODERATE": "Moderate",
+    "HIGH": "High"
+  },
+  "SEARCH": {
+    "ADVANCED": "Advanced search",
+    "SIMPLE": "Simple search",
+    "PROJECT": "Search Project",
+    "USER": "Search user",
+    "DEFAULT_MESSAGE": "Make a project search using the filter",
+    "NO_RESULTS": "The search resulted in no match ",
+    "LABEL": "Search: "
+  },
+  "FORM": {
+    "SELECT_ONE": "-- Seleccionar --",
+    "DATE": "Fecha",
+    "USER": "Usuario",
+    "MODIFICATION_DATE":"Fecha Modificación",
+    "MODIFICATION_USER":"Usuario Modificación",
+    "ACTIVE_UNACTIVATED": "Activado/desactivado",
+    "INFO": "Information",
+    "ACTION": {
+      "SUCCESS": "<strong>Well done!</strong> Changes have been saved correctly",
+      "DANGER": "<strong>Oh snap!</strong> Unable to save the changes correctly"
+    },
+    "ALL": "All"
+  },
+
+  "VALIDATION": {
+    "REQUIRED": "{{fieldName}} is required.",
+    "WRONG_FORMAT": "Incorrect format for {{fieldName}}"
+
+  },
+  "LearnedLesson": {
+    "dateRaised": "Date Raised",
+    "type": "Type",
+    "name": "Subject",
+    "description": "Description of the LLAA background",
+    "knowledgeArea": "Knowledge Area",
+    "learnedLesson": "",
+    "impactTime": "Impact on time",
+    "impactCost": "Impact on cost"
+  },
+
+  "ActionLesson":{
+    "name":  "Actions or facts happened",
+    "importance": "Importance"
+  },
+  "RecommendationLesson": {
+    "name": "Recommendations for the future",
+    "importance": "Importance"
+  },
+  "Project": {
+    "name": "Project Name",
+    "status": "Project status",
+    "bac": "BAC",
+    "tcv": "Total Value",
+    "duration": "Duration",
+    "priority": "Priority",
+    "netIncome": "Net Value",
+    "effort": "Internal Effort",
+    "chartLabel": "Short Name",
+    "projectManager": "Project Manager",
+    "initDate": "Initiation Date",
+    "plannedFinishDate": "Baseline Finish",
+    "planDate": "Planning Date",
+    "execDate": "Execution Date",
+    "plannedInitDate": "Baseline Start",
+    "internalProject": "Unforeseen Project",
+    "budgetYear": "Budget Year",
+    "probability": "Probability",
+    "isGeoSelling": "Strategic project",
+    "investmentStatus": "Investment Status",
+    "numCompetitors": "Number of Competitors",
+    "finalPosition": "Investment Position",
+    "clientComments": "Client Comments",
+    "linkDoc": "Link",
+    "accountingCode": "Accounting Code",
+    "statusDate": "Status Date",
+    "scopeStatement": "Scope Statement",
+    "startDate": "Start Date",
+    "finishDate": "Finish Date",
+    "poc": "% Complete",
+    "functionalManager": "Functional Manager",
+    "investmentManager": "Investment Manager",
+    "sponsor": "Sponsor",
+    "category": "Category",
+    "customer": "Team",
+    "contract_type": "Contract Type",
+    "geography": "Phase",
+    "stagegate": "Group",
+    "classification_level": "Strategic business line",
+    "performingOrganization": "Performing Organization",
+    "Program": "Program",
+    "STATUS_TYPE": {
+      "INITIATING": "Iniciando",
+      "PLANNING": "Planificando",
+      "CONTROL": "Execution",
+      "CLOSED": "Cerrado",
+      "ARCHIVED": "Archivado"
+    }
+  },
+  "RESOURCE_PROFILES": {
+    "RESOURCE": "Resource",
+    "PROJECT_MANAGER": "Project Manager",
+    "INVESTMENT_MANAGER": "Investment Manager",
+    "FUNCTIONAL_MANAGER": "Functional Manager",
+    "PROGRAM_MANAGER": "Program Manager",
+    "RESOURCE_MANAGER": "Resource Manager",
+    "PMO": "PMO",
+    "SPONSOR": "Sponsor",
+    "PORFOLIO_MANAGER": "Porfolio Manager",
+    "ADMIN": "Admin",
+    "STAKEHOLDER": "Stakeholder",
+    "LOGISTIC": "Logistic"
+  },
+  "NOTIFICATION": {
+    "MODE": {
+      "MAIL" : "E-Mail",
+      "APPLICATION": "Application",
+      "BOTH": "Both"
+    },
+    "ChangeStageGateNotification": {
+      "NAME": "Change Stage Gate Notification",
+      "DESCRIPTION": "Change Stage Gate Notification descripcion"
+    },
+    "UpdateTimesheetNotification": {
+      "NAME": "UpdateTimesheetNotification",
+      "DESCRIPTION": "UpdateTimesheetNotification descripcion"
+    }
+  },
+  "BUTTON": {
+    "EXPORT_CSV": "Export CSV",
+    "SAVE_CHANGES": "Save changes",
+    "SEARCH": "Search",
+    "RESET": "Reset",
+    "CANCEL": "Cancel",
+    "APPLY": "Apply",
+    "APPLY_FILTER": "Apply filter",
+    "SHOW_ADVANCED": "(Advanced)",
+    "SAVE": "Save",
+    "CLOSE": "Close",
+    "APPROVE": "Approve",
+    "REJECT": "Reject"
+  },
+  "MODEL": {
+    "STATUS": "Status",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "FILE": "File",
+    "EMPLOYEE": {
+      "NAME": "Resource",
+      "SUGGEST_REJECT_COMMENT": "Suggest reject comments"
+    },
+    "OPERATION": {
+      "NAME": "Operation"
+    },
+    "POOL": {
+      "NAME": "Pool"
+    },
+    "JOB_CATEGORY": {
+      "NAME": "Job category"
+    },
+    "SKILL": {
+      "NAME": "Skill"
+    }
+  },
+  "VIEW": {
+    "NOTIFICATION": {
+      "NAME" : "Notification",
+      "PLURAL_NAME": "Notifications",
+      "ADMIN": {
+        "TITLE": "Managing notifications",
+        "HELP": "For the description of notification place your mouse over the name"
+      },
+      "USER": {
+        "TITLE": "Configuring notifications",
+        "HELP": "For the description of notification place your mouse over the name. You can only change the notifications that you have permission"
+      },
+      "ACTIVE": "Active",
+      "ACTIVE_FOR": "Active for:",
+      "ACTIVE_FOR_HELP": "Only selected profiles have enabled notification",
+      "ALLOW_EDIT": "Allow edit:",
+      "ALLOW_EDIT_HELP": "If allowed to edit, the user can decide whether or not receive notification",
+      "DISTRIBUTION_LIST": "Distribution list",
+      "MODE": "Mode",
+      "MODE_HELP": "Identifies how the notification is generated only in the application by mail or in both cases"
+    },
+    "AUDIT": {
+      "NAME": "Audit Data",
+      "COLUMNS_TO_SHOW": "Select the columns to display",
+      "COLUMNS_TO_SHOW_HELP": "You can change the selection once the search and columns appear and disappear in the table dynamically",
+      "PROJECT_DATA": {
+        "HELP": "Below it is chronologically the changes that have taken place and who has made.",
+        "TITLE": "Audit of basic project data",
+        "QUOTA_EXCEEDED": "<strong>Error:</strong> The search is returning too many results, please restrict your search using the parameters"
+      }
+    },
+    "LEARNED_LESSON": {
+      "ID": "#ID",
+      "NAME": "Lesson Learned",
+      "ID_LLAA": "ID LLAA",
+      "SUBJECT": "Subject",
+      "ACTIONS": "#Act",
+      "RECOMMENDATIONS": "#Rec",
+      "RANK": "#Rnk",
+      "FILTERS": "LLAA Filters:",
+      "IMPORTANCE_ACTIONS": "Importance in actions",
+      "IMPORTANCE_RECOMMENDATIONS": "Importance in Recommendations",
+      "JOB_PROFILE": "Job Profile",
+      "IMPACT_SATISFACTION": "Impact on Satisfaction",
+      "IMPACT_TIME": "Impact on time (days)",
+      "IMPACT_COST": "Impact on cost (euros)",
+      "RANKING": "Ranking",
+      "DATE_RAISED": "Date Raised",
+      "KNOWLEDGE_AREA": "Knowledge Area",
+      "INCLUDE":{
+        "ONLY_GLOBAL": "Only Global LLAA",
+        "GLOBAL": "All LLAA",
+        "NOT_GLOBAL": " Only Projects LLAA"
+      },
+      "ACTIONS_DETAIL": "Actions or facts happened",
+      "RECOMMENDATIONS_DETAIL": "Recommendations for the future",
+      "IMPORTANCE": "Importance",
+      "DESCRIPTION": "Description of the LLAA background",
+      "SPECIFIC": "Project Lesson Learned",
+      "GLOBAL": "Global Lesson Learned",
+      "WARNING": {
+        "LINKED": "The lesson learned is linked with {{ranking}} projects. Deleting it, the relations will also be deleted."
+      },
+      "LINK_PANEL_TITLE": "Link Projects"
+    },
+    "PROJECT": {
+      "ID_PROJECT": "ID Pr",
+      "PROJECT_OR_DOMAIN": "Project or Domain",
+      "PROJECT_MANAGER": "Project Manager",
+      "STATUS": {
+        "NAME": "Status",
+        "INITIATING": "Initiating",
+        "PLANNING": "Planning",
+        "CONTROL": "Execution",
+        "CLOSED": "Closed",
+        "ARCHIVED": "Archived"
+      },
+      "%COMPLETE": "%Complete",
+      "BAC": "BAC",
+      "PROJECT_FILTERS": "Project Filters:",
+      "CUSTOMER_TYPE": "Customer Type",
+      "PROGRAM": "Program",
+      "CATEGORY": "Category",
+      "PERFORMING_ORGANIZATION": "Performing Organization",
+      "FOLLOW_UP_TYPE": "Follow Up Type",
+      "TYPES": "Project Types",
+      "CLASSIFICATION_LEVEL": "Classification level",
+      "PRIORITY_ADJUSTMENT": "Priority Adjustment",
+      "RISK_RATING": "Risk Rating",
+      "CUSTOMER": "Customer",
+      "SELLER": "Provider",
+      "GEOGRAPHY": "Geographic Area",
+      "OWNER": "Owner",
+      "CONTRACT_TYPE": "Contract Type",
+      "CONTRACT_TYPE_SELLER": "Contract Type (Main Seller)",
+      "TECHNOLOGY": "Technology",
+      "EXECUTION_MANAGER": "Execution Manager",
+      "FUNDING_SOURCE": "Strategic Initiative",
+      "UNFORESEEN": "Include Unforeseen",
+      "PROCUREMENT": "Requires Acquisitions",
+      "RAG": "RAG",
+      "STRATEGIC_ALIGNMENT": "Strategic Alignment",
+      "BUDGET_YEAR": "Budget Year"
+    },
+    "CONFIGURATION" : {
+      "NAME": "Configuration",
+      "AUDIT": {
+        "TITLE": "Set data to be audited",
+        "INFO_HELP": "Select the data you want auditing to keep track of the changes occurring",
+        "TYPE": {
+          "PROJECT_DATA": "Panel of basic project data",
+          "PROJECT_DATA_HELP": "If this option is enabled the panel data of basic project data shall be audited"
+        }
+      }
+    },
+    "ERROR": {
+      "TITLE": "<strong>Error:</strong> ",
+      "NOT_ALLOWED": {
+        "TITLE": "Not authorized",
+        "DESCRIPTION": "You can not go to the section, it is a <strong>restricted area</strong>. Contact administrator application."
+      },
+      "UNEXPECTED": {
+        "TITLE": "Unexpected error",
+        "DESCRIPTION": "There was an unexpected error, if the problem persists <strong> contact the administrator of the application. </strong>"
+      }
+    },
+    "DOCUMENT": {
+      "TITLE": "Documentation and manuals",
+      "HELP": "Click the link to download the document"
+    },
+    "MANAGEMENT": {
+      "OPERATION": {
+        "HELP": "To select or deselect click on the name or on each cell individually.",
+        "TITLE": "Operation Approval",
+        "SHOW_WEEKEND": "Show weekend",
+        "STATUS": {
+          "REJECT": "Request for disapproval",
+          "COMPLETED": "Approval process completed",
+          "FOR_APPROVE": "Pending LOG/PMO Approval",
+          "INCOMPLETE": "Pending RM Approval",
+          "SAVED": "Pending TM Approval"
+        }
+      }
+    },
+    "STATE": {
+      "OPERATION": {
+        "TITLE": "State Approvals"
+      }
+    }
+  },
+
+  "DATE": {
+    "NAME": "Date",
+    "HOURS": "Hours",
+    "RANGE": "Date range",
+    "MAX_MONTHS": "<strong>Warning!</strong> The selected date range returns too many records and will impact the application performance.",
+    "DAYS": {
+      "MO": "Mo",
+      "TU": "Tu",
+      "WE": "We",
+      "TH": "Th",
+      "FR": "Fr",
+      "SA": "Sa",
+      "SU": "Su"
+    },
+    "SINCE": "Since: ",
+    "UNTIL": "Until: "
+  },
+  "TABLE": {
+    "NO_DATA_FOUND": "<strong> No results found. </ strong> Change your search criteria I try again.",
+    "FIND_DATA": "<strong> Information. </ strong> Use the filters to search.",
+    "LINK": "Link {{field}}",
+    "NEW": "Create a new {{field}}",
+    "VIEW": "View {{field}}",
+    "DELETE": "Delete {{field}}",
+    "DISPLAY": "Display:",
+    "FIRST": "First",
+    "LAST": "Last"
+  },
+  "CONFIRM": {
+    "DELETE": "Are you sure that you want to delete the selected item?"
+  },
+  "WARNING": {
+    "TITLE":"Warning"
+  },
+  "ALERT": {
+    "SUCCESS": "Process completed successfully!"
+  },
+  "COMPARISON": {
+    "SHOW_ALL": "Show all",
+    "LESS_OR_EQUAL": "Less than or equal",
+    "BETWEEN": "Between",
+    "GREATER_OR_EQUAL": "Greater than or equal"
+  },
+  "FIELD": {
+    "SHOW_ALL": "Show all"
+  }
+}

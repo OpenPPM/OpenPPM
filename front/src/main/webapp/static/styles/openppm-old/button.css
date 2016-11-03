@@ -1,0 +1,43 @@
+
+.btn-xs{
+
+  border: 1px solid #c5dbec;
+  background: #dfeffc url("../openppm-old/redmond/images/ui-bg_glass_85_dfeffc_1x400.png") 50% 50% repeat-x;
+  font-family: Arial,Helvetica,sans-serif;
+  margin-right: .1em;
+  text-decoration: none !important;
+  cursor: pointer;
+  font-size: 11px;
+  color: #2E6E9E;
+  margin: 1px;
+  font-weight: bold;
+  text-align: center;
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  position: relative;
+  zoom: 1;
+  overflow: visible;
+}
+.btn-xs:hover{
+
+  color: #2F67AD;
+  background-color: #dfeffc;
+}
+
+.btn-xs:hover{
+
+  border: 1px solid #79b7e7;
+  background: #d0e5f5 url(../openppm-old/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png) 50% 50% repeat-x;
+  font-weight: bold;
+  color: #1d5987;
+}
+
+
+.btn-group div {
+  padding-left: 4px;
+  padding-right: 0;
+}
+
+

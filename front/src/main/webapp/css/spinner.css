@@ -1,0 +1,52 @@
+.ui-spinner {
+ 	display: block;
+    overflow: hidden;
+    position: relative;
+    width: 55px;
+}
+
+.ui-spinner-disabled {
+	background: #F4F4F4;
+	color: #CCC;
+}
+
+.ui-spinner-box {
+	margin-right: 0;
+    width: 22px;
+    text-align: right;
+}
+
+.ui-spinner-up,
+.ui-spinner-down {
+	width: 20px;
+	height: 50%;
+	font-size: 0.5em;
+	padding: 0;
+	margin: 0;
+	z-index: 100;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+	right: 4px;
+	cursor: default;
+}
+
+.ui-spinner-up {
+	top:-3px;
+}
+
+.ui-spinner-down {
+	bottom: 0;
+	border-bottom: 0;
+	top: 8px;
+}
+
+.ui-spinner-pressed {
+	background: #FEFEFE;
+}
+
+.ui-spinner-list,
+.ui-spinner-listitem {
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,57 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading" translate="VIEW.NOTIFICATION.USER.TITLE"></div>
+  <table class="table">
+    <caption>
+      <i class="glyphicon glyphicon-info-sign"></i>
+      <span translate="VIEW.NOTIFICATION.USER.HELP"></span>
+    </caption>
+    <tr class="active">
+      <th translate="VIEW.NOTIFICATION.NAME"></th>
+      <th>
+        <span tooltip="{{'VIEW.NOTIFICATION.MODE_HELP' | translate}}">
+          <span translate="VIEW.NOTIFICATION.MODE"></span>
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </span>
+      </th>
+      <th>
+        <span tooltip="{{'VIEW.NOTIFICATION.ACTIVE_FOR_HELP' | translate}}">
+          <span translate="VIEW.NOTIFICATION.ACTIVE_FOR"></span>
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </span>
+      </th>
+    </tr>
+
+    <tr ng-repeat="notificationData in notificationsData" ng-class="notificationData.classRow">
+      <td rowspan="{{notificationData.notification.profiles.length}}"  ng-if="notificationData.firstProfile" class="text-middle">
+        <span tooltip="{{'NOTIFICATION.'+notificationData.notification.key+'.DESCRIPTION' | translate}}">
+          {{'NOTIFICATION.'+notificationData.notification.key+'.NAME' | translate}}
+        </span>
+      </td>
+      <td>
+        <label>
+          <select class="form-control input-sm" ng-model="notificationData.notification.profiles[notificationData.index].mode" ng-disabled="notificationData.notification.status === CONSTANTS.ACTIVATION.DISABLED"
+                  ng-options="notificationMode as 'NOTIFICATION.MODE.'+notificationMode | translate for notificationMode in notificationModes track by notificationMode">
+          </select>
+        </label>
+      </td>
+      <td>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="notificationData.notification.profiles[notificationData.index].status"
+                   ng-true-value="'ENABLED'" ng-false-value="'DISABLED'"
+                   ng-disabled="notificationData.notification.status === CONSTANTS.ACTIVATION.DISABLED">
+            {{'RESOURCE_PROFILES.'+notificationData.notification.profiles[notificationData.index].profile.name | translate}}
+          </label>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="panel-footer">
+
+    <div class="text-right">
+      <button type="button" class="btn btn-primary" ng-click="save()">Guardar cambios</button>
+    </div>
+  </div>
+
+</div>

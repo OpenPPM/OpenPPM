@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Project.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Project" table="project">
+        <id name="idProject" type="java.lang.Integer">
+            <column name="idProject" />
+            <generator class="native">
+                <param name="sequence">project_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="geography" class="es.sm2.openppm.core.model.impl.Geography" fetch="select">
+            <column name="idGeography" />
+        </many-to-one>
+        <many-to-one name="employeeByInvestmentManager" class="es.sm2.openppm.core.model.impl.Employee" fetch="select">
+            <column name="investmentManager" />
+        </many-to-one>
+        <many-to-one name="classificationlevel" class="es.sm2.openppm.core.model.impl.Classificationlevel" fetch="select">
+            <column name="idClassificationlevel" />
+        </many-to-one>
+        <many-to-one name="performingorg" class="es.sm2.openppm.core.model.impl.Performingorg" fetch="select">
+            <column name="idPerfOrg" />
+        </many-to-one>
+        <many-to-one name="program" class="es.sm2.openppm.core.model.impl.Program" fetch="select">
+            <column name="idProgram" />
+        </many-to-one>
+        <many-to-one name="projectcalendar" class="es.sm2.openppm.core.model.impl.Projectcalendar" fetch="select">
+            <column name="idProjectCalendar" />
+        </many-to-one>
+        <many-to-one name="customer" class="es.sm2.openppm.core.model.impl.Customer" fetch="select">
+            <column name="idCustomer" />
+        </many-to-one>
+        <many-to-one name="category" class="es.sm2.openppm.core.model.impl.Category" fetch="select">
+            <column name="idCategory" />
+        </many-to-one>
+        <many-to-one name="employeeBySponsor" class="es.sm2.openppm.core.model.impl.Employee" fetch="select">
+            <column name="sponsor" />
+        </many-to-one>
+        <many-to-one name="employeeByFunctionalManager" class="es.sm2.openppm.core.model.impl.Employee" fetch="select">
+            <column name="functionalManager" />
+        </many-to-one>
+        <many-to-one name="employeeByProjectManager" class="es.sm2.openppm.core.model.impl.Employee" fetch="select">
+            <column name="projectManager" />
+        </many-to-one>
+        <many-to-one name="stagegate" class="es.sm2.openppm.core.model.impl.Stagegate" fetch="select">
+            <column name="idStageGate" />
+        </many-to-one>
+        <many-to-one name="contracttype" class="es.sm2.openppm.core.model.impl.Contracttype" fetch="select">
+            <column name="IdContractType" />
+        </many-to-one>
+        <property name="projectName" type="string">
+            <column name="projectName" length="80" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="11" not-null="true" />
+        </property>
+        <property name="risk" type="java.lang.Character">
+            <column name="risk" length="1" />
+        </property>
+        <property name="priority" type="java.lang.Integer">
+            <column name="priority" />
+        </property>
+        <property name="bac" type="java.lang.Double">
+            <column name="bac" precision="22" scale="0" />
+        </property>
+        <property name="netIncome" type="java.lang.Double">
+            <column name="netIncome" precision="22" scale="0" />
+        </property>
+        <property name="tcv" type="java.lang.Double">
+            <column name="tcv" precision="22" scale="0" />
+        </property>
+        <property name="initDate" type="date">
+            <column name="initDate" length="10" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="endDate" length="10" />
+        </property>
+        <property name="archiveDate" type="date">
+            <column name="archiveDate" length="10" />
+        </property>
+        <property name="duration" type="java.lang.Integer">
+            <column name="duration" />
+        </property>
+        <property name="effort" type="java.lang.Integer">
+            <column name="effort" />
+        </property>
+        <property name="plannedFinishDate" type="date">
+            <column name="plannedFinishDate" length="10" />
+        </property>
+        <property name="planDate" type="date">
+            <column name="planDate" length="10" />
+        </property>
+        <property name="execDate" type="date">
+            <column name="execDate" length="10" />
+        </property>
+        <property name="plannedInitDate" type="date">
+            <column name="plannedInitDate" length="10" />
+        </property>
+        <property name="closeComments" type="string">
+            <column name="closeComments" length="200" />
+        </property>
+        <property name="closeStakeholderComments" type="string">
+            <column name="closeStakeholderComments" length="200" />
+        </property>
+        <property name="closeUrlLessons" type="string">
+            <column name="closeUrlLessons" length="50" />
+        </property>
+        <property name="closeLessons" type="string">
+            <column name="closeLessons" length="200" />
+        </property>
+        <property name="internalProject" type="java.lang.Boolean">
+            <column name="internalProject" />
+        </property>
+        <property name="projectDoc" type="string">
+            <column name="projectDoc" length="20" />
+        </property>
+        <property name="budgetYear" type="java.lang.Integer">
+            <column name="budgetYear" />
+        </property>
+        <property name="chartLabel" type="string">
+            <column name="chartLabel" length="15" />
+        </property>
+        <property name="probability" type="java.lang.Integer">
+            <column name="probability" />
+        </property>
+        <property name="isGeoSelling" type="java.lang.Boolean">
+            <column name="isGeoSelling" />
+        </property>
+        <property name="investmentStatus" type="string">
+            <column name="investmentStatus" length="11" not-null="true" />
+        </property>
+        <property name="sended" type="java.lang.Boolean">
+            <column name="sended" />
+        </property>
+        <property name="numCompetitors" type="java.lang.Integer">
+            <column name="numCompetitors" />
+        </property>
+        <property name="finalPosition" type="java.lang.Integer">
+            <column name="finalPosition" />
+        </property>
+        <property name="clientComments" type="string">
+            <column name="clientComments" length="1000" />
+        </property>
+        <property name="canceledComments" type="string">
+            <column name="canceledComments" length="200" />
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" length="200" />
+        </property>
+        <property name="linkDoc" type="string">
+            <column name="linkDoc" length="200" />
+        </property>
+        <property name="accountingCode" type="string">
+            <column name="accountingCode" length="20" />
+        </property>
+        <property name="statusDate" type="date">
+            <column name="statusDate" length="10" />
+        </property>
+        <property name="lowerThreshold" type="java.lang.Double">
+            <column name="lowerThreshold" precision="22" scale="0" />
+        </property>
+        <property name="upperThreshold" type="java.lang.Double">
+            <column name="upperThreshold" precision="22" scale="0" />
+        </property>
+        <property name="linkComment" type="string">
+            <column name="linkComment" length="250" />
+        </property>
+        <property name="scopeStatement" type="string">
+            <column name="scopeStatement" length="1500" />
+        </property>
+        <property name="hdDescription" type="string">
+            <column name="hdDescription" length="1500" />
+        </property>
+        <property name="rag" type="java.lang.Character">
+            <column name="rag" length="1" />
+        </property>
+        <property name="currencyOptional1" type="java.lang.Double">
+            <column name="currencyOptional1" precision="22" scale="0" />
+        </property>
+        <property name="currencyOptional2" type="java.lang.Double">
+            <column name="currencyOptional2" precision="22" scale="0" />
+        </property>
+        <property name="currencyOptional3" type="java.lang.Double">
+            <column name="currencyOptional3" precision="22" scale="0" />
+        </property>
+        <property name="currencyOptional4" type="java.lang.Double">
+            <column name="currencyOptional4" precision="22" scale="0" />
+        </property>
+        <property name="startDate" type="date">
+            <column name="startDate" length="10" />
+        </property>
+        <property name="finishDate" type="date">
+            <column name="finishDate" length="10" />
+        </property>
+        <property name="poc" type="java.lang.Double">
+            <column name="poc" precision="22" scale="0" />
+        </property>
+        <property name="kpiStatus" type="string">
+            <column name="kpiStatus" length="50" />
+        </property>
+        <property name="disable" type="java.lang.Boolean">
+            <column name="disable" />
+        </property>
+        <property name="riskRatingAdjustament" type="java.lang.Integer">
+            <column name="riskRatingAdjustament" />
+        </property>
+        <property name="strategicAdjustament" type="java.lang.Integer">
+            <column name="strategicAdjustament" />
+        </property>
+        <property name="calculatedPlanStartDate" type="date">
+            <column name="calculatedPlanStartDate" length="10" />
+        </property>
+        <property name="calculatedPlanFinishDate" type="date">
+            <column name="calculatedPlanFinishDate" length="10" />
+        </property>
+        <property name="useRiskAdjust" type="java.lang.Boolean">
+            <column name="useRiskAdjust" />
+        </property>
+        <property name="useStrategicAdjust" type="java.lang.Boolean">
+            <column name="useStrategicAdjust" />
+        </property>
+        <set name="logprojectstatuses" inverse="true" lazy="true" table="logprojectstatus" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Logprojectstatus" />
+        </set>
+        <set name="changecontrols" inverse="true" lazy="true" table="changecontrol" fetch="select">
+            <key>
+                <column name="IdProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Changecontrol" />
+        </set>
+        <set name="activitysellers" inverse="true" lazy="true" table="activityseller" fetch="select">
+            <key>
+                <column name="idProjectAssociate" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Activityseller" />
+        </set>
+        <set name="projectactivities" inverse="true" lazy="true" table="projectactivity" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectactivity" />
+        </set>
+        <set name="executivereports" inverse="true" lazy="true" table="executivereport" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Executivereport" />
+        </set>
+        <set name="wbsnodes" inverse="true" lazy="true" table="wbsnode" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Wbsnode" />
+        </set>
+        <set name="incomeses" inverse="true" lazy="true" table="incomes" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Incomes" />
+        </set>
+        <set name="riskregisters" inverse="true" lazy="true" table="riskregister" fetch="select">
+            <key>
+                <column name="IdProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Riskregister" />
+        </set>
+        <set name="projectassociationsForDependent" inverse="true" lazy="true" table="projectassociation" fetch="select">
+            <key>
+                <column name="dependent" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectassociation" />
+        </set>
+        <set name="projectclosures" inverse="true" lazy="true" table="projectclosure" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectclosure" />
+        </set>
+        <set name="assumptionregisters" inverse="true" lazy="true" table="assumptionregister" fetch="select">
+            <key>
+                <column name="IdProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Assumptionregister" />
+        </set>
+        <set name="milestoneses" inverse="true" lazy="true" table="milestones" fetch="select">
+            <key>
+                <column name="IdProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Milestones" />
+        </set>
+        <set name="expensesheets" inverse="true" lazy="true" table="expensesheet" fetch="select">
+            <key>
+                <column name="idProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Expensesheet" />
+        </set>
+        <set name="stakeholders" inverse="true" lazy="true" table="stakeholder" fetch="select">
+            <key>
+                <column name="IdProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Stakeholder" />
+        </set>
+        <set name="projectlabels" inverse="true" lazy="true" table="projectlabel" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectlabel" />
+        </set>
+        <set name="projecttechnologies" inverse="true" lazy="true" table="projecttechnology" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.ProjectTechnology" />
+        </set>
+        <set name="projectassociationsForLead" inverse="true" lazy="true" table="projectassociation" fetch="select">
+            <key>
+                <column name="lead" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectassociation" />
+        </set>
+        <set name="procurementpaymentses" inverse="true" lazy="true" table="procurementpayments" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Procurementpayments" />
+        </set>
+        <set name="documentprojects" inverse="true" lazy="true" table="documentproject" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Documentproject" />
+        </set>
+        <set name="workingcostses" inverse="true" lazy="true" table="workingcosts" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Workingcosts" />
+        </set>
+        <set name="problemcheckprojects" inverse="true" lazy="true" table="problemcheckproject" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Problemcheckproject" />
+        </set>
+        <set name="projectfundingsources" inverse="true" lazy="true" table="projectfundingsource" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectfundingsource" />
+        </set>
+        <set name="timelines" inverse="true" lazy="true" table="timeline" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Timeline" />
+        </set>
+        <set name="projectfollowups" inverse="true" lazy="true" table="projectfollowup" fetch="select">
+            <key>
+                <column name="IdProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectfollowup" />
+        </set>
+        <set name="closurecheckprojects" inverse="true" lazy="true" table="closurecheckproject" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Closurecheckproject" />
+        </set>
+        <set name="projectcostses" inverse="true" lazy="true" table="projectcosts" fetch="select">
+            <key>
+                <column name="IdProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectcosts" />
+        </set>
+        <set name="projectcharters" inverse="true" lazy="true" table="projectcharter" fetch="select">
+            <key>
+                <column name="IdProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectcharter" />
+        </set>
+        <set name="issuelogs" inverse="true" lazy="true" table="issuelog" fetch="select">
+            <key>
+                <column name="IdProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Issuelog" />
+        </set>
+        <set name="chargescostses" inverse="true" lazy="true" table="chargescosts" fetch="select">
+            <key>
+                <column name="idProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Chargescosts" />
+        </set>
+        <set name="projectkpis" inverse="true" lazy="true" table="projectkpi" fetch="select">
+            <key>
+                <column name="IdProject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectkpi" />
+        </set>
+        <set name="projectsData" inverse="true" lazy="true" table="projectdata" fetch="select">
+            <key>
+                <column name="idproject" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.ProjectData" />
+        </set>
+        <set name="learnedLessonProjects" inverse="true" lazy="true" table="learnedlessonproject" fetch="select">
+            <key>
+                <column name="idProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLessonProject" />
+        </set>
+        <set name="learnedLessonLinks" inverse="true" lazy="true" table="learnedlessonlink" fetch="select">
+            <key>
+                <column name="idProject" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLessonLink" />
+        </set>
+    </class>
+</hibernate-mapping>

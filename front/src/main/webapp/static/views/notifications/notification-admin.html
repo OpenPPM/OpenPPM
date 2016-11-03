@@ -1,0 +1,88 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading" translate="VIEW.NOTIFICATION.ADMIN.TITLE"></div>
+  <table class="table">
+    <caption>
+      <span translate="VIEW.NOTIFICATION.ADMIN.HELP"></span>
+    </caption>
+    <tr class="active">
+      <th translate="VIEW.NOTIFICATION.NAME"></th>
+      <th translate="VIEW.NOTIFICATION.ACTIVE"></th>
+      <th>
+        <span tooltip="{{'VIEW.NOTIFICATION.ACTIVE_FOR_HELP' | translate}}">
+          <span translate="VIEW.NOTIFICATION.ACTIVE_FOR"></span>
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </span>
+      </th>
+      <th>
+        <span tooltip="{{'VIEW.NOTIFICATION.MODE_HELP' | translate}}">
+          <span translate="VIEW.NOTIFICATION.MODE"></span>
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </span>
+      </th>
+      <th>
+        <span tooltip="{{'VIEW.NOTIFICATION.ALLOW_EDIT_HELP' | translate}}">
+          <span translate="VIEW.NOTIFICATION.ALLOW_EDIT"></span>
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </span>
+      </th>
+      <th translate="VIEW.NOTIFICATION.DISTRIBUTION_LIST"></th>
+    </tr>
+
+    <tr ng-repeat="profileData in notificationSelected.profiles">
+      <td rowspan="{{notificationSelected.profiles.length}}" ng-if="$first">
+        <table class="table table-striped table-data">
+          <tr ng-repeat="notification in notifications" ng-class="{'info':notification.selected}" ng-click="selectNotification(notification)">
+            <td>
+              <a href>{{'NOTIFICATION.'+notification.key+'.NAME' | translate}}</a>
+              <span tooltip="{{'NOTIFICATION.'+notification.key+'.DESCRIPTION' | translate}}" ng-click="$event.stopPropagation();">
+                <i class="glyphicon glyphicon-info-sign color-primary"></i>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td rowspan="{{notificationSelected.profiles.length}}" ng-if="$first && profileData !== null">
+        <label>
+          <input type="checkbox" ng-model="notificationSelected.status"
+                 ng-true-value="'ENABLED'" ng-false-value="'DISABLED'">
+        </label>
+      </td>
+      <td  ng-if="profileData !== null">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="profileData.status"
+                   ng-true-value="'ENABLED'" ng-false-value="'DISABLED'"
+                   ng-disabled="notificationSelected.status === CONSTANTS.ACTIVATION.DISABLED">
+            {{'RESOURCE_PROFILES.'+profileData.profile.name | translate}}
+          </label>
+        </div>
+      </td>
+      <td ng-if="profileData !== null">
+        <label>
+          <select class="form-control input-sm" ng-model="profileData.mode" ng-disabled="notificationSelected.status === CONSTANTS.ACTIVATION.DISABLED"
+                  ng-options="notificationMode as 'NOTIFICATION.MODE.'+notificationMode | translate for notificationMode in notificationModes track by notificationMode">
+          </select>
+        </label>
+      </td>
+      <td  ng-if="profileData !== null">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="profileData.readOnly" ng-disabled="notificationSelected.status === CONSTANTS.ACTIVATION.DISABLED">
+          </label>
+        </div>
+      </td>
+      <td ng-if="$first && profileData !== null" rowspan="{{notificationSelected.profiles.length}}">
+        <textarea class="item-full form-control" ng-model="notificationSelected.distributionList"
+                  ng-disabled="notificationSelected.status === CONSTANTS.ACTIVATION.DISABLED"></textarea>
+      </td>
+    </tr>
+  </table>
+  <div class="panel-footer">
+
+    <div class="text-right">
+      <button type="button" class="btn btn-primary" ng-click="save()" translate="BUTTON.SAVE_CHANGES"></button>
+    </div>
+  </div>
+
+</div>

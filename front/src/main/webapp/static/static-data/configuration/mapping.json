@@ -1,0 +1,21 @@
+{
+  "AUDIT": {
+    "PROJECT_DATA": {
+      "label": "VIEW.CONFIGURATION.AUDIT.TYPE.PROJECT_DATA",
+      "help": "VIEW.CONFIGURATION.AUDIT.TYPE.PROJECT_DATA_HELP",
+      "type": "CHECKBOX"
+    }
+  },
+  "EXAMPLE": {
+    "CAPACITY_PLANNING_LEVEL3": {
+      "label": "CAPACITY_PLANNING_LEVEL3_LABEL",
+      "type": "SELECT",
+      "values": [1,2,3]
+    },
+    "ASSIGNED_OPERATION": {
+      "label": "ASSIGNED_OPERATION_LABEL",
+      "help": "ASSIGNED_OPERATION_LABEL.HELP",
+      "type": "CHECKBOX"
+    }
+  }
+}

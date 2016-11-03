@@ -1,0 +1,50 @@
+[
+  {
+  "description": "01.- En fase de iniciación, durante la elaboración del presupuesto solicitar a QA & Gobierno presupuesto de los recursos de Testing.",
+  "importance": "red"
+  },
+  {
+  "description": "02.- Description 2.",
+  "importance": "green"
+  },
+  {
+  "description": "03.- Description 3.",
+  "importance": "yellow"
+  },
+  {
+  "description": "04.- Description 4.",
+  "importance": "red"
+  },
+  {
+  "description": "05.- Description 5.",
+  "importance": "green"
+  },
+  {
+  "description": "06.- Description 6.",
+  "importance": "yellow"
+  },
+  {
+  "description": "07.- Description 7.",
+  "importance": "red"
+  },
+  {
+  "description": "08.- Description 8.",
+  "importance": "green"
+  },
+  {
+  "description": "09.- Description 9.",
+  "importance": "yellow"
+  },
+  {
+  "description": "10.- Description 10.",
+  "importance": "red"
+  },
+  {
+  "description": "11.- Description 11.",
+  "importance": "green"
+  },
+  {
+  "description": "12.- Description 12.",
+  "importance": "yellow"
+}
+]

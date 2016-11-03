@@ -1,0 +1,172 @@
+<ul class="nav nav-pills navbar-left">
+  <!--<%--  Menu Investments --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PORFOLIO_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.INVESTMENT_MANAGER
+              ||  user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER">
+
+    <a href="../projects?accion=list-investments" class="">{{ 'MENU.INVESTMENTS' | translate }}</a>
+  </li>
+
+  <!--<%--  Menu Projects --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PORFOLIO_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.SPONSOR
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.STAKEHOLDER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC">
+
+    <a href="../projects" class="">{{ 'MENU.PROJECTS' | translate }}</a>
+  </li>
+
+  <!--<%--  Menu Programs --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PORFOLIO_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.SPONSOR
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER ">
+
+    <a href="../program" class="">{{ 'MENU.PROGRAMS' | translate }}</a>
+  </li>
+
+  <!-- Menu approvals -->
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+
+    <a href="" id="ap-toggle" dropdown-toggle>
+      <span translate="MENU.APPROVALS"></span>
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="ap-toggle">
+      <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+        <a href="../timesheet" ng-click="viewOptionMenu('../resource','view-capacity-planning');" translate="MENU.TIME_APPROVALS"></a>
+      </li>
+      <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+        <a href="../expensesheet" ng-click="viewOptionMenu('../resource','view-capacity-running');" translate="MENU.EXPENSE_APPROVALS"></a>
+      </li>
+      <!-- Menu Assignations Approvals -->
+      <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER">
+        <a href="../resource" class="menu_sup">{{ 'MENU.ASSIGNATIONS_APPROVALS' | translate }}</a>
+      </li>
+      <!-- Menu Operations Approvals -->
+      <li ng-if="(user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER) &&
+                (settings[CONSTANTS.SETTING.SHOW.MANAGE_OPERATIONS] && settings[CONSTANTS.SETTING.ACTIVE_MANAGEMENT_OPERATION])">
+        <a href="" ui-sref="management-operation" ui-sref-opts="{reload: true}" translate="VIEW.MANAGEMENT.OPERATION.TITLE"></a>
+      </li>
+    </ul>
+  </li>
+
+  <!--<%--  Menu State Approvals --%>-->
+  <li ng-if="(user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE) &&
+                (settings[CONSTANTS.SETTING.SHOW.MANAGE_OPERATIONS] && settings[CONSTANTS.SETTING.ACTIVE_MANAGEMENT_OPERATION])">
+    <a href="" ui-sref="management-operation" ui-sref-opts="{reload: true}" class="menu_sup">{{ 'VIEW.STATE.OPERATION.TITLE' | translate }}</a>
+  </li>
+
+  <!--<%--  Menu Resource Pool --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER">
+
+    <a href ng-click="viewOptionMenu('../resource','view-resource-pool');"
+       class="menu_sup">{{ 'MENU.RESOURCE_POOL' | translate }}
+    </a>
+  </li>
+
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER ||
+      user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+
+    <a href="" id="rc-toggle" dropdown-toggle>
+      {{ 'MENU.RESOURCE_CAPACITY' | translate }}
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="rc-toggle">
+      <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO
+      || user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER
+      || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER ">
+        <a href ng-click="viewOptionMenu('../resource','view-capacity-planning');"
+           class="">{{ 'MENU.RESOURCE_CAPACITY_PLANNING' | translate }}
+        </a>
+      </li>
+      <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO
+      || user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER
+      || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER ">
+        <a href ng-click="viewOptionMenu('../resource','view-capacity-running');"
+           class="">{{ 'MENU.RESOURCE_CAPACITY_RUNNING' | translate }}
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+
+  <!--<%--  Menu Payment projects --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC ">
+
+    <a href ng-click="viewOptionMenu('../paymentprojects','');"
+       class="">{{ 'MENU.PAYMENT_PROJECTS' | translate }}
+    </a>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO && settings[CONSTANTS.SETTING.SHOW.LEARNED_LESSONS] ||
+            user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER && settings[CONSTANTS.SETTING.SHOW.LEARNED_LESSONS]">
+    <a href="#/learned-lessons" class="">{{ 'MENU.LEARNED_LESSONS' | translate }}</a>
+  </li>
+
+  <!--<%--  Menu Organizational Project Assets (OPA) --%>-->
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO">
+
+    <a href="" id="opa-toggle" dropdown-toggle>
+      {{ 'MENU.ORGANIZATIONAL_PROCESS_ASSETS.ORGANIZATIONAL_PROCESS_ASSETS' | translate }}
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="opa-toggle">
+      <li><a href="../calendar">{{ 'MENU.ORGANIZATIONAL_PROCESS_ASSETS.BASE_CALENDARS' | translate }}</a></li>
+      <li><a href="../maintenance">{{ 'MENU.ORGANIZATIONAL_PROCESS_ASSETS.MAINTENANCE' | translate }}</a></li>
+    </ul>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE">
+    <a href="../assignment" class=""> {{ 'MENU.ASSIGNMENTS' | translate }} </a>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE">
+    <a href="../timesheet" class=""> {{ 'MENU.TIME_SHEET' | translate }} </a>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE">
+    <a href="../expensesheet" class=""> {{ 'MENU.EXPENSE_SHEET' | translate }} </a>
+  </li>
+
+  <!-- Admin -->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.ADMIN && settings[CONSTANTS.SETTING.SHOW.NOTIFICATIONS]">
+    <a ui-sref="notification-admin" translate="VIEW.NOTIFICATION.ADMIN.TITLE"></a>
+  </li>
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.ADMIN && settings[CONSTANTS.SETTING.SHOW.AUDIT]">
+    <a href ui-sref="configuration-audit" translate="VIEW.CONFIGURATION.AUDIT.TITLE"></a>
+  </li>
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.ADMIN && settingConfigList">
+
+    <a href id="settings-toggle" dropdown-toggle>
+      <span translate="VIEW.CONFIGURATION.NAME"></span>
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="settings-toggle">
+      <li ng-repeat="settingConfig in settingConfigList"><a href ui-sref="config-setting(settingConfig)" translate="VIEW.CONFIGURATION.{{settingConfig.name}}.TITLE"></a></li>
+    </ul>
+  </li>
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.ADMIN && settings[CONSTANTS.SETTING.SHOW.AUDIT]">
+
+    <a href id="audit-toggle" dropdown-toggle>
+      <span translate="VIEW.AUDIT.NAME"></span>
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="audit-toggle">
+      <li><a href ui-sref="audit-project-data" translate="VIEW.AUDIT.PROJECT_DATA.TITLE"></a></li>
+    </ul>
+  </li>
+</ul>

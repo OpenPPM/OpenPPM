@@ -1,0 +1,129 @@
+
+<ul class="nav navbar-nav nav-pills navbar-left menu_sup" id="menu">
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PORFOLIO_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.INVESTMENT_MANAGER
+              ||  user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER">
+
+    <a href="../projects?accion=list-investments" class="" translate="MENU.INVESTMENTS"></a>
+  </li>
+
+  <!--<%--  Menu Projects --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PORFOLIO_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.SPONSOR
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.STAKEHOLDER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC">
+
+    <a href="../projects" class="" translate="MENU.PROJECTS"></a>
+  </li>
+
+  <!--<%--  Menu Programs --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PORFOLIO_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER || user.profile.code === CONSTANTS.RESOURCE_PROFILES.SPONSOR
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER ">
+
+    <a href="../program" class="" translate="MENU.PROGRAMS"></a>
+  </li>
+
+  <!-- Time approvals -->
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+
+    <a href="../timesheet" ng-click="viewOptionMenu('../resource','view-capacity-planning');"
+       translate="MENU.TIME_APPROVALS"></a>
+  </li>
+
+  <!-- Expense approvals -->
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.FUNCTIONAL_MANAGER
+              || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+
+    <a href="../expensesheet" ng-click="viewOptionMenu('../resource','view-capacity-running');"
+       translate="MENU.EXPENSE_APPROVALS"></a>
+  </li>
+
+  <!--<%--  Management operations --%>-->
+  <li dropdown ng-if="(user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC ||
+                      user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER) &&
+                (settings[CONSTANTS.SETTING.SHOW.MANAGE_OPERATIONS] && settings[CONSTANTS.SETTING.ACTIVE_MANAGEMENT_OPERATION])">
+
+    <a href="index-new.html#/management-operation" translate="VIEW.MANAGEMENT.OPERATION.TITLE"></a>
+  </li>
+  <li dropdown ng-if="(user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE) &&
+                (settings[CONSTANTS.SETTING.SHOW.MANAGE_OPERATIONS] && settings[CONSTANTS.SETTING.ACTIVE_MANAGEMENT_OPERATION])">
+
+    <a href="index-new.html#/management-operation" translate="VIEW.STATE.OPERATION.TITLE"></a>
+  </li>
+
+
+  <!--<%--  Menu Assignations Approvals --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER">
+
+    <a href="../resource" class="menu_sup" translate="MENU.ASSIGNATIONS_APPROVALS"></a>
+  </li>
+
+  <!--<%--  Menu Resource Pool --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER">
+
+    <a href ng-click="viewOptionMenu('../resource','view-resource-pool');"
+       class="menu_sup" translate="MENU.RESOURCE_POOL"></a>
+  </li>
+
+  <!-- Menu Capacity running -->
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER ||
+      user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+
+    <a href ng-click="viewOptionMenu('../resource','view-capacity-planning');"
+       class="" translate="MENU.RESOURCE_CAPACITY_PLANNING"></a>
+  </li>
+
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE_MANAGER ||
+      user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER">
+    <a href ng-click="viewOptionMenu('../resource','view-capacity-running');"
+       class="" translate="MENU.RESOURCE_CAPACITY_RUNNING"></a>
+  </li>
+
+  <!--<%--  Menu Payment projects --%>-->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.LOGISTIC ">
+
+    <a href ng-click="viewOptionMenu('../paymentprojects','');"
+       class="" translate="MENU.PAYMENT_PROJECTS"></a>
+  </li>
+
+  <!-- Menu Learned Lessons -->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER
+           || (user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER)">
+
+    <a href="#/learned-lessons" class="" translate="MENU.LEARNED_LESSONS"></a>
+  </li>
+
+  <!--<%--  Menu Organizational Project Assets (OPA) --%>-->
+  <li dropdown ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO">
+
+    <a href="" id="opa-toggle" dropdown-toggle>
+      <span translate="MENU.ORGANIZATIONAL_PROCESS_ASSETS.ORGANIZATIONAL_PROCESS_ASSETS"></span>
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu dropdown-container" aria-labelledby="opa-toggle">
+      <li><a href="../calendar" translate="MENU.ORGANIZATIONAL_PROCESS_ASSETS.BASE_CALENDARS"></a></li>
+      <li><a href="../maintenance" translate="MENU.ORGANIZATIONAL_PROCESS_ASSETS.MAINTENANCE"></a></li>
+    </ul>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE">
+    <a href="../assignment" class="" translate="MENU.ASSIGNMENTS"> </a>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE">
+    <a href="../timesheet" class="" translate="MENU.TIME_SHEET"></a>
+  </li>
+
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE">
+    <a href="../expensesheet" class="" translate="MENU.EXPENSE_SHEET"> </a>
+  </li>
+
+  <!-- Admin -->
+  <li ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.ADMIN">
+    <a href="../static/index-new.html#/configuration/audit" translate="VIEW.CONFIGURATION.AUDIT.TITLE"></a>
+  </li>
+</ul>

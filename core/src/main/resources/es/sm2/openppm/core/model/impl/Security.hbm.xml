@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Security.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Security" table="security">
+        <id name="idSec" type="java.lang.Integer">
+            <column name="IdSec" />
+            <generator class="native">
+                <param name="sequence">security_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="contact" class="es.sm2.openppm.core.model.impl.Contact" fetch="select">
+            <column name="idContact" not-null="true" />
+        </many-to-one>
+        <property name="login" type="string">
+            <column name="Login" length="20" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="35" />
+        </property>
+        <property name="autorizationLevel" type="java.lang.Character">
+            <column name="AutorizationLevel" length="1" />
+        </property>
+        <property name="dateCreation" type="date">
+            <column name="dateCreation" length="10" not-null="true" />
+        </property>
+        <property name="dateLapsed" type="timestamp">
+            <column name="dateLapsed" length="19" />
+        </property>
+        <property name="attempts" type="java.lang.Integer">
+            <column name="attempts" />
+        </property>
+        <property name="dateLastAttempt" type="timestamp">
+            <column name="dateLastAttempt" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

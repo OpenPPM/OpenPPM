@@ -1,0 +1,304 @@
+
+.table-footer {
+  font-size: 11px;
+}
+
+.table {
+  background-color: #fff;
+  float: left;
+  width: 100% !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #444444;
+  line-height: 15px;
+
+
+}
+.footer {
+  margin-top:20px;
+}
+
+table > thead:first-child >tr:first-child > th:nth-child(2) {
+  border-top-left-radius: 5px;
+}
+
+table > thead:first-child >tr:first-child > th:last-child {
+  border-top-right-radius: 5px;
+}
+
+table > thead > tr > th > div > span > i {
+  color: darkslategrey !important;
+}
+
+/* Link project table columns width */
+
+.link-table-idPr-width {
+  width: 4%;
+}
+
+.link-table-prName-width {
+  width: 33%;
+}
+
+.link-table-prManager-width {
+  width: 20%;
+}
+
+.link-table-status-width {
+  width: 10%;
+}
+
+.link-table-complete-width {
+  width: 5%;
+}
+
+.link-table-bac-width {
+  width: 5%;
+}
+
+/* Actions/Recommendations table columns width */
+
+.table-description-width {
+  width: 78%;
+}
+
+
+.table-importance-width {
+  width: 10%;
+}
+
+
+.table-buttons-width {
+  width: 12%;
+}
+
+/* LearnedLesson table columns width */
+
+.table-check-width {
+  width: 2%;
+}
+
+.table-idPr-width {
+   width: 4%;
+}
+
+.table-prName-width {
+  width: 20%;
+}
+
+.table-Owner-width {
+  width: 9%;
+}
+
+.table-idLLAA-width {
+  width: 5%;
+}
+
+.table-processGroup-width {
+  width: 8%;
+}
+
+.table-knowledgeArea-width {
+  width: 10%;
+}
+
+.table-type-width {
+  width: 7%;
+}
+
+.table-subject-width {
+  width: 16%;
+}
+
+.table-actions-width {
+  width: 4%;
+}
+
+.table-recommendations-width {
+  width: 4%;
+}
+
+.table-ranking-width {
+  width: 4%;
+}
+
+.table-LLAA-buttons-width {
+  width: 5%;
+}
+
+table.table th {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.07) inset;
+  background: #688BB4 right 5px no-repeat;
+  border-right: 1px solid #ffffff;
+
+}
+table.table tr {
+  border-bottom: 1px solid #e3e3e3;
+  font-size: 11px;
+  padding-left: 3px;
+  padding-right: 3px;
+  height: 22px;
+}
+
+table.table img {
+  cursor: pointer;
+}
+
+table.table tr:hover {
+  background-color:#FFFFDD ;
+}
+
+table.table .even{
+  background-color: #EFF2F4;
+}
+
+.old-select-field {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  text-decoration: none;
+  border: 1px solid #999999;
+  margin-left: 3px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 2px;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.07) inset;
+}
+
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 0px 0;
+  font-size: 8px;
+}
+
+.pagination > li > a, .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+span.ng-binding {
+  border: 0px;
+  margin: -5px -5px -5px -5px;
+}
+
+.ng-table th.sortable.sort-desc, .ng-table th.sortable.sort-asc {
+  background-color: #688BB4;
+}
+
+.btn > table {
+
+  display: inline-block;
+  padding: 5px 11px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.table-pager-position {
+  margin-top: -10px;
+  margin-right: 0px;
+}
+
+.firstLabel {
+  position: relative;
+  right: -2px;
+}
+
+.firstArrow {
+  position: relative;
+  left: 10px;
+}
+
+.previousArrow {
+  position: relative;
+  left: 65px;
+}
+
+.pageNumber {
+  position: relative;
+  left: 30px;
+}
+
+.morePages {
+  position: relative;
+
+}
+
+.nextArrow {
+  position: relative;
+  left: -5px;
+}
+
+.lastArrow {
+  position: relative;
+  left: 49px;
+}
+
+.lastLabel {
+  position: relative;
+  left: 57px;
+}
+
+.low-color, select > option[value="MINOR"] {
+  background-color: #66BB6A !important;
+  border-radius: 4px;
+  min-height: 17px;
+}
+
+.medium-color, select > option[value="MODERATE"] {
+  background-color: #FFEE58 !important;
+  border-radius: 4px;
+  min-height: 17px;
+
+}
+
+.high-color, select > option[value="HIGH"] {
+  background-color: #E53935 !important;
+  border-radius: 4px;
+  min-height: 17px;
+}
+
+table select {
+
+  min-height: 20px !important;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+.dropdown:hover .dropdown-menu, .dropdown-menu:hover {
+  display: block;
+}
+.dropdown-container{
+  background-color: #6A6A6A;
+  width: inherit;
+  margin-top: 0px;
+  margin-left: 10px;
+  -webkit-border-bottom-right-radius: 12px;
+  -webkit-border-bottom-left-radius: 12px;
+  vertical-align: middle;
+  margin-left: inherit;
+}
+.dropdown-container li a{
+  font-size: 10px;
+  padding: 0 0;
+  margin:0 0;
+}

@@ -1,0 +1,111 @@
+.treeview, .treeview ul { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	
+}
+
+.treeview ul {
+	background-color: #EEEEEE;
+	margin-top: 4px;
+	
+}
+
+.treeview .hitarea {
+	background: url(../images/wbs/treeview-default.gif) -64px -25px no-repeat;
+	height: 16px;
+	width: 16px;
+	margin-left: -16px;
+	float: left;
+	cursor: pointer;	
+}
+.treeview ul div.hitarea {
+	background-color:white;
+}
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+#main {
+	line-height: normal;
+	font-size: 11;
+	font-family: Arial;
+}
+#wbs-scroll {
+	overflow: hidden;
+	width: 810px;
+	min-height:150px;
+}
+#titlewbs {
+	border: black 1px solid !important;
+	padding: 2px 10px 2px 10px;
+	/*background:#FFD876;*/
+	text-align:center;
+	font-weight: bold;
+}
+#main td {
+	min-width: 50px;
+	vertical-align: top;
+	border-top: 1px solid #808080;
+	}
+#main span{
+	margin-left: -4px;
+	padding-left: 15px;
+	border-bottom: 1px solid #808080;
+	z-index: 100;
+}
+.treeview li { 
+	margin: 0;
+	padding: 3px 0pt 3px 16px;
+	
+}
+
+.cAccount{
+	background-color: #FFF;
+  	border: 1px solid;
+}
+
+.wGroups {
+	background-color:#FFD876;
+  	border: 1px solid;
+}
+
+.treeview a.selected {
+	background-color: #eee;
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+.treeview .hover { color: red; cursor: pointer; }
+
+.treeview li { background: url(../images/wbs/treeview-default-line.gif) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
+
+.treeview .expandable-hitarea { background-position: -80px -3px; }
+
+.treeview li.last { background-position: 0 -1758px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(../images/wbs/treeview-default.gif); }  
+.treeview li.lastCollapsable { background-position: 0 -111px; text-align:left; }
+.treeview li.lastExpandable { background-position: -32px -67px }
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; background-color:transparent !important; }
+
+.treeview-red li { background-image: url(../images/wbs/treeview-red-line.gif); }
+.treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable { background-image: url(../images/wbs/treeview-red.gif); } 
+
+.treeview-black li { background-image: url(../images/wbs/treeview-black-line.gif); }
+.treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable { background-image: url(../images/wbs/treeview-black.gif);  }  
+
+.treeview-gray li { background-image: url(../images/wbs/treeview-gray-line.gif); background-position: 0 -1758px;}
+.treeview-gray .hitarea, .treeview-gray li.lastCollapsable, .treeview-gray li.lastExpandable { background-image: url(../images/wbs/treeview-gray.gif); } 
+
+.treeview-famfamfam li { background-image: url(../images/wbs/treeview-famfamfam-line.gif); }
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable { background-image: url(../images/wbs/treeview-famfamfam.gif); } 
+
+
+.filetree li { padding: 3px 0 2px 16px; }
+.filetree span.folder, .filetree span.file { padding: 1px 0 1px 16px; display: block; }
+.filetree span.folder { background: url(../images/wbs/folder.gif) 0 0 no-repeat; }
+.filetree li.expandable span.folder { background: url(../images/wbs/folder-closed.gif) 0 0 no-repeat; }
+.filetree span.file { background: url(../images/wbs/file.gif) 0 0 no-repeat; }

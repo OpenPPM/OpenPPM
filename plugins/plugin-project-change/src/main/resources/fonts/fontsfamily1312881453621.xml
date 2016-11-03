@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+
+   <fontFamily name="Verdana">
+       <normal><![CDATA[fonts/verdana.ttf]]></normal>
+       <bold><![CDATA[fonts/verdanab.ttf]]></bold>
+       <italic><![CDATA[fonts/verdanai.ttf]]></italic>
+       <boldItalic><![CDATA[fonts/verdanaz.ttf]]></boldItalic>
+       <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+   </fontFamily>
+
+
+</fontFamilies>

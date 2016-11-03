@@ -1,0 +1,295 @@
+<!--
+~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+~ This program is free software: you can redistribute it and/or modify
+~ it under the terms of the GNU General Public License as published by
+~ the Free Software Foundation, either version 3 of the License, or
+~ (at your option) any later version.
+~
+~ This program has been created in the hope that it will be useful.
+~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+~ without even the implied warranty of
+~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+~ See the GNU General Public License for more details.
+~
+~ You should have received a copy of the GNU General Public License
+~ along with this program. If not, see http://www.gnu.org/licenses/.
+~
+~ For more information, please contact SM2 Software & Services Management.
+~ Mail: info@talaia-openppm.com
+~ Web: http://www.talaia-openppm.com
+~
+~ Module: front
+~ File: management-operation.html
+~ Create User: javier.hernandez
+~ Create Date: 24/09/2015 12:02:41
+-->
+
+
+
+<div class="panel panel-primary">
+
+  <div class="panel-heading"> {{(user.profile.code === CONSTANTS.RESOURCE_PROFILES.RESOURCE ? 'VIEW.STATE.OPERATION.TITLE' : 'VIEW.MANAGEMENT.OPERATION.TITLE') | translate }}</div>
+
+  <div class="well well-sm">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" translate="MODEL.OPERATION.NAME"></label>
+        <div class="col-sm-2">
+          <select ng-model="operation" class="form-control" ng-options="operation.name for operation in operationList track by operation.code"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" translate="DATE.RANGE"></label>
+        <div class="col-sm-2">
+          <p class="input-group">
+            <input type="text" class="form-control" ng-model="filters.since" show-button-bar="false" custom-class="getDayClass(date, mode)"
+                   show-weeks="false" datepicker-options="{'starting-day': 1}" datepicker-popup="dd/MM/yyyy" is-open="sinceOpened" max-date="filters.until" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="sinceOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+          </p>
+        </div>
+        <div class="col-sm-2">
+          <p class="input-group">
+            <input type="text" class="form-control" ng-model="filters.until" show-button-bar="false" custom-class="getDayClass(date, mode)"
+                   show-weeks="false" datepicker-options="{'starting-day': 1}" datepicker-popup="dd/MM/yyyy" is-open="untilOpened" min-date="filters.since"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="untilOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" translate="VIEW.MANAGEMENT.OPERATION.SHOW_WEEKEND"></label>
+        <div class="col-sm-2">
+          <label><input type="checkbox" ng-model="showWeekend"></label>
+        </div>
+      </div>
+      <div class="form-group" ng-show="advanced && !principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)">
+        <label class="col-sm-2 control-label" translate="MODEL.POOL.NAME"></label>
+        <div class="col-sm-2">
+          <select ng-model="filters.pool" class="form-control">
+            <option value="" translate="FORM.ALL"></option>
+            <option ng-repeat="pool in poolList" value="{{pool.code}}">{{pool.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" ng-show="advanced && !principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)">
+        <label class="col-sm-2 control-label" translate="MODEL.EMPLOYEE.NAME"></label>
+        <div class="col-sm-7 container-fluid">
+          <div class="input-group">
+            <input type="text" placeholder="{{'MODEL.EMPLOYEE.NAME' | translate}}" ng-model="userSelected"
+                   typeahead-min-length="3" typeahead-editable="true"
+                   typeahead="user as user.name for user in getUsers($viewValue)"
+                   typeahead-on-select="addContact($item)"
+                   typeahead-loading="loadingUsers" typeahead-no-results="noUserResults" class="form-control">
+            <div class="input-group-addon">
+              <i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
+              <i ng-show="noUserResults" class="glyphicon glyphicon-remove"></i>
+              <i ng-show="!noUserResults && !loadingUsers" class="glyphicon glyphicon-search"></i>
+            </div>
+          </div>
+          <div>
+            <span class="cursor label label-primary" ng-repeat="contact in contacts"
+                  ng-click="removeContact(contact)"
+                  style="margin-right: 5px">
+              {{contact.name}} <i class="glyphicon glyphicon-remove"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-show="advanced && !principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)">
+        <label class="col-sm-2 control-label" translate="MODEL.JOB_CATEGORY.NAME"></label>
+        <div class="col-sm-2">
+          <select ng-model="filters.codeJobCategory" class="form-control" multiple>
+            <option ng-repeat="jobCategory in jobCategoryList" value="{{jobCategory.code}}">{{jobCategory.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" ng-show="advanced && !principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)">
+        <label class="col-sm-2 control-label" translate="MODEL.SKILL.NAME"></label>
+        <div class="col-sm-2">
+          <select ng-model="filters.codeSkill" class="form-control" multiple>
+            <option ng-repeat="skill in skillList" value="{{skill.code}}">{{skill.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <button class="btn btn-primary" ng-click="find()" translate="BUTTON.SEARCH"></button>
+          <button class="btn btn-default" ng-click="reset()" translate="BUTTON.RESET"></button>
+          <small ng-show="!principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)">
+            <a href="" ng-click="advanced=true" ng-hide="advanced">{{'SEARCH.ADVANCED' | translate}}</a>
+          </small>
+          <small ng-show="!principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)">
+            <a href="" ng-click="advanced=false" ng-show="advanced">{{'SEARCH.SIMPLE' | translate}}</a>
+          </small>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Alerts search -->
+  <div class="panel-body" ng-show="!timeSheetOperationList.length > 0 || warning">
+
+    <alert type="warning" ng-show="warning" close="warning = false">
+      <i class="glyphicon glyphicon-warning-sign"></i>
+      <span translate="DATE.MAX_MONTHS" translate-values="{months: 3}"></span>
+    </alert>
+
+    <alert type="warning" ng-show="timeSheetOperationList.length === 0 && !isLookingFor">
+      <i class="glyphicon glyphicon-warning-sign"></i>
+      <span translate="TABLE.NO_DATA_FOUND"></span>
+    </alert>
+
+    <alert type="info" ng-show="timeSheetOperationList.length === undefined">
+      <i class="glyphicon glyphicon-warning-sign"></i>
+      <span translate="TABLE.FIND_DATA"></span>
+    </alert>
+  </div>
+
+  <!-- Calendars -->
+  <div class="row">
+    <div class="col-md-4" ng-repeat="calendar in calendars">
+      <div ui-calendar="calendar" ng-model="eventSources" calendar="{{calendar.name}}"></div>
+    </div>
+  </div>
+
+  <!-- Legend and alert and buttons -->
+  <div class="caption" ng-show="timeSheetOperationList.length > 0">
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <span ng-if="principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)" class="label label-info" translate="VIEW.MANAGEMENT.OPERATION.STATUS.SAVED"></span>
+        <span class="label label-danger" translate="VIEW.MANAGEMENT.OPERATION.STATUS.INCOMPLETE"></span>
+        <span class="label label-warning" translate="VIEW.MANAGEMENT.OPERATION.STATUS.FOR_APPROVE"></span>
+        <span class="label label-success" translate="VIEW.MANAGEMENT.OPERATION.STATUS.COMPLETED"></span>
+        <span class="label label-light" translate="VIEW.MANAGEMENT.OPERATION.STATUS.REJECT"></span>
+      </div>
+    </div>
+
+    <div class="row" ng-show="!timeSheetOperationList.length > 0 || success" style="margin-top: 30px;">
+      <alert type="success" ng-if="success" close="closeSuccessAlert()" dismiss-on-timeout="3000">
+        <i class="glyphicon glyphicon-ok"></i>
+        <span translate="FORM.ACTION.SUCCESS"></span>
+      </alert>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+      <div class="col-md-8 text-left" style="top: 16px;padding-left: 5px;">
+        <i class="glyphicon glyphicon-info-sign"></i>
+        <span translate="VIEW.MANAGEMENT.OPERATION.HELP"></span>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="btn btn-success" ng-csv="exportToCSV()" filename="data.csv">
+          <span translate="BUTTON.EXPORT_CSV"></span>
+          <i class="glyphicon glyphicon-book"></i>
+        </button>
+        <button class="btn btn-warning" translate="BUTTON.REJECT" ng-click="reject()"
+                ng-show="!principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)"></button>
+        <button class="btn btn-primary" translate="BUTTON.APPROVE" ng-click="approve()"
+                ng-show="!principal.isUserInProfile(CONSTANTS.RESOURCE_PROFILES.RESOURCE)"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table employees -->
+  <div class="row">
+    <div class="col-md-2 col-sm-4 col-xs-6" style="padding-right: 0;">
+      <table class="table table-striped table-select-mode table-bordered" ng-show="timeSheetOperationList.length > 0">
+        <tr>
+          <th translate="MODEL.NAME" style=""></th>
+        </tr>
+        <tr ng-repeat="timeSheetOperation in timeSheetOperationList | orderBy: 'name'" style="height: 67px;">
+          <td ng-click="changeSelect(timeSheetOperation)"
+              ng-class="{'info':timeSheetOperation.$$selected}">
+            {{timeSheetOperation.name}}
+            <i class="glyphicon glyphicon-info-sign"
+               popover-title="{{'FORM.INFO' | translate}}"
+               popover-trigger="mouseenter"
+               popover-placement="right"
+               popover-html="getPopoverHtml(timeSheetOperation)"></i>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-10 col-sm-8 col-xs-6" style="padding-left: 0;">
+      <div style="overflow-x: auto">
+        <table class="table table-striped table-select-mode table-bordered" ng-show="timeSheetOperationList.length > 0">
+          <tr>
+            <th class="text-center" ng-repeat="date in dateList">
+              {{date.since | date :CONSTANTS.DATE.FORMAT_DATE}} - {{date.until | date :CONSTANTS.DATE.FORMAT_DATE}}
+            </th>
+          </tr>
+          <tr ng-repeat="timeSheetOperation in timeSheetOperationList | orderBy: 'name'" style="height: 67px;">
+            <td class="text-center" ng-repeat="week in timeSheetOperation.$$weekList"
+                ng-click="week.$$selected = !week.$$selected && week.code !== undefined;saveLastSelected(week.code)" id="week-{{week.code}}"
+                ng-class="{'info':week.$$selected, 'label-light': week.suggestReject, 'not-select': week.code === undefined}">
+              <nobr>
+                <ul class="list-unstyled list-inline">
+                  <li>
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.MO"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay1)">{{week.hoursDay1 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.TU"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay2)">{{week.hoursDay2 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.WE"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay3)">{{week.hoursDay3 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.TH"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay4)">{{week.hoursDay4 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.FR"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay5)">{{week.hoursDay5 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li ng-show="showWeekend">
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.SA"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay6)">{{week.hoursDay6 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li ng-show="showWeekend">
+                    <ul class="list-unstyled">
+                      <li translate="DATE.DAYS.SU"></li>
+                      <li><span class="badge" ng-class="getBadgeColor(week.status, week.hoursDay7)">{{week.hoursDay7 || 0}}</span></li>
+                    </ul>
+                  </li>
+                  <li ng-if="week.suggestRejectComment && week.suggestReject">
+                    <ul class="list-unstyled">
+                      <li></li>
+                      <li>
+                        <i class="glyphicon glyphicon-info-sign"
+                           popover-title="{{'MODEL.EMPLOYEE.SUGGEST_REJECT_COMMENT' | translate}}"
+                           popover-trigger="mouseenter"
+                           popover="{{week.suggestRejectComment}}"></i>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nobr>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div><!-- End panel -->
+
+
+

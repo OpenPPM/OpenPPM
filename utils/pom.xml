@@ -1,0 +1,92 @@
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: utils
+  ~ File: pom.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 06/03/2015 14:35:37
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>es.sm2.openppm</groupId>
+		<artifactId>master</artifactId>
+		<version>4.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>utils</artifactId>
+	<name>Utils of OpenPPM</name>
+	<packaging>jar</packaging>
+
+
+	<properties>
+		<tomcat>6.0.35</tomcat>
+		<compiler-plugin-version>2.5.1</compiler-plugin-version>
+		<maven-source-plugin>2.2.1</maven-source-plugin>
+		<resources-plugin-version>2.5</resources-plugin-version>
+	</properties>
+
+	<dependencies>
+		<!-- PLUGIN -->
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.9-RC1</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.3.2.GA</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${tomcat}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${tomcat}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.7.1</version>
+			<scope>provided</scope>
+		</dependency>
+    </dependencies>
+</project>

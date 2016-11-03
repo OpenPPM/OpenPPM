@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!--
+  ~   Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~   This program is free software: you can redistribute it and/or modify
+  ~   it under the terms of the GNU General Public License as published by
+  ~   the Free Software Foundation, either version 3 of the License, or
+  ~   (at your option) any later version.
+  ~
+  ~   This program has been created in the hope that it will be useful.
+  ~   It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~   without even the implied warranty of
+  ~   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~   See the GNU General Public License for more details.
+  ~
+  ~   You should have received a copy of the GNU General Public License
+  ~   along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~   For more information, please contact SM2 Software & Services Management.
+  ~   Mail: info@talaia-openppm.com
+  ~   Web: http://www.talaia-openppm.com
+  ~
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Francisco Bisquerra -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.LearnedLesson" table="learnedlesson">
+        <id name="idLearnedLesson" type="java.lang.Integer">
+            <column name="idLearnedLesson" />
+            <generator class="native">
+                <param name="sequence">learnedLesson_SEQ</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="300" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="2000" />
+        </property>
+        <property name="processGroup" type="string">
+            <column name="processGroup" length="200" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="200" />
+        </property>
+        <property name="dateRaised" type="timestamp">
+            <column name="dateRaised" length="19" />
+        </property>
+        <property name="impactTime" type="java.lang.Double">
+            <column name="impactTime" precision="22" scale="0" />
+        </property>
+        <property name="impactCost" type="java.lang.Double">
+            <column name="impactCost" precision="22" scale="0" />
+        </property>
+        <property name="impactSatisfaction" type="string">
+            <column name="impactSatisfaction" length="200" />
+        </property>
+        <many-to-one name="knowledgeArea" class="es.sm2.openppm.core.model.impl.KnowledgeArea" fetch="select">
+            <column name="idKnowledgeArea" not-null="false" />
+        </many-to-one>
+        <many-to-one name="profile" class="es.sm2.openppm.core.model.impl.Profile" fetch="select">
+            <column name="idProfile" not-null="false" />
+        </many-to-one>
+        <many-to-one name="program" class="es.sm2.openppm.core.model.impl.Program" fetch="select">
+            <column name="idProgram" not-null="false" />
+        </many-to-one>
+        <many-to-one name="customer" class="es.sm2.openppm.core.model.impl.Customer" fetch="select">
+            <column name="idCustomer" not-null="false" />
+        </many-to-one>
+        <many-to-one name="contact" class="es.sm2.openppm.core.model.impl.Contact" fetch="select">
+            <column name="idContact" not-null="false" />
+        </many-to-one>
+        <many-to-one name="seller" class="es.sm2.openppm.core.model.impl.Seller" fetch="select">
+            <column name="idSeller" not-null="false" />
+        </many-to-one>
+        <many-to-one name="geography" class="es.sm2.openppm.core.model.impl.Geography" fetch="select">
+            <column name="idGeography" not-null="false" />
+        </many-to-one>
+        <many-to-one name="contracttype" class="es.sm2.openppm.core.model.impl.Contracttype" fetch="select">
+            <column name="idContractType" not-null="false" />
+        </many-to-one>
+        <many-to-one name="fundingSource" class="es.sm2.openppm.core.model.impl.Fundingsource" fetch="select">
+            <column name="idFundingSource" not-null="false" />
+        </many-to-one>
+        <many-to-one name="company" class="es.sm2.openppm.core.model.impl.Company" fetch="select">
+            <column name="idCompany" not-null="true" />
+        </many-to-one>
+        <set name="learnedLessonProjects" inverse="true" lazy="true" table="learnedlessonproject" fetch="select">
+            <key>
+                <column name="idLearnedLesson" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLessonProject" />
+        </set>
+        <set name="learnedLessonLinks" inverse="true" lazy="true" table="learnedlessonlink" fetch="select">
+            <key>
+                <column name="idLearnedLesson" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLessonLink" />
+        </set>
+        <set name="actionsLesson" inverse="true" lazy="true" table="actionlesson" fetch="select">
+            <key>
+                <column name="idLearnedLesson" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.ActionLesson" />
+        </set>
+        <set name="recsLesson" inverse="true" lazy="true" table="recommendationlesson" fetch="select">
+            <key>
+                <column name="idLearnedLesson" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.RecommendationLesson" />
+        </set>
+    </class>
+</hibernate-mapping>

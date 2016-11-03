@@ -1,0 +1,159 @@
+
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: project-data.html
+  ~ Create User: javier.hernandez
+  ~ Create Date: 14/09/2015 18:20:42
+  -->
+
+<div class="panel panel-primary">
+  <div class="panel-heading" translate="VIEW.AUDIT.PROJECT_DATA.TITLE"></div>
+
+  <div class="well well-sm">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span translate="Project.name"></span></label>
+        <div class="col-sm-7 container-fluid">
+          <script type="text/ng-template" id="projectTemplate.html">
+            <a>
+              <span ng-bind-html="match.model.code | typeaheadHighlight:query"></span> -
+              <span ng-bind-html="match.model.chartLabel | typeaheadHighlight:query"></span> -
+              <span ng-bind-html="match.model.name | typeaheadHighlight:query"></span>
+            </a>
+          </script>
+
+          <div class="input-group">
+            <input type="text" placeholder="{{'SEARCH.PROJECT' | translate}}" ng-model="projectSelected"
+                   typeahead-template-url="projectTemplate.html"  typeahead-min-length="3"
+                   typeahead-editable="false"
+                   typeahead="project as project.name for project in getProjects($viewValue)"
+                   typeahead-loading="loadingProjects" typeahead-no-results="noResults" class="form-control">
+            <div class="input-group-addon">
+              <i ng-show="loadingProjects" class="glyphicon glyphicon-refresh"></i>
+              <i ng-show="noResults" class="glyphicon glyphicon-remove"></i>
+              <i ng-show="!noResults && !loadingProjects" class="glyphicon glyphicon-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" translate="FORM.MODIFICATION_USER"></label>
+        <div class="col-sm-7 container-fluid">
+          <div class="input-group">
+            <input type="text" placeholder="{{'SEARCH.USER' | translate}}" ng-model="userSelected"
+                   typeahead-min-length="3" typeahead-editable="false"
+                   typeahead="user as user.name for user in getUsers($viewValue)"
+                   typeahead-loading="loadingUsers" typeahead-no-results="noUserResults" class="form-control">
+            <div class="input-group-addon">
+              <i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>
+              <i ng-show="noUserResults" class="glyphicon glyphicon-remove"></i>
+              <i ng-show="!noUserResults && !loadingUsers" class="glyphicon glyphicon-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-show="advanced">
+        <label class="col-sm-2 control-label" translate="FORM.MODIFICATION_DATE"></label>
+        <div class="col-sm-2">
+          <p class="input-group">
+            <input type="date" class="form-control" ng-model="filters.since" datepicker-popup is-open="sinceOpened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="sinceOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+          </p>
+        </div>
+        <div class="col-sm-2">
+          <p class="input-group">
+            <input type="date" class="form-control" ng-model="filters.until" datepicker-popup is-open="untilOpened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="untilOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+          </p>
+        </div>
+      </div>
+      <div class="form-group" ng-show="advanced">
+        <label class="col-sm-2 control-label" translate="Project.status"></label>
+        <div class="col-sm-2">
+          <select ng-model="filters.projectStatus" class="form-control">
+            <option value="" translate="FORM.SELECT_ONE"></option>
+            <option value="{{CONSTANTS.PROJECT.STATUS.INITIATING}}" translate="Project.STATUS_TYPE.INITIATING"></option>
+            <option value="{{CONSTANTS.PROJECT.STATUS.PLANNING}}" translate="Project.STATUS_TYPE.PLANNING"></option>
+            <option value="{{CONSTANTS.PROJECT.STATUS.CONTROL}}" translate="Project.STATUS_TYPE.CONTROL"></option>
+            <option value="{{CONSTANTS.PROJECT.STATUS.CLOSED}}" translate="Project.STATUS_TYPE.CLOSED"></option>
+            <option value="{{CONSTANTS.PROJECT.STATUS.ARCHIVED}}" translate="Project.STATUS_TYPE.ARCHIVED"></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <button class="btn btn-primary" ng-click="find()" translate="BUTTON.SEARCH"></button>
+          <button class="btn btn-default" ng-click="reset()" translate="BUTTON.RESET"></button>
+          <small><a href="" ng-click="advanced=true" ng-hide="advanced">{{'SEARCH.ADVANCED' | translate}}</a></small>
+          <small><a href="" ng-click="advanced=false" ng-show="advanced">{{'SEARCH.SIMPLE' | translate}}</a></small>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="panel-body">
+
+    <alert type="{{alert.type}}" close="alert.show = false" ng-show="alert.show">
+      <i class="glyphicon" ng-class="alert.icon"></i>
+      <span translate="{{alert.label}}"></span>
+    </alert>
+
+    <h4>
+      <span translate="VIEW.AUDIT.COLUMNS_TO_SHOW"></span>
+      <span tooltip="{{'VIEW.AUDIT.COLUMNS_TO_SHOW_HELP' | translate}}">
+        <i class="glyphicon glyphicon-info-sign"></i>
+      </span>
+    </h4>
+    <div class="row">
+      <div class="col-md-3" ng-repeat="column in columns[CONSTANTS.AUDIT.LOCATIONS.PROJECT_DATA]">
+        <div class="checkbox">
+          <label><input type="checkbox" ng-model="column.show">{{'Project.'+(column.label || column.type) | translate}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped" ng-show="audits.length > 0">
+    <caption>
+      <i class="glyphicon glyphicon-info-sign"></i>
+      <span translate="VIEW.AUDIT.PROJECT_DATA.HELP"></span>
+    </caption>
+    <tr>
+      <th translate="FORM.DATE"></th>
+      <th translate="FORM.USER"></th>
+      <th  ng-repeat="column in columns[CONSTANTS.AUDIT.LOCATIONS.PROJECT_DATA]" ng-if="column.show">{{'Project.'+(column.label || column.type) | translate}}</th>
+    </tr>
+    <tr ng-repeat="audit in audits">
+      <td>{{audit.creationDate | date : CONSTANTS.DATE.FORMAT_DATE_TIME}}</td>
+      <td>{{audit.username}}</td>
+      <td  ng-repeat="column in columns[CONSTANTS.AUDIT.LOCATIONS.PROJECT_DATA]" ng-if="column.show">
+        {{getData(audit.project, column)}}
+      </td>
+    </tr>
+  </table>
+
+</div>

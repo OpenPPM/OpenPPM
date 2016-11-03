@@ -1,0 +1,136 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Busqueda de notificaciones</div>
+  <div class="panel-body">
+    <div class="well well-sm">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Título</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" ng-model="filters.subject" placeholder="Título de la notificación">
+          </div>
+        </div>
+        <div class="form-group" ng-show="filterActions.advanced">
+          <label class="col-sm-2 control-label">Mensaje</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" ng-model="filters.body" placeholder="Contenido de la notificación">
+          </div>
+        </div>
+        <div class="form-group" ng-show="filterActions.advanced">
+          <label class="col-sm-2 control-label">Recibida</label>
+          <div class="col-sm-2">
+            <p class="input-group">
+              <input type="date" class="form-control" ng-model="filters.since" datepicker-popup is-open="filterActions.sinceOpened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="filters.create.sinceOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+          </div>
+          <div class="col-sm-2">
+            <p class="input-group">
+              <input type="date" class="form-control" ng-model="filters.until" datepicker-popup is-open="filterActions.untilOpened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="filterActions.untilOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="form-group" ng-show="filterActions.advanced">
+          <label class="col-sm-2 control-label">Estado</label>
+          <div class="col-sm-2">
+            <select ng-model="filters.status" class="form-control">
+              <option value="" translate="SELECT_ONE"></option>
+              <option value="{{CONSTANTS.NOTIFICATION.STATUS.SEND}}" translate="NOTIFICATION.STATUS.SEND"></option>
+              <option value="{{CONSTANTS.NOTIFICATION.STATUS.PENDING}}" translate="NOTIFICATION.STATUS.PENDING"></option>
+              <option value="{{CONSTANTS.NOTIFICATION.STATUS.ERROR}}" translate="NOTIFICATION.STATUS.ERROR"></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" ng-show="filterActions.advanced">
+          <div class="col-sm-offset-2 col-sm-8">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="filters.includeRead"> Incluir notificaciones leidas
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+            <button class="btn btn-primary" ng-click="find()">Buscar</button>
+            <small><a href="" ng-click="filterActions.advanced=true" ng-hide="filterActions.advanced">Buscador avanzado</a></small>
+            <small><a href="" ng-click="filterActions.advanced=false" ng-show="filterActions.advanced">Buscador simple</a></small>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <table class="table">
+    <caption>
+      <i class="glyphicon glyphicon-info-sign"></i> Para ver el contenido de la nofificación haga click sobre el título
+      <button class="btn btn-primary pull-right">Marcar como leidas</button>
+    </caption>
+    <tr class="active">
+      <th><input type="checkbox" ng-model="checkAll" ng-click="onChangeAll()"></th>
+      <th style="width: 10px"></th>
+      <th>Título</th>
+      <th>Status</th>
+      <th>Fecha de creación</th>
+      <th>Fecha lectura</th>
+    </tr>
+    <tr ng-repeat-start="notification in notifications" ng-class="activeRow($index)">
+      <td ng-click="notification.$$checked=!notification.$$checked" ng-class="{cursor:notification.readDate===undefined}">
+        <input type="checkbox" ng-model="notification.$$checked" ng-click="onChangeNotification()" ng-if="notification.readDate===undefined">
+      </td>
+      <td><i class="color-primary fa fa-circle" ng-show="notification.readDate===undefined"></i></td>
+      <td><a href="" ng-click="viewNotification(notification)" ng-class="{'text-bold':notification.readDate===undefined}">{{notification.subject}}</a></td>
+      <td>
+        <span class="label"
+              tooltip="{{statusMessage(notification)}}"
+              ng-class="{'label-danger': notification.status===CONSTANTS.NOTIFICATION.STATUS.ERROR,
+                          'label-success': notification.status===CONSTANTS.NOTIFICATION.STATUS.SEND,
+                          'label-info': notification.status===CONSTANTS.NOTIFICATION.STATUS.PENDING}">
+          {{notification.status}}
+        </span>
+      </td>
+      <td>{{notification.creationDate}}</td>
+      <td>{{notification.readDate}}</td>
+    </tr>
+    <tr ng-repeat-end ng-show="notification.$$showBody">
+      <td colspan="6">
+        <div class="row">
+          <div class="col-sm-offset-1 col-sm-10 cursor" ng-click="notification.$$showBody=false" ng-bind-html="notification.body"></div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="text-right">
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="panel-footer">
+    <div class="text-right">
+      <button class="btn btn-primary">Marcar como leidas</button>
+    </div>
+  </div>
+
+</div>

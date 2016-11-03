@@ -1,0 +1,309 @@
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: filters.html
+  ~ Create User: javier.hernandez
+  ~ Create Date: 22/09/2015 10:11:03
+  -->
+
+<fieldset class="container-fluid fieldset">
+  <legend class="scheduler-border">
+    <b translate="VIEW.LEARNED_LESSON.FILTERS"> </b>
+    <a class="advanced-filter" ng-click="lessonLearnedAdvanced = !lessonLearnedAdvanced" >
+      <span translate="BUTTON.SHOW_ADVANCED"></span>
+    </a>
+  </legend>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="form-inline">
+        <div class="form-group">
+          <label class="control-label" translate="SEARCH.LABEL"></label>
+          <input type="text" class="search-width old-text-inputs old-input-height" ng-model="learnedLessonSearch.llaaQuery">
+        </div>
+        <label class="radio radio-inline">
+          <input type="radio" name="filter" ng-value="null" ng-model="learnedLessonSearch.llaaIncludeGlobal">
+          <span translate="VIEW.LEARNED_LESSON.INCLUDE.GLOBAL"></span>
+        </label>
+        <label class="radio radio-inline">
+          <input type="radio" name="filter" value="true" ng-model="learnedLessonSearch.llaaIncludeGlobal">
+          <span translate="VIEW.LEARNED_LESSON.INCLUDE.ONLY_GLOBAL"></span>
+        </label>
+        <label class="radio radio-inline">
+          <input type="radio" name="filter" value="false" ng-model="learnedLessonSearch.llaaIncludeGlobal">
+          <span translate="VIEW.LEARNED_LESSON.INCLUDE.NOT_GLOBAL"></span>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="btn-group col-md-10 pull-right">
+        <div class="col-md-6">
+          <button type="button" class="btn-xs old-button col-md-12" ng-click="findLLAA();" translate="BUTTON.APPLY_FILTER"></button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn-xs old-button col-md-12" ng-click="resetLessonSearchParams();" translate="BUTTON.RESET"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADVANCED LLAA FILTER -->
+  <p ng-show="lessonLearnedAdvanced">&nbsp;</p>
+  <div class="" id="idAdvancedLessonLearnedFilter" ng-show="lessonLearnedAdvanced">
+    <div class="row top-row-buffer">
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.CUSTOMER_TYPE"></label>
+        <div>
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="learnedLessonSearch.llaaCustomerTypes"
+                  ng-options="customerType as customerType.name for customerType in customerTypes track by customerType.code">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.CUSTOMER"></label>
+        <div>
+          <select multiple class=" col-md-12 old-field"
+                  ng-model="learnedLessonSearch.llaaCustomers"
+                  ng-options="customer as customer.name for customer in customers track by customer.code">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.SELLER"></label>
+        <div>
+          <select  multiple="multiple" class="col-md-12 old-field"
+                   ng-model="learnedLessonSearch.llaaSellers"
+                   ng-options="seller as seller.name for seller in sellers track by seller.code">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.GEOGRAPHY"></label>
+        <div>
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="learnedLessonSearch.llaaGeographies"
+                  ng-options="geography as geography.name for geography in geographies track by geography.code">
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row top-row-buffer">
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.PROGRAM"></label>
+        <div>
+          <select style="width: 100%;height: 72px;" multiple="multiple" class=" col-md-12 old-field" ng-model="learnedLessonSearch.llaaPrograms"
+                  ng-model="learnedLessonSearch.llaaPrograms"
+                  ng-options="program as program.name for program in programs track by program.code">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.FUNDING_SOURCE"></label>
+        <div>
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="learnedLessonSearch.llaaFundingSources"
+                  ng-options="fundingSource as fundingSource.name for fundingSource in fundingSources track by fundingSource.code">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="PROCESS_GROUP.NAME"></label>
+        <div>
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="learnedLessonSearch.llaaProcessGroups"
+                  ng-options="processGroup as 'PROCESS_GROUP.'+processGroup | translate for processGroup in processGroups track by processGroup">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.KNOWLEDGE_AREA"></label>
+        <select multiple="multiple" class=" col-md-12 old-field"
+                ng-model="learnedLessonSearch.llaaKnowledgeAreas"
+                ng-options="knowledgeArea as knowledgeArea.name for knowledgeArea in knowledgeAreas track by knowledgeArea.code">
+        </select>
+      </div>
+    </div>
+
+    <div class="row top-row-buffer">
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPORTANCE_ACTIONS"></label>
+        <div>
+          <select multiple="multiple" class="col-md-12 old-field" ng-model="learnedLessonSearch.llaaImportanceActions">
+            <option ng-repeat="importance in importances track by importance" value="{{importance}}" translate="{{'IMPORTANCE.'+importance}}"></option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center form-group">
+        <label class="old-label-letter"  translate="VIEW.LEARNED_LESSON.IMPORTANCE_RECOMMENDATIONS"></label>
+        <div>
+          <select multiple="multiple" class="col-md-12 old-field" ng-model="learnedLessonSearch.llaaImportanceRecommendations">
+            <option ng-repeat="importance in importances track by importance" value="{{importance}}" translate="{{'IMPORTANCE.'+importance}}"></option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center ">
+        <label class="old-label-letter" translate="VIEW.PROJECT.OWNER"></label>
+        <div>
+          <select multiple="multiple" class="col-md-12 old-field"
+                  ng-model="learnedLessonSearch.llaaOwner"
+                  ng-options="owner as owner.name for owner in owners track by owner.code">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.JOB_PROFILE"></label>
+        <div>
+          <select multiple="multiple" class="col-md-12 old-field" ng-model="learnedLessonSearch.llaaJobProfile"
+                  ng-model="learnedLessonSearch.llaaJobProfile"
+                  ng-options="profile as profile.name for profile in profiles track by profile.code">
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="TYPE.NAME"></label>
+        <div>
+          <select multiple="multiple" class="col-md-12 old-field" ng-model="learnedLessonSearch.llaaType"
+                  ng-options="type as 'TYPE.'+type | translate for type in types track by type">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPACT_SATISFACTION"></label>
+        <div>
+          <select multiple="multiple" class="form-control old-text-inputs"
+                  ng-model="learnedLessonSearch.llaaImpactSatisfaction"
+                  ng-options="impactSatisfaction as 'IMPACT_ON_SATISFACTION.'+impactSatisfaction
+                            | translate for impactSatisfaction in impactSatisfactions track by impactSatisfaction">
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="row">
+          <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPACT_TIME"></label>
+        </div>
+        <div class="row">
+          <div class="col-md-3" style="margin: 0px -20px 0px 20px">
+            <input ng-show="ngEngine.$impactTime == CONSTANTS.BETWEEN" type="number"
+                   class="col-md-12 old-text-inputs old-input-height"  autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMinImpactTime">
+          </div>
+          <div class="col-md-6">
+            <select ng-model="ngEngine.$impactTime" class="col-md-12 old-text-inputs old-input-height bottom-row-buffer" ng-change="resetImpactTime()"
+                    ng-options="comparison as 'COMPARISON.'+comparison | translate for comparison in comparisons track by comparison">
+            </select>
+          </div>
+          <div class="col-md-3" style="margin-left: -20px">
+            <input ng-show = "ngEngine.$impactTime == CONSTANTS.GREATER_OR_EQUAL" type="number"
+                   class="col-md-12 old-text-inputs old-input-height"  autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMinImpactTime">
+            <input ng-show = "ngEngine.$impactTime == CONSTANTS.BETWEEN || ngEngine.$impactTime == CONSTANTS.LESS_OR_EQUAL
+           " type="number"
+                   class="col-md-12 old-text-inputs old-input-height"  autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMaxImpactTime">
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="row">
+          <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPACT_COST"></label>
+        </div>
+        <div class="row">
+          <div class="col-md-3" style="margin: 0px -20px 0px 20px">
+            <input ng-show = "ngEngine.$impactCost == CONSTANTS.BETWEEN" type="number"
+                   class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMinImpactCost">
+          </div>
+          <div class="col-md-6">
+            <select ng-model="ngEngine.$impactCost" class="col-md-12 old-text-inputs old-input-height" ng-change="resetImpactCost()"
+                    ng-options="comparison as 'COMPARISON.'+comparison | translate for comparison in comparisons track by comparison">
+            </select>
+          </div>
+          <div class="col-md-3" style="margin-left: -20px">
+            <input ng-show = "ngEngine.$impactCost == CONSTANTS.GREATER_OR_EQUAL " type="number"
+                   class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMinImpactCost">
+            <input ng-show = "ngEngine.$impactCost == CONSTANTS.BETWEEN || ngEngine.$impactCost == CONSTANTS.LESS_OR_EQUAL " type="number"
+                   class="col-md-12 old-text-inputs old-input-height bottom-row-buffer" autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMaxImpactCost">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row top-row-buffer">
+      <div class="col-md-3 text-center">
+        <div class="row text-center">
+          <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.RANKING"></label>
+        </div>
+        <div class="row">
+          <div class="col-md-3" style="margin: 0px -20px 0px 20px">
+            <input ng-show = "ngEngine.$ranking == CONSTANTS.BETWEEN" type="number"
+                   class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMinRanking">
+          </div>
+          <div class="col-md-6">
+            <select ng-model="ngEngine.$ranking" class="col-md-12 old-text-inputs old-input-height" ng-change="resetRanking()"
+                    ng-options="comparison as 'COMPARISON.'+comparison | translate for comparison in comparisons track by comparison">
+            </select>
+          </div>
+          <div class="col-md-3"  style="margin-left: -20px">
+            <input ng-show = "ngEngine.$ranking == CONSTANTS.BETWEEN || ngEngine.$ranking == CONSTANTS.LESS_OR_EQUAL" type="number"
+                   class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMaxRanking">
+            <input ng-show="ngEngine.$ranking == CONSTANTS.GREATER_OR_EQUAL" type="number"
+                   class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                   ng-model="learnedLessonSearch.llaaMinRanking">
+          </div>
+        </div>
+      </div>
+      <div class="row top-row-buffer bottom-row-buffer">
+        <div class="col-md-6">
+          <div class="form-inline">
+            <div class="form-group datepicker">
+              <label class="control-label" translate="DATE.SINCE"></label>
+              <input type="text" name="filter_start" class="form-control input-sm old-text-inputs old-input-height"
+                     show-button-bar="false" show-weeks="false" datepicker-options="{'starting-day': 1}"  datepicker-popup="dd/MM/yyyy"
+                     is-open="filters.create.untilOpenedSince" close-text="Close" ng-disabled='notEditable'
+                     ng-model="learnedLessonSearch.llaaSince">
+              <img src="images/openppm-old/calendar/calendar.png" alt="..." title="..." ng-click="filters.create.untilOpenedSince = true"
+                   ng-hide="notEditable">
+            </div>
+            <div style="padding-left: 10px;" class="form-group datepicker">
+              <label class="control-label" translate="DATE.UNTIL"></label>
+              <input type="text" name="filter_finish" class="form-control input-sm old-text-inputs old-input-height"
+                     show-button-bar="false" show-weeks="false" datepicker-options="{'starting-day': 1}"  datepicker-popup="dd/MM/yyyy"
+                     is-open="filters.create.untilOpenedUntil" close-text="Close" ng-disabled='notEditable'
+                     ng-model="learnedLessonSearch.llaaUntil">
+              <img src="images/openppm-old/calendar/calendar.png" alt="..." title="..." ng-click="filters.create.untilOpenedUntil = true"
+                   ng-hide="notEditable">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  END ADVANCED LLAA FILTER -->
+</fieldset>

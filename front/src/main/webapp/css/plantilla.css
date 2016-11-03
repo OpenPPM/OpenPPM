@@ -1,0 +1,446 @@
+/*
+ * Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program has been created in the hope that it will be useful.
+ * It is distributed WITHOUT ANY WARRANTY of any Kind,
+ * without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ *
+ * For more information, please contact SM2 Software & Services Management.
+ * Mail: info@talaia-openppm.com
+ * Web: http://www.talaia-openppm.com
+ *
+ * Module: front
+ * File: plantilla.css
+ * Create User: javier.hernandez
+ * Create Date: 15/03/2015 12:47:35
+ */
+
+*{ border:0px}
+input[type='text'] {
+	background: transparent;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #444444;
+	line-height:15px;/*
+	list-style-image: url(../images/topo_menu_10x25.gif);*/
+}
+/*
+li {
+	list-style-image: url(../images/topo_li.gif);
+}*/
+.selected-day {
+	background-color: #FF8000;
+	border: 1px solid #FF8000;
+}
+.selected-day a {
+	background: #F8ECE0 !important;
+	border: 1px solid #F8ECE0 !important;
+}
+
+.leftPadding {
+	padding-left: 15px;
+}
+.advancedFilter {
+	color: #2F67AD;
+	font-size: 9px;
+	text-decoration: none;
+}
+.hColor {
+    background-color: transparent;
+    color: #2F67AD;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.boton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #2E6E9E;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding-right: 3px;
+}
+
+input.boton {
+	*margin-bottom: -3px !important;
+	*height: 25px !important;
+	width: auto !important;
+}
+
+.campo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	text-decoration: none;
+	border: 1px solid #999999;
+	margin-left: 3px;
+	margin-right: 10px;
+	border-radius: 5px;
+	padding: 2px;
+	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.07) inset;
+	background: #FFF !important;
+}
+.campo:FOCUS {
+	border: 1px solid #FFD477;
+}
+.campo_readonly {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	margin-left: 3px;
+	margin-right: 10px;
+	border-radius: 5px;
+	padding: 2px;
+}
+.fondo_menuizdo {
+	padding-top: 26px;
+	padding-bottom: 5px;
+	padding-left: 7px;
+	padding-right: 3px;
+	width: 180px;
+	background-image: url(../images/fondo_menu_izda.jpg);
+	background-repeat: no-repeat;
+}
+.menu_izdo1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+	padding-left: 5px;
+	width: 170px;
+	height: 25px;
+	padding-top: 3px;
+	background-color: #F6F6F6;
+}
+.menu_izdo2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(../images/topo_menu_10x25.gif);
+	background-repeat: no-repeat;
+	padding-right: 0px;
+	padding-left: 15px;
+	background-position: 5px;
+	padding-top: 0px;
+	padding-bottom: 5px;
+	height: 20px;
+	width: 170px;
+}
+.menu_izdo2marcado {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #2E6198;
+	text-decoration: none;
+	background-image: url(../images/topo_menu_10x25.gif);
+	background-repeat: no-repeat;
+	background-position: 5px;
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	height: 20px;
+}
+.fondo_menusup {
+	background-image: url(../images/menu_sup.gif);
+}
+.fondoDcha {
+	background-image: url(../images/fondo_dcha.gif);
+	background-repeat: no-repeat;
+	padding: 30px 40px 20px 40px;
+	vertical-align: top;
+
+}
+.fondoDchahome {
+	background-image: url(../images/fondo_dcha.gif);
+	background-repeat: no-repeat;
+	vertical-align: top;
+	padding: 1px;
+	background-position: right top;
+}
+.pie {
+	font-size: 10px;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #688BB4;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+}
+.tit_pagina {
+	font-size: 16px;
+	color: #2F67AD;
+	text-decoration: none;
+	font-weight: bold;
+	text-align:left;
+	background-color: #FFFFFF;
+	padding: 5px;
+}
+.marco_imgs{
+	padding:5px;
+	border: 1px solid #AFAFA1;
+}
+
+.login_info, .login_info a {
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-right: 10px;
+	text-decoration: none;
+}
+/*
+.fecha {
+	font-size: 10px;
+	font-weight: normal;
+	color: #FFFFFF;
+}*/
+.fecha {
+	margin-right: 5px;
+}
+.piefoto {
+	font-size: 10px;
+	color: #000000;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+.ficha {
+	margin: 0px;
+	background-color: #FFFFFF;
+	padding: 15px 15px 5px 15px;
+	width: 600px;
+}
+#ficha{ width:600px; height:370; margin-left: 90px; }
+.subtit_pagina {
+	font-size: 12px;
+	color: #999999;
+	text-decoration: none;
+	font-weight: bold;
+	height: 40px;
+	padding-top: 15px;
+}
+.textaverde{
+	font-size:11px;
+	color:#2F67AD;
+}
+.negrita{
+	font-size:11px;
+	color:#333333;
+	font-weight:bold;
+}
+
+.tit_paginafondo {
+	
+	text-align:left;
+	padding: 3px;
+	background: url(../images/fondo_tit_pag.gif) repeat-x;
+	
+}
+.menu_sup {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-position: 20px;
+	font-weight: bold;
+}
+a.menu_sup:hover {
+	color: #D6E3F3;
+	text-decoration: none;
+	background-position: 20px;
+	font-weight: bold;
+}
+.disabled {
+	color: #1A1A1A;
+}
+a.disabled:hover {
+	color: #1A1A1A;
+	text-decoration: none;
+	background-position: 20px;
+	font-weight: bold;
+	cursor: default;
+}
+a.menu_izdo2:hover {
+	color: #2F67AD;
+	text-decoration: none;
+	width: 170px;
+}
+.menu_izdoFondo {
+	color: #000000;
+	text-decoration: none;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+	padding-left: 5px;
+	height: 30px;
+	width: 170px;
+}
+.menu_izdoFondo a:hover {
+	color: #2F67AD;
+	text-decoration: none;
+	width: 170px;
+	background-color: #FFFFFF;
+	height: 25px;
+	padding-top: 3px;
+}
+.texLink, .texLinkDisabled {
+	font-size:11px;
+	color:#336BAB;
+	left: 20px;
+	height: 18px;
+	background-position: 0px;
+	padding: 2px;
+	text-decoration: none;
+}
+.texLinkDisabled {
+	color:#9BC;
+}
+.tit_seccion {
+	font-size: 11px;
+	color: #999999;
+	text-decoration: none;
+	font-weight: bold;
+	height: 20px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #2F67AD;
+}
+.fondoFICHA {
+	text-decoration: none;
+	clip:  rect(   );
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #E2E2E2;
+	border-bottom-color: #E2E2E2;
+	border-left-color: #E2E2E2;
+	padding: 10px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #E2E2E2;
+}
+.botonA {
+font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #333333; text-decoration: none; font-weight: bold
+}
+.titulotabla {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+	clip:  rect(   );
+	background-color: #8A8A75;
+	padding-left: 5px;
+	height: 26px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+}
+.nombrecampo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #2F67AD;
+	text-decoration: none;
+	font-weight: bold;
+	height: 22px;
+	padding-left: 5px;
+	background-color: #F0F5FB;
+	border: 1px solid #FFFFFF;
+	width: 120px;
+}
+.menu_izdo_marcado {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+	padding-left: 5px;
+	width: 170px;
+	height: 25px;
+	padding-top: 3px;
+	background-color: #336BAB;
+}
+.contenido_tabla {
+	margin: 0px;
+	background-color: #FFFFFF;
+	font-size: 10px;
+	color: #000000;
+	padding: 2px;
+}
+.cabecera_tabla {
+	margin: 0px;
+	background-color: #688BB4;
+	font-size: 10px;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
+	padding: 2px;
+}
+.contenido_tabla_centro {
+	margin: 0px;
+	background-color: #FFFFFF;
+	font-size: 10px;
+	color: #000000;
+	padding: 2px;
+	text-align: center;
+}
+.caja_formulario {
+	background-image: url(../images/fondo_caja_formulario.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+	border: 1px solid #CCCCC4;
+	padding: 15px;
+}
+.tituloPestana {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	font-weight: bold;
+	background-color: #DDE8F4;
+	height: 26px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCC4;
+	text-align: center;
+	min-width: 100px;
+}
+
+.tituloPestana1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #336BAB;
+	font-weight: bold;
+	height: 26px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCC4;
+	text-align: center;
+	min-width: 100px;
+}

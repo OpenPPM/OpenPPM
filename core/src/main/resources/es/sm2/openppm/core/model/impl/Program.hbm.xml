@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Program.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Program" table="program">
+        <id name="idProgram" type="java.lang.Integer">
+            <column name="IdProgram" />
+            <generator class="native">
+                <param name="sequence">program_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="performingorg" class="es.sm2.openppm.core.model.impl.Performingorg" fetch="select">
+            <column name="idPerfOrg" />
+        </many-to-one>
+        <many-to-one name="employee" class="es.sm2.openppm.core.model.impl.Employee" fetch="select">
+            <column name="ProgramManager" />
+        </many-to-one>
+        <property name="programCode" type="string">
+            <column name="ProgramCode" length="20" not-null="true" />
+        </property>
+        <property name="programName" type="string">
+            <column name="ProgramName" length="50" not-null="true" />
+        </property>
+        <property name="programTitle" type="string">
+            <column name="ProgramTitle" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" />
+        </property>
+        <property name="programDoc" type="string">
+            <column name="ProgramDoc" length="200" />
+        </property>
+        <property name="budget" type="java.lang.Double">
+            <column name="budget" precision="22" scale="0" />
+        </property>
+        <property name="initBudgetYear" type="string">
+            <column name="InitBudgetYear" length="4" />
+        </property>
+        <property name="finishBudgetYear" type="string">
+            <column name="FinishBudgetYear" length="4" />
+        </property>
+        <set name="projects" inverse="true" lazy="true" table="project" fetch="select">
+            <key>
+                <column name="idProgram" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Project" />
+        </set>
+        <set name="learnedLessons" inverse="true" lazy="true" table="learnedlesson" fetch="select">
+            <key>
+                <column name="idProgram" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLesson" />
+        </set>
+    </class>
+</hibernate-mapping>

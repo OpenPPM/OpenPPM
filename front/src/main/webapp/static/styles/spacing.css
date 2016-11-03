@@ -1,0 +1,17 @@
+
+.top-row-buffer {
+  margin-top: 15px;
+}
+
+.bottom-row-buffer {
+  margin-bottom:20px;
+}
+
+.form-inline-spacing  .form-inline  label {
+  margin-right: 10px;
+}
+
+.form-inline-spacing  .form-inline  input {
+  margin-top: -5px;
+}
+

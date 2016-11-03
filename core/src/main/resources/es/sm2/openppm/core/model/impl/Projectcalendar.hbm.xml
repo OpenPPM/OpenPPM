@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Projectcalendar.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:04
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Projectcalendar" table="projectcalendar">
+        <id name="idProjectCalendar" type="java.lang.Integer">
+            <column name="IdProjectCalendar" />
+            <generator class="native">
+                <param name="sequence">projectcalendar_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="calendarbase" class="es.sm2.openppm.core.model.impl.Calendarbase" fetch="select">
+            <column name="idCalendarBase" />
+        </many-to-one>
+        <property name="weekStart" type="java.lang.Integer">
+            <column name="weekStart" />
+        </property>
+        <property name="fiscalYearStart" type="java.lang.Integer">
+            <column name="fiscalYearStart" />
+        </property>
+        <property name="startTime1" type="java.lang.Double">
+            <column name="startTime1" precision="22" scale="0" />
+        </property>
+        <property name="startTime2" type="java.lang.Double">
+            <column name="startTime2" precision="22" scale="0" />
+        </property>
+        <property name="endTime1" type="java.lang.Double">
+            <column name="endTime1" precision="22" scale="0" />
+        </property>
+        <property name="endTime2" type="java.lang.Double">
+            <column name="endTime2" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay" type="java.lang.Double">
+            <column name="hoursDay" precision="22" scale="0" />
+        </property>
+        <property name="hoursWeek" type="java.lang.Double">
+            <column name="hoursWeek" precision="22" scale="0" />
+        </property>
+        <property name="daysMonth" type="java.lang.Integer">
+            <column name="daysMonth" />
+        </property>
+        <set name="projects" inverse="true" lazy="true" table="project" fetch="select">
+            <key>
+                <column name="idProjectCalendar" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Project" />
+        </set>
+        <set name="projectcalendarexceptionses" inverse="true" lazy="true" table="projectcalendarexceptions" fetch="select">
+            <key>
+                <column name="IdProjectCalendar" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectcalendarexceptions" />
+        </set>
+    </class>
+</hibernate-mapping>

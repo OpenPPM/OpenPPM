@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Employee.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Employee" table="employee">
+        <id name="idEmployee" type="java.lang.Integer">
+            <column name="idEmployee" />
+            <generator class="native">
+                <param name="sequence">employee_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="calendarbase" class="es.sm2.openppm.core.model.impl.Calendarbase" fetch="select">
+            <column name="idCalendarBase" />
+        </many-to-one>
+        <many-to-one name="seller" class="es.sm2.openppm.core.model.impl.Seller" fetch="select">
+            <column name="idSeller" />
+        </many-to-one>
+        <many-to-one name="performingorg" class="es.sm2.openppm.core.model.impl.Performingorg" fetch="select">
+            <column name="idPerfOrg" />
+        </many-to-one>
+        <many-to-one name="contact" class="es.sm2.openppm.core.model.impl.Contact" fetch="select">
+            <column name="idContact" />
+        </many-to-one>
+        <many-to-one name="resourcepool" class="es.sm2.openppm.core.model.impl.Resourcepool" fetch="select">
+            <column name="idResourcePool" />
+        </many-to-one>
+        <many-to-one name="resourceprofiles" class="es.sm2.openppm.core.model.impl.Resourceprofiles" fetch="select">
+            <column name="idProfile" />
+        </many-to-one>
+        <property name="costRate" type="java.lang.Double">
+            <column name="costRate" precision="22" scale="0" />
+        </property>
+        <property name="profileDate" type="date">
+            <column name="profileDate" length="10" />
+        </property>
+        <property name="token" type="string">
+            <column name="token" length="30" />
+        </property>
+        <property name="disable" type="java.lang.Boolean">
+            <column name="disable" />
+        </property>
+        <set name="teammembers" inverse="true" lazy="true" table="teammember" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Teammember" />
+        </set>
+        <set name="projectsForInvestmentManager" inverse="true" lazy="true" table="project" fetch="select">
+            <key>
+                <column name="investmentManager" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Project" />
+        </set>
+        <set name="performingorgs" inverse="true" lazy="true" table="performingorg" fetch="select">
+            <key>
+                <column name="Manager" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Performingorg" />
+        </set>
+        <set name="jobcatemployees" inverse="true" lazy="true" table="jobcatemployee" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Jobcatemployee" />
+        </set>
+        <set name="programs" inverse="true" lazy="true" table="program" fetch="select">
+            <key>
+                <column name="ProgramManager" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Program" />
+        </set>
+        <set name="stakeholders" inverse="true" lazy="true" table="stakeholder" fetch="select">
+            <key>
+                <column name="idEmployee" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Stakeholder" />
+        </set>
+        <set name="riskreassessmentlogs" inverse="true" lazy="true" table="riskreassessmentlog" fetch="select">
+            <key>
+                <column name="idEmployee" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Riskreassessmentlog" />
+        </set>
+        <set name="projectsForProjectManager" inverse="true" lazy="true" table="project" fetch="select">
+            <key>
+                <column name="projectManager" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Project" />
+        </set>
+        <set name="timesheets" inverse="true" lazy="true" table="timesheet" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Timesheet" />
+        </set>
+        <set name="expensesheets" inverse="true" lazy="true" table="expensesheet" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Expensesheet" />
+        </set>
+        <set name="projectsForFunctionalManager" inverse="true" lazy="true" table="project" fetch="select">
+            <key>
+                <column name="functionalManager" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Project" />
+        </set>
+        <set name="skillsemployees" inverse="true" lazy="true" table="skillsemployee" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Skillsemployee" />
+        </set>
+        <set name="historicrisks" inverse="true" lazy="true" table="historicrisk" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Historicrisk" />
+        </set>
+        <set name="managepools" inverse="true" lazy="true" table="managepool" fetch="select">
+            <key>
+                <column name="idResourceManager" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Managepool" />
+        </set>
+        <set name="employeeoperationdates" inverse="true" lazy="true" table="employeeoperationdate" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Employeeoperationdate" />
+        </set>
+        <set name="logprojectstatuses" inverse="true" lazy="true" table="logprojectstatus" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Logprojectstatus" />
+        </set>
+        <set name="historickpis" inverse="true" lazy="true" table="historickpi" fetch="select">
+            <key>
+                <column name="idEmployee" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Historickpi" />
+        </set>
+        <set name="projectsForSponsor" inverse="true" lazy="true" table="project" fetch="select">
+            <key>
+                <column name="sponsor" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Project" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Wbsnode.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Wbsnode" table="wbsnode">
+        <id name="idWbsnode" type="java.lang.Integer">
+            <column name="IdWBSNode" />
+            <generator class="native">
+                <param name="sequence">wbsnode_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="wbsnode" class="es.sm2.openppm.core.model.impl.Wbsnode" fetch="select">
+            <column name="Parent" />
+        </many-to-one>
+        <many-to-one name="project" class="es.sm2.openppm.core.model.impl.Project" fetch="select">
+            <column name="idProject" not-null="true" />
+        </many-to-one>
+        <property name="code" type="string">
+            <column name="Code" length="25" />
+        </property>
+        <property name="name" type="string">
+            <column name="Name" length="80" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="2500" />
+        </property>
+        <property name="isControlAccount" type="java.lang.Boolean">
+            <column name="IsControlAccount" />
+        </property>
+        <property name="budget" type="java.lang.Double">
+            <column name="Budget" precision="22" scale="0" />
+        </property>
+        <set name="changerequestwbsnodes" inverse="true" lazy="true" table="changerequestwbsnode" fetch="select">
+            <key>
+                <column name="idWBSNode" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Changerequestwbsnode" />
+        </set>
+        <set name="checklists" inverse="true" lazy="true" table="checklist" fetch="select">
+            <key>
+                <column name="idWbsnode" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Checklist" />
+        </set>
+        <set name="wbsnodes" inverse="true" lazy="true" table="wbsnode" fetch="select">
+            <key>
+                <column name="Parent" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Wbsnode" />
+        </set>
+        <set name="projectactivities" inverse="true" lazy="true" table="projectactivity" fetch="select">
+            <key>
+                <column name="WorkPackage" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Projectactivity" />
+        </set>
+        <set name="changecontrols" inverse="true" lazy="true" table="changecontrol" fetch="select">
+            <key>
+                <column name="IdWBSNode" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Changecontrol" />
+        </set>
+    </class>
+</hibernate-mapping>

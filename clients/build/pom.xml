@@ -1,0 +1,117 @@
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: build
+  ~ File: pom.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:42:43
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>es.sm2.openppm</groupId>
+		<artifactId>clients</artifactId>
+		<version>4.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>build</artifactId>
+	<name>Module for build specific configuration</name>
+	<packaging>pom</packaging>
+
+  <build>
+    <plugins>
+
+      <!-- GENERIC CONFIGURATION -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>${maven-antrun-plugin-version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <configuration>
+              <target>
+                <ant antfile="${basedir}/ant/copyContent.xml">
+
+                  <property name="genericWebConfig" value="build"/>
+                  <property name="clientWebConfig" value="${clientDepencency}"/>
+                  <property name="approl" value="${approl}"/>
+
+                  <target name="general" />
+                </ant>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- MERGE LOCALE -->
+      <plugin>
+        <groupId>org.beardedgeeks</groupId>
+        <artifactId>maven-merge-properties-plugin</artifactId>
+        <version>0.2</version>
+        <configuration>
+          <merges>
+            <merge>
+              <targetFile>../../front/src/main/resources/es/sm2/openppm/front/common/openppm_es_ES.properties</targetFile>
+              <propertiesFiles>
+                <propertiesFile>../${clientDepencency}/lang/openppm_es_ES.properties</propertiesFile>
+                <propertiesFile>../../front/src/main/java/es/sm2/openppm/front/common/openppm_es_ES.properties</propertiesFile>
+              </propertiesFiles>
+            </merge>
+           <merge>
+              <targetFile>../../front/src/main/resources/es/sm2/openppm/front/common/openppm_en_US.properties</targetFile>
+              <propertiesFiles>
+                <propertiesFile>../${clientDepencency}/lang/openppm_en_US.properties</propertiesFile>
+                <propertiesFile>../../front/src/main/java/es/sm2/openppm/front/common/openppm_en_US.properties</propertiesFile>
+              </propertiesFiles>
+            </merge>
+            <merge>
+              <targetFile>../../front/src/main/resources/es/sm2/openppm/front/common/openppm_de_DE.properties</targetFile>
+              <propertiesFiles>
+                <propertiesFile>../${clientDepencency}/lang/openppm_de_DE.properties</propertiesFile>
+                <propertiesFile>../../front/src/main/java/es/sm2/openppm/front/common/openppm_de_DE.properties</propertiesFile>
+              </propertiesFiles>
+            </merge>
+          </merges>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>merge</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>beardedgeeks-releases</id>
+      <url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>

@@ -1,0 +1,24 @@
+.item-full {
+  height: 100% !important;
+  width: 100%;
+}
+
+.text-middle {
+  vertical-align: middle !important;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.color-primary {
+  color: #337ab7;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.table.table-data td {
+    border-top: none !important;
+}

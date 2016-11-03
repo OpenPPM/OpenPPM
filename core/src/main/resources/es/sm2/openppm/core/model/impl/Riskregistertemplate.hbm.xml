@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Riskregistertemplate.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:04
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Riskregistertemplate" table="riskregistertemplate">
+        <id name="idRisk" type="java.lang.Integer">
+            <column name="IdRisk" />
+            <generator class="native">
+                <param name="sequence">riskregistertemplate_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="riskcategories" class="es.sm2.openppm.core.model.impl.Riskcategories" fetch="select">
+            <column name="IdRiskCategory" />
+        </many-to-one>
+        <many-to-one name="riskcategory" class="es.sm2.openppm.core.model.impl.Riskcategory" fetch="select">
+            <column name="idRiskCateg" />
+        </many-to-one>
+        <many-to-one name="company" class="es.sm2.openppm.core.model.impl.Company" fetch="select">
+            <column name="idCompany" not-null="true" />
+        </many-to-one>
+        <property name="riskCode" type="string">
+            <column name="RiskCode" length="5" />
+        </property>
+        <property name="riskName" type="string">
+            <column name="RiskName" length="50" />
+        </property>
+        <property name="owner" type="string">
+            <column name="Owner" length="100" />
+        </property>
+        <property name="potentialCost" type="java.lang.Double">
+            <column name="PotentialCost" precision="22" scale="0" />
+        </property>
+        <property name="potentialDelay" type="java.lang.Integer">
+            <column name="PotentialDelay" />
+        </property>
+        <property name="riskTrigger" type="string">
+            <column name="Risk_Trigger" length="200" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="200" />
+        </property>
+        <property name="probability" type="java.lang.Integer">
+            <column name="Probability" />
+        </property>
+        <property name="impact" type="java.lang.Integer">
+            <column name="Impact" />
+        </property>
+        <property name="materialized" type="java.lang.Boolean">
+            <column name="Materialized" />
+        </property>
+        <property name="mitigationActionsRequired" type="string">
+            <column name="MitigationActionsRequired" length="200" />
+        </property>
+        <property name="contingencyActionsRequired" type="string">
+            <column name="ContingencyActionsRequired" length="200" />
+        </property>
+        <property name="actualMaterializationCost" type="java.lang.Double">
+            <column name="ActualMaterializationCost" precision="22" scale="0" />
+        </property>
+        <property name="actualMaterializationDelay" type="java.lang.Integer">
+            <column name="ActualMaterializationDelay" />
+        </property>
+        <property name="finalComments" type="string">
+            <column name="finalComments" length="200" />
+        </property>
+        <property name="riskDoc" type="string">
+            <column name="RiskDoc" length="100" />
+        </property>
+        <property name="riskType" type="java.lang.Integer">
+            <column name="riskType" />
+        </property>
+        <property name="plannedMitigationCost" type="java.lang.Double">
+            <column name="PlannedMitigationCost" precision="22" scale="0" />
+        </property>
+        <property name="plannedContingencyCost" type="java.lang.Double">
+            <column name="PlannedContingencyCost" precision="22" scale="0" />
+        </property>
+        <property name="closed" type="java.lang.Boolean">
+            <column name="Closed" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="1" />
+        </property>
+        <property name="responseDescription" type="string">
+            <column name="responseDescription" length="200" />
+        </property>
+        <property name="residualRisk" type="string">
+            <column name="residualRisk" length="200" />
+        </property>
+        <property name="residualCost" type="java.lang.Double">
+            <column name="residualCost" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

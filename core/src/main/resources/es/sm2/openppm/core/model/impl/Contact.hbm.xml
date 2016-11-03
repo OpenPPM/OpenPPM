@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Contact.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Contact" table="contact">
+        <id name="idContact" type="java.lang.Integer">
+            <column name="IdContact" />
+            <generator class="native">
+                <param name="sequence">contact_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="company" class="es.sm2.openppm.core.model.impl.Company" fetch="select">
+            <column name="IdCompany" />
+        </many-to-one>
+        <property name="fullName" type="string">
+            <column name="FullName" length="50" />
+        </property>
+        <property name="jobTitle" type="string">
+            <column name="JobTitle" length="50" />
+        </property>
+        <property name="fileAs" type="string">
+            <column name="FileAs" length="60" />
+        </property>
+        <property name="businessPhone" type="string">
+            <column name="BusinessPhone" length="12" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="MobilePhone" length="12" />
+        </property>
+        <property name="businessAddress" type="string">
+            <column name="BusinessAddress" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
+        <property name="notes" type="string">
+            <column name="Notes" length="200" />
+        </property>
+        <property name="locale" type="string">
+            <column name="locale" length="5" />
+        </property>
+        <property name="disable" type="java.lang.Boolean">
+            <column name="disable" />
+        </property>
+        <set name="employees" inverse="true" lazy="true" table="employee" fetch="select">
+            <key>
+                <column name="idContact" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Employee" />
+        </set>
+        <set name="contactnotifications" inverse="true" lazy="true" table="contactnotification" fetch="select">
+            <key>
+                <column name="idContact" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Contactnotification" />
+        </set>
+        <set name="securities" inverse="true" lazy="true" table="security" fetch="select">
+            <key>
+                <column name="idContact" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Security" />
+        </set>
+        <set name="configurations" inverse="true" lazy="true" table="configuration" fetch="select">
+            <key>
+                <column name="idContact" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Configuration" />
+        </set>
+        <set name="learnedLessons" inverse="true" lazy="true" table="learnedlesson" fetch="select">
+            <key>
+                <column name="idContact" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLesson" />
+        </set>
+    </class>
+</hibernate-mapping>

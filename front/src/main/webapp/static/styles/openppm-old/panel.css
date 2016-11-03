@@ -1,0 +1,101 @@
+/*
+ * Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program has been created in the hope that it will be useful.
+ * It is distributed WITHOUT ANY WARRANTY of any Kind,
+ * without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ *
+ * For more information, please contact SM2 Software & Services Management.
+ * Mail: info@talaia-openppm.com
+ * Web: http://www.talaia-openppm.com
+ *
+ * Module: front
+ * File: panel.css
+ * Create User: mariano.fontana
+ * Create Date: 10/09/2015 09:26:16
+ */
+
+.panel-heading {
+
+  background: url("../../images/openppm-old/panel/toolPanel.jpg") repeat-x scroll 0 0 transparent;
+  border: 1px solid #CCCCC4;
+  border-top: 0px;
+  border-radius: 5px 5px 5px 5px;
+  height: 22px;
+  text-align: left;
+  width: 100%;
+  padding: 0 0;
+
+}
+
+div.panel .panel-heading div{
+
+  color: #2F67AD;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 20px;
+  padding-top: 4px;
+}
+
+.panel-default {
+
+  background-color: #F6F6F6;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-default[ng-controller = "HeaderCtrl"] {
+
+  background-color: #4C84C9;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+
+
+.panel-default[ng-controller = "HeaderCtrl"] > div[class = "container-fluid"] > div[class = "row"] {
+
+  background-color: #ffffff;
+  border-bottom: 1px solid transparent;
+  border-radius: 10px 10px 0 0;
+}
+
+.panel-footer {
+
+  background: rgb(76,132,201); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(76,132,201,1) 32%, rgba(54,117,196,1) 64%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%,rgba(76,132,201,1)), color-stop(64%,rgba(54,117,196,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(76,132,201,1) 32%,rgba(54,117,196,1) 64%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(76,132,201,1) 32%,rgba(54,117,196,1) 64%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(76,132,201,1) 32%,rgba(54,117,196,1) 64%); /* IE10+ */
+  background: linear-gradient(top,  rgba(76,132,201,1) 32%,rgba(54,117,196,1) 64%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c84c9', endColorstr='#3675c4',GradientType=0 ); /* IE6-9 */
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+  height: 15px;
+  padding: 0 0;
+}
+
+.panel-footer *{
+
+
+  font-size: 9px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.panel-footer > a [href="http://es.wikipedia.org/wiki/Bulma"] > b{
+
+  font-size: 11px;
+  font-weight: bold;
+  padding-right: 10px;
+}

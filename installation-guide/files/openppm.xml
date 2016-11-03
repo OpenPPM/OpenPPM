@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+
+-->
+<!-- The contents of this file will be loaded for OpenPPM application -->
+<Context>
+
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+	<Realm className="org.apache.catalina.realm.JAASRealm"
+      	appName="OpenPPMWeb"
+      	userClassNames="es.sm2.openppm.auth.PlainUserPrincipal"
+      	roleClassNames="es.sm2.openppm.auth.PlainRolePrincipal"
+      	useContextClassLoader="true"/>
+      	
+	<Resource name="jdbc/openppmDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="openppm"
+		password="openppm"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/openppm?autoReconnect=true"
+		maxActive="50"
+		maxIdle="0"
+		testWhileIdle="true"
+		timeBetweenEvictionRunsMillis="600000"
+		/>
+		
+</Context>

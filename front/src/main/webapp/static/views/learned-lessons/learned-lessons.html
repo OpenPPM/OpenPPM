@@ -1,0 +1,269 @@
+<!--
+~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+~ This program is free software: you can redistribute it and/or modify
+~ it under the terms of the GNU General Public License as published by
+~ the Free Software Foundation, either version 3 of the License, or
+~ (at your option) any later version.
+~
+~ This program has been created in the hope that it will be useful.
+~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+~ without even the implied warranty of
+~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+~ See the GNU General Public License for more details.
+~
+~ You should have received a copy of the GNU General Public License
+~ along with this program. If not, see http://www.gnu.org/licenses/.
+~
+~ For more information, please contact SM2 Software & Services Management.
+~ Mail: info@talaia-openppm.com
+~ Web: http://www.talaia-openppm.com
+~
+~ Module: front
+~ File: learned-lesson.html
+~ Create User: francisco.bisquerra
+~ Create Date: 06/08/2015 9:39:21
+-->
+
+<!-- Message Succes -->
+<div class="floating-container alert alert-success" ng-class="{'visible-message' : transition, 'hidden-message' : !transition}"
+     ng-show="showFloatingMessage && !errorMessage" translate="ALERT.SUCCESS">
+</div>
+
+<div id="errorMessage" class="top-row-buffer bottom-row-buffer">
+  <fieldset class="container-fluid fieldset alert alert-danger" ng-show="errorMessage">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="closeErrorMessage();">&times;</a>
+    <span class="glyphicon glyphicon-alert pull-left"></span> <p translate="WARNING.TITLE">:</p>
+    <ul ng-repeat="error in errors track by $index">
+      <li> {{error}} </li>
+    </ul>
+  </fieldset>
+</div>
+
+
+<!-- Custom pagination template -->
+<div ng-init="lessonLearnedAdvanced = false;"> <!--Show variables init-->
+  <div class="old-page-title top-row-buffer" translate="MENU.LEARNED_LESSONS"></div>
+
+  <div class="top-row-buffer bottom-row-buffer">
+    <ng-include src="'./views/learned-lessons/filters.html'"></ng-include>
+    <p>&nbsp;</p>
+    <og-filter-project ng-model="learnedLessonSearch" on-find="findLLAA()" in-linking="false" ng-engine="ngEngine" selected-status="selectedStatus"></og-filter-project>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-inline">
+        <label class="control-label" translate="TABLE.DISPLAY"></label>
+        <select class="form-control old-field old-input-height display-number-elements" ng-model="displayCount" ng-change = "updateDisplayCount()">
+          <option value="10" selected="selected">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table learned lessons -->
+  <table id="learnedLessonTable" ng-table="tableParams"  template-pagination="custom/pager" class=" top-row-buffer table" >
+    <thead>
+      <th class="hidden"></th>
+      <th class="old-top-left-border-round table-check-width"><div></div></th>
+      <th ng-repeat="columnName in columnNames" class="sortable" ng-class="getSortingClass(columnName)" ng-click="sortTable(columnName)">
+        <div>
+          <span> <span translate="{{columnName}}"></span>
+            <i ng-class="sortIndicator(columnName)"></i></span>
+        </div>
+      </th>
+      <th class="old-top-right-border-round table-LLAA-buttons-width" ng-class="" ng-click="" rowspan="2">
+        <img ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER"
+             class="link" src="images/openppm-old/table/link.png" ng-click="showLinkProjects();" translate-values="getViewObject()"
+             title="{{ 'TABLE.LINK' | translate:translations['LEARNED_LESSON'] }}">
+        <img ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER"
+             class="link" src="images/openppm-old/table/add.png" ng-click="viewLessonLearnedDetail()" translate-values="getViewObject()"
+             title="{{ 'TABLE.NEW' | translate:translations['LEARNED_LESSON'] }}">
+    </th>
+    </thead>
+    <tbody>
+      <tr ng-class-even="'even'" ng-repeat = "learnedLesson in $data" ng-click="learnedLesson.selected=!learnedLesson.selected">
+        <td class="hidden"></td>
+        <td class="text-center table-check-width">
+            <div class="checkbox" style="margin: -5px -5px -5px -5px">
+                <label>
+                    <input type="checkbox" ng-model="learnedLesson.selected" ng-click="$event.stopPropagation();"/>
+                </label>
+            </div>
+        </td>
+        <td class="text-center table-idPr-width">
+          <a  ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER ||
+                    (user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER && llaaInPrograms(user.programs, learnedLesson.program))"
+              style="cursor: pointer" ng-click="viewProject(learnedLesson.project.code)">{{learnedLesson.project.code}}</a>
+          <span  ng-if="(user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER && !llaaInPrograms(user.programs, learnedLesson.program))"
+                  ng-show="learnedLesson.project" style="cursor: pointer" >{{learnedLesson.project.code}}</span>
+        </td>
+        <td class="text-left table-prName-width">
+          <a  ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO || user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROJECT_MANAGER ||
+                    (user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER && llaaInPrograms(user.programs, learnedLesson.program))"
+              ng-show="learnedLesson.project" style="cursor: pointer" ng-click="viewProject(learnedLesson.project.code)">{{learnedLesson.project.name}}</a>
+          <span  ng-if="(user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER && !llaaInPrograms(user.programs, learnedLesson.program))"
+              ng-show="learnedLesson.project" style="cursor: pointer" >{{learnedLesson.project.name}}</span>
+          <span ng-hide="learnedLesson.project">Global</span>
+        </td>
+        <td class="text-center table-idLLAA-width">{{learnedLesson.code}}</td>
+        <td class="text-left table-subject-width">{{learnedLesson.name}}</td>
+        <td class="text-left table-prManager-width">{{learnedLesson.owner.name}}</td>
+        <td class="text-left table-processGroup-width">{{learnedLesson.processGroup ? (('PROCESS_GROUP.' + learnedLesson.processGroup) | translate) : ''}}</td>
+        <td class="text-left table-knowledgeArea-width">{{learnedLesson.knowledgeArea.name}}</td>
+        <td class="text-left table-type-width">{{learnedLesson.type ? (('TYPE.' + learnedLesson.type ) | translate) : ''}}</td>
+        <td class="text-center table-actions-width">
+          {{learnedLesson.actions.length}}
+        </td>
+        <td class="text-center table-recommendations-width">
+          {{ learnedLesson.recommendations.length}}
+        </td>
+        <td class="text-center table-ranking-width">
+          {{learnedLesson.ranking}}
+        </td>
+        <td class="text-center table-LLAA-buttons-width">
+        <img class="link" src="images/openppm-old/table/view.png" ng-click="viewLessonLearnedDetail(learnedLesson);getViewObject();"
+             title="{{ 'TABLE.VIEW' | translate:translations['LEARNED_LESSON'] }}" translate-values="getViewObject()">
+        &nbsp;&nbsp;&nbsp;
+        <img ng-if="user.profile.code === CONSTANTS.RESOURCE_PROFILES.PMO ||
+                    (user.profile.code === CONSTANTS.RESOURCE_PROFILES.PROGRAM_MANAGER && llaaInPrograms(user.programs, learnedLesson.program))"
+             ng-click = "deleteLearnedLesson(learnedLesson)"
+             title="{{ 'TABLE.DELETE' | translate:translations['LEARNED_LESSON'] }}" class="link" src="images/openppm-old/table/delete.jpg">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--Link learned lesson projects table-->
+  <div id="projectLinkPanelScrollAnchor"></div>
+  <div ng-show="linkEnabled">
+    <div class="panel panel-default">
+      <div class="panel-heading"> <div translate="VIEW.LEARNED_LESSON.LINK_PANEL_TITLE"></div> </div>
+
+      <div class="panel-body">
+
+        <og-filter-project ng-model="projectSearch" on-find="findProjects()" ng-engine="ngEngine" in-linking="true"></og-filter-project>
+
+        <p>&nbsp;</p>
+
+        <div id="projectTableScrollAnchor"></div>
+
+        <div ng-show="projects.length > 0">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-inline">
+                <label class="control-label" translate="TABLE.DISPLAY"></label>
+                <select class="form-control old-field old-input-height display-number-elements" ng-model="projectDisplayCount" ng-change = "updateProjectDisplayCount()">
+                  <option value="10" selected="selected">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <table id="projectTable" ng-table="projectTableParams"  template-pagination="custom/pager" class=" top-row-buffer table" >
+            <thead>
+              <th class="hidden"></th>
+              <th class="old-top-left-border-round table-check-width"><div></div></th>
+              <th ng-repeat="projectColumnName in projectColumnNames"
+                  class="sortable"
+                  ng-class="linkGetSortingClass(projectColumnName)"
+                  ng-click="linkSortTable(projectColumnName)">
+                <div>
+                <span><span translate="{{projectColumnName}}"> </span><i ng-class="linkSortIndicator(projectColumnName)"></i></span>
+                </div>
+              </th>
+            </thead>
+            <tbody>
+              <tr ng-class-even="'even'" ng-repeat = "project in $data"  ng-click="project.selected=!project.selected">
+                <td class="hidden"></td>
+                <td class="text-center">
+                  <div class="checkbox" style="margin: -5px -5px -5px -5px">
+                    <label>
+                        <input type="checkbox" ng-model="project.selected" ng-click="$event.stopPropagation();"/>
+                    </label>
+                  </div>
+                </td>
+                <td class="text-center">{{project.code}}</td>
+                <td class="text-left">{{project.name}}</td>
+                <td class="text-left">{{project.projectManager.name}}</td>
+                <td class="text-center" translate="VIEW.PROJECT.STATUS.{{project.status}}"></td>
+                <td class="text-center">
+                  <span>{{project.poc | toPercentage}}</span>
+                </td>
+                <td class="text-right">
+                  <span>{{project.bac | toCurrency}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <div class="alert alert-info" role="alert" ng-show="projects === undefined" translate="SEARCH.DEFAULT_MESSAGE"></div>
+        <div class="alert alert-warning" role="alert" ng-show="projects.length === 0" translate="SEARCH.NO_RESULTS"></div>
+
+        <div class="text-right">
+          <button type="button" class="btn-xs old-button" ng-show="projects.length > 0"
+                  ng-click="saveLinks();" translate="BUTTON.APPLY"></button>
+          <button type="button" class="btn-xs old-button"
+                  ng-click="refreshProjectTable();" translate="BUTTON.CANCEL"></button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/ng-template" id="custom/pager">
+  <div class="">
+    <div class="row">
+      <div style="margin-top: -10px" class="col-md-4">
+        <small>Showing {{params.showInfo.first}} - {{params.showInfo.last}} of {{params.total()}} </small>
+      </div>
+      <ul class="pager col-md-2 pull-right ng-cloak table-pager-position">
+        <li ng-repeat="page in pages"
+            ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+            ng-show="page.type == 'first' || page.type == 'prev' || page.type == 'more' || page.type == 'page'
+                        || page.type == 'next' || page.type == 'last'" ng-switch="page.type">
+          <label  ng-switch-when="first" class="firstLabel underline-text" translate="TABLE.FIRST"
+                 ng-click="params.page(page.number)">First</label>
+
+          <img ng-switch-when="first" class="firstArrow link" src="images/openppm-old/table/first.gif"
+               ng-click="params.page(page.number)">
+
+          <img ng-switch-when="prev" class="previousArrow link" src="images/openppm-old/table/previous.gif"
+               ng-click="params.page(page.number)">
+
+          <label ng-switch-when="page" class="pageNumber"
+                 ng-click="params.page(page.number)" href="">
+            <label class="underline-text" ng-bind="page.number"></label>
+          </label>
+
+          <label class="morePages" ng-switch-when="morePages more" ng-click="params.page(page.number)" href="">&#8230;</label>
+
+          <img ng-switch-when="next" class="nextArrow link" src="images/openppm-old/table/next.gif"
+               ng-click="params.page(page.number)">
+
+          <img ng-switch-when="last" class="lastArrow link" src="images/openppm-old/table/last.gif"
+               ng-click="params.page(page.number)">
+
+          <label ng-switch-when="last" class="lastLabel underline-text" translate="TABLE.LAST"
+                 ng-click="params.page(page.number)">Last</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</script>
+
+<!-- Form project link -->
+<form id="frm_projects" name="frm_projects" method="post" >
+  <input type="hidden" name="accion" value="" />
+  <input type="hidden" id="id" name="id" />
+</form>
+

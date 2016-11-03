@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: build
+  ~ File: web.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:42:43
+  -->
+
+<web-app version="2.5"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                        http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<display-name>OpenPPMWeb</display-name>
+	
+	<!--CharsetFilter start-->  
+	<filter> 
+		<filter-name>CharsetFilter</filter-name> 
+		<filter-class>es.sm2.openppm.utils.filters.CharsetFilter</filter-class>
+		<init-param> 
+			<param-name>requestEncoding</param-name> 
+			<param-value>UTF-8</param-value> 
+		</init-param> 
+	</filter>
+   
+	<filter-mapping> 
+		<filter-name>CharsetFilter</filter-name> 
+		<url-pattern>/*</url-pattern> 
+	</filter-mapping>
+	<!-- FINAL CharsetFilter start-->
+	
+	<!--@LoginConfig@-->
+	
+	<session-config>
+		<session-timeout>300</session-timeout>
+	</session-config>
+    
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>es.sm2.openppm.front.common.openppm</param-value>
+	</context-param>
+
+    <!-- REST API -->
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>es.sm2.openppm.api.rest</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+	<!-- END REST API -->
+	
+	<!-- GRANULE -->
+	<servlet>
+        <servlet-name>CompressServlet</servlet-name>
+        <servlet-class>com.granule.CompressServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CompressServlet</servlet-name>
+        <url-pattern>/combined.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompressServlet</servlet-name>
+        <url-pattern>/combined.css</url-pattern>
+    </servlet-mapping>
+	<!-- END GRANULE -->
+  
+	<servlet>
+		<display-name>Quartz Initializer Servlet</display-name>
+		<servlet-name>QuartzInitializer</servlet-name>
+		<servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
+		
+		<init-param>
+			<param-name>config-file</param-name>
+			<param-value>quartz.properties</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>shutdown-on-unload</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>start-scheduler-on-load</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  
+	<servlet>
+		<display-name>LoginServlet</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ErrorServlet</display-name>
+		<servlet-name>ErrorServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ErrorServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>HomeServlet</display-name>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.HomeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>MaintenanceServlet</display-name>
+		<servlet-name>MaintenanceServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.MaintenanceServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectServlet</display-name>
+		<servlet-name>ProjectServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectInitServlet</display-name>
+		<servlet-name>ProjectInitServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectInitServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectPlanServlet</display-name>
+		<servlet-name>ProjectPlanServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectPlanServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectControlServlet</display-name>
+		<servlet-name>ProjectControlServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectControlServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>TimeSheetServlet</display-name>
+		<servlet-name>TimeSheetServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.TimeSheetServlet</servlet-class>
+	</servlet>	
+	<servlet>
+		<display-name>AssignmentServlet</display-name>
+		<servlet-name>AssignmentServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.AssignmentServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ExpenseSheetServlet</display-name>
+		<servlet-name>ExpenseSheetServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ExpenseSheetServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProgramServlet</display-name>
+		<servlet-name>ProgramServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProgramServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>CalendarServlet</display-name>
+		<servlet-name>CalendarServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.CalendarServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>UtilServlet</display-name>
+		<servlet-name>UtilServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.UtilServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectRiskServlet</display-name>
+		<servlet-name>ProjectRiskServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectRiskServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectProcurementServlet</display-name>
+		<servlet-name>ProjectProcurementServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectProcurementServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>MyAccountServlet</display-name>
+		<servlet-name>MyAccountServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.MyAccountServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ProjectClosureServlet</display-name>
+		<servlet-name>ProjectClosureServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ProjectClosureServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ResourceServlet</display-name>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>AdministrationServlet</display-name>
+		<servlet-name>AdministrationServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.AdministrationServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ResourceCalendarServlet</display-name>
+		<servlet-name>ResourceCalendarServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ResourceCalendarServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>FollowProjectsServlet</display-name>
+		<servlet-name>FollowProjectsServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.FollowProjectsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ChangePOServlet</display-name>
+		<servlet-name>ChangePOServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ChangePOServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>RiskTemplatesServlet</display-name>
+		<servlet-name>RiskTemplatesServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.RiskTemplatesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>PriorizationProgramServlet</display-name>
+		<servlet-name>PriorizationProgramServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.PriorizationProgramServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ScenarioAnalysisServlet</display-name>
+		<servlet-name>ScenarioAnalysisServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ScenarioAnalysisServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>PluginServlet</display-name>
+		<servlet-name>PluginServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.PluginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ImageServlet</display-name>
+		<servlet-name>ImageServlet</servlet-name>
+		<servlet-class>es.sm2.openppm.front.servlets.ImageServlet</servlet-class>
+	</servlet>
+    <servlet>
+        <display-name>PaymentProjectsServlet</display-name>
+        <servlet-name>PaymentProjectsServlet</servlet-name>
+        <servlet-class>es.sm2.openppm.front.servlets.PaymentProjectsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>ProjectLearnedLessonServlet</display-name>
+        <servlet-name>ProjectLearnedLessonServlet</servlet-name>
+        <servlet-class>es.sm2.openppm.front.servlets.ProjectLearnedLessonServlet</servlet-class>
+    </servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ErrorServlet</servlet-name>
+		<url-pattern>/error</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MaintenanceServlet</servlet-name>
+		<url-pattern>/maintenance</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectServlet</servlet-name>
+		<url-pattern>/projects</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectInitServlet</servlet-name>
+		<url-pattern>/projectinit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectPlanServlet</servlet-name>
+		<url-pattern>/projectplan</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectControlServlet</servlet-name>
+		<url-pattern>/projectcontrol</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TimeSheetServlet</servlet-name>
+		<url-pattern>/timesheet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AssignmentServlet</servlet-name>
+		<url-pattern>/assignment</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ExpenseSheetServlet</servlet-name>
+		<url-pattern>/expensesheet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProgramServlet</servlet-name>
+		<url-pattern>/program</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CalendarServlet</servlet-name>
+		<url-pattern>/calendar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UtilServlet</servlet-name>
+		<url-pattern>/util</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectRiskServlet</servlet-name>
+		<url-pattern>/projectrisk</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectProcurementServlet</servlet-name>
+		<url-pattern>/projectprocurement</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MyAccountServlet</servlet-name>
+		<url-pattern>/myaccount</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProjectClosureServlet</servlet-name>
+		<url-pattern>/projectclosure</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/resource</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdministrationServlet</servlet-name>
+		<url-pattern>/administration</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResourceCalendarServlet</servlet-name>
+		<url-pattern>/resourcecalendar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FollowProjectsServlet</servlet-name>
+		<url-pattern>/followprojects</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChangePOServlet</servlet-name>
+		<url-pattern>/changepo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RiskTemplatesServlet</servlet-name>
+		<url-pattern>/risktemplates</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PriorizationProgramServlet</servlet-name>
+		<url-pattern>/priorizationprogram</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ScenarioAnalysisServlet</servlet-name>
+		<url-pattern>/scenarioanalysis</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PluginServlet</servlet-name>
+		<url-pattern>/plugin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ImageServlet</servlet-name>
+		<url-pattern>/imageData/*</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentProjectsServlet</servlet-name>
+        <url-pattern>/paymentprojects</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProjectLearnedLessonServlet</servlet-name>
+        <url-pattern>/projectlearnedlesson</url-pattern>
+    </servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>home</welcome-file>
+	</welcome-file-list>
+  
+	
+	<jsp-config> 
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/core_rt</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c-rt.tld</taglib-location>
+		</taglib>
+ 
+		<taglib>
+			<taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+			<taglib-location>/WEB-INF/tld/fmt-rt.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+	<resource-ref>
+		<description>
+		  Resource reference to a factory for javax.mail.Session
+		  instances that may be used for sending electronic mail
+		  messages, preconfigured to connect to the appropriate
+		  SMTP server.
+		</description>
+		<res-ref-name>mail/Session</res-ref-name>
+		<res-type>javax.mail.Session</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error?accion=403</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error?accion=404</location>
+	</error-page>
+		<error-page>
+		<error-code>408</error-code>
+		<location>/error?accion=408</location>
+	</error-page>
+	<error-page>
+		<error-code>400</error-code>
+		<location>/error?accion=400</location>
+	</error-page>
+	
+</web-app>

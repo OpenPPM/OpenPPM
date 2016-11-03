@@ -1,0 +1,70 @@
+
+.old-text-inputs {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  text-decoration: none;
+  border: 1px solid #999999;
+  margin-left: 3px;
+  margin-right: 4px;
+  border-radius: 5px;
+  padding: 2px;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.07) inset;
+}
+
+input:enabled {
+  background-color: white !important;
+}
+
+.old-input-height {
+  max-height: 20px;
+}
+.old-field {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  text-decoration: none;
+  border: 1px solid #999999;
+  margin-left: 3px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 2px;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.07) inset;
+  background: #FFF !important;
+}
+
+input[disabled] {
+  background-color: #eee !important;
+  opacity: 1 !important;
+}
+
+/* Hide the default chrome datepicker */
+input[type="date"]::-webkit-calendar-picker-indicator{
+  display:none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="date"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the default input number arrows */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+div.datepicker > input {
+
+  width: 100px !important;
+}
+
+.search-width {
+
+  width: 300px;
+}

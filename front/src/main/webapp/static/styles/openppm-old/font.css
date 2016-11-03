@@ -1,0 +1,20 @@
+.old-label-letter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: bold;
+  color: #2F67AD;
+  padding-left: 1px;
+  text-align: left;
+
+}
+
+.old-page-title {
+  font-size: 16px;
+  color: #2F67AD;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  background-color: #FFFFFF;
+  padding: 5px 5px 20px;
+}

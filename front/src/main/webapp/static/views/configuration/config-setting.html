@@ -1,0 +1,61 @@
+
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: audit.html
+  ~ Create User: javier.hernandez
+  ~ Create Date: 16/09/2015 10:21:52
+  -->
+
+<div class="panel panel-primary">
+  <div class="panel-heading" translate="VIEW.CONFIGURATION.{{configuration.name}}.TITLE"></div>
+
+  <div class="panel-body" ng-show="alert.show">
+    <alert type="{{alert.type}}" close="alert.show = false">
+      <span translate="{{alert.label}}"></span>
+    </alert>
+  </div>
+  <table class="table table-striped">
+    <caption>
+      <i class="glyphicon glyphicon-info-sign"></i>
+      <span translate="VIEW.CONFIGURATION.{{configuration.name}}.INFO_HELP"></span>
+    </caption>
+    <tr>
+      <th translate="VIEW.CONFIGURATION.NAME"></th>
+      <th translate="FORM.VALUE"></th>
+    </tr>
+    <tr ng-repeat="(name, value) in configuration.settingList">
+      <td>
+        <span translate="VIEW.CONFIGURATION.{{configuration.name}}.{{name}}.NAME"></span>
+        <span tooltip="{{'VIEW.CONFIGURATION.'+configuration.name+'.'+name+'.INFO' | translate }}">
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </span>
+      </td>
+      <td>
+        <input type="input" ng-model="configuration.settingList[name]" class="form-control">
+      </td>
+    </tr>
+  </table>
+
+  <div class="panel-footer text-right">
+    <button class="btn btn-primary" ng-click="save()" translate="BUTTON.SAVE_CHANGES"></button>
+  </div>
+</div>

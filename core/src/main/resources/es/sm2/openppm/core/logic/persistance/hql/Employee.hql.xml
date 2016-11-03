@@ -1,0 +1,86 @@
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Employee.hql.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<HibernateQueryLanguage>
+	<querys>
+		<query key="FIND_UNSIGNED">
+			<statement>
+                SELECT DISTINCT e FROM Employee e
+                    JOIN FETCH e.contact c
+                    LEFT JOIN e.teammembers t
+                    LEFT JOIN e.jobcatemployees jce
+                    LEFT JOIN jce.jobcategory jc
+            </statement>
+			<restrictions>
+				<restriction key="IN_POOLS">
+                    <statement>
+                        e.resourcepool IN(:RESOURCEPOOL)
+                    </statement>
+                </restriction>
+                <restriction key="EXCLUDE_IN_DATES">
+                    <statement>
+                        e.idEmployee NOT IN(
+                            SELECT e.idEmployee
+                            FROM Teammember t
+                            JOIN t.projectactivity pa
+                            JOIN pa.project p
+                            LEFT JOIN p.employeeByProjectManager pm
+                            LEFT JOIN pm.contact pm_c
+                            JOIN t.employee e
+                            INNER JOIN e.contact c
+                            INNER JOIN e.resourcepool r
+                            WHERE
+                            t.status = :RESOURCE_ASSIGNED
+                            AND (
+                                t.dateIn BETWEEN :SINCE AND :UNTIL
+                                OR t.dateOut BETWEEN :SINCE AND :UNTIL
+                                OR (
+                                    t.dateIn &lt;= :SINCE
+                                    AND t.dateOut >= :UNTIL
+                                )
+                            )
+                        )
+                    </statement>
+                </restriction>
+                <restriction key="LIKE_NAME">
+                    <statement>
+                        lower(c.fullName) LIKE :FULLNAME
+                    </statement>
+                </restriction>
+                <restriction key="IN_CATEGORIES">
+                    <statement>
+                        jc.idJobCategory IN(:CATEGORIES)
+                    </statement>
+                </restriction>
+			</restrictions>
+			<orders>
+				<order key="BY_CONTACT_NAME">
+					<statement>c.fullName</statement>
+				</order>
+			</orders>
+		</query>
+	</querys>
+</HibernateQueryLanguage>

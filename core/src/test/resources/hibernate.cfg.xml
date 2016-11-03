@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: hibernate.cfg.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:48:29
+  -->
+
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <mapping resource="es/sm2/openppm/core/model/impl/Riskregister.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Customertype.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Assumptionregister.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectcalendar.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Timesheetcomment.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Workingcosts.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Calendarbase.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Chargescosts.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Operationaccount.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Riskcategories.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Customer.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Skillsemployee.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Program.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Security.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Changecontrol.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Metrickpi.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Milestones.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Expensesheet.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Seller.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectfollowup.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectcosts.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Directcosts.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Performingorg.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Procurementpayments.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Teammember.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Bscdimension.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Expenseaccounts.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectassociation.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Skill.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Setting.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Company.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Changetype.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Documentproject.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectactivity.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectkpi.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Operation.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Project.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Contracttype.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Plugin.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Fundingsource.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Geography.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Assumptionreassessmentlog.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Logprojectstatus.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Riskreassessmentlog.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Iwo.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Activityseller.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectcalendarexceptions.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Timesheet.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Incomes.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Expensesheetcomment.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Category.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Documentation.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Stakeholder.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Resourceprofiles.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Contentfile.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectclosure.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Expenses.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Contact.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Issuelog.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Wbsnode.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Employee.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Budgetaccounts.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectcharter.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Calendarbaseexceptions.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Checklist.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Employeeoperationdate.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Historickpi.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Wbstemplate.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Currency.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectfundingsource.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Historicrisk.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Businessdriver.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Businessdriverset.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Riskregistertemplate.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Jobcategory.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Jobcatemployee.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Label.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projectlabel.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Stagegate.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Configuration.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Resourcepool.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Managepool.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Timeline.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Executivereport.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Stakeholderclassification.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Contactnotification.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Notification.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Pluginconfiguration.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Milestonetype.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Changerequestwbsnode.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Riskcategory.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Classificationlevel.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Pluginfile.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Companyfile.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Milestonecategory.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Closurecheck.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Closurecheckproject.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Problemcheck.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Problemcheckproject.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/ProjectData.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Technology.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Projecttechnology.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/KnowledgeArea.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Profile.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/LearnedLesson.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/LearnedLessonLink.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/LearnedLessonProject.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/ActionLesson.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/RecommendationLesson.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Notificationtype.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Notificationprofile.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Notificationproject.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Notificationemployee.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Audit.hbm.xml"/>
+  <mapping resource="es/sm2/openppm/core/model/impl/Timelinetype.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

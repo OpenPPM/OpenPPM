@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Projectcharter.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:04
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Projectcharter" table="projectcharter">
+        <id name="idProjectCharter" type="java.lang.Integer">
+            <column name="IdProjectCharter" />
+            <generator class="native">
+                <param name="sequence">projectcharter_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="project" class="es.sm2.openppm.core.model.impl.Project" fetch="select">
+            <column name="IdProject" not-null="true" />
+        </many-to-one>
+        <property name="businessNeed" type="string">
+            <column name="BusinessNeed" length="1500" />
+        </property>
+        <property name="projectObjectives" type="string">
+            <column name="ProjectObjectives" length="1500" />
+        </property>
+        <property name="sucessCriteria" type="string">
+            <column name="SucessCriteria" length="1500" />
+        </property>
+        <property name="mainConstraints" type="string">
+            <column name="MainConstraints" length="1500" />
+        </property>
+        <property name="milestones" type="string">
+            <column name="Milestones" length="200" />
+        </property>
+        <property name="mainAssumptions" type="string">
+            <column name="MainAssumptions" length="1500" />
+        </property>
+        <property name="mainRisks" type="string">
+            <column name="MainRisks" length="1500" />
+        </property>
+        <property name="exclusions" type="string">
+            <column name="exclusions" length="1500" />
+        </property>
+        <property name="mainDeliverables" type="string">
+            <column name="mainDeliverables" length="1500" />
+        </property>
+    </class>
+</hibernate-mapping>

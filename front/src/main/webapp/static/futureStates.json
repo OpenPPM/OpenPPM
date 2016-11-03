@@ -1,0 +1,91 @@
+[
+  {
+    "name": "not-allowed",
+    "url": "/not-allowed",
+    "templateUrl": "views/common/not-allowed.html",
+    "type": "resolveStateView"
+  },
+  {
+    "name": "error",
+    "url": "/error",
+    "templateUrl": "views/common/error.html",
+    "type": "resolveState",
+    "src": "ErrorCtrl"
+  },
+  {
+    "name": "document",
+    "url": "/document",
+    "templateUrl": "views/common/document.html",
+    "type": "resolveState",
+    "src": "DocumentCtrl"
+  },
+
+  {
+    "name": "management-operation",
+    "url": "/management-operation",
+    "templateUrl": "views/management/management-operation.html",
+    "type": "resolveState",
+    "src": "ManagementOperationCtrl"
+  },
+
+  {
+    "name": "learned-lessons",
+    "url": "/learned-lessons",
+    "templateUrl": "views/learned-lessons/learned-lessons.html",
+    "type": "resolveState",
+    "src": "LearnedLessonCtrl"
+  },
+  {
+    "name": "learned-lessons-detail",
+    "url": "/learned-lesson/detail/:code?toProject&codeProject&notEditable",
+    "templateUrl": "views/learned-lessons/learned-lesson-detail.html",
+    "type": "resolveState",
+    "src": "LearnedLessonDetailCtrl"
+  },
+
+  {
+    "name": "notification-list",
+    "url": "/notification-list",
+    "templateUrl": "views/notifications/notification-list.html",
+    "type": "resolveState",
+    "src": "NotificationListCtrl"
+  },
+  {
+    "name": "notification-user",
+    "url": "/notification-user",
+    "templateUrl": "views/notifications/notification-user.html",
+    "type": "resolveState",
+    "src": "NotificationUserCtrl"
+  },
+  {
+    "name": "notification-admin",
+    "url": "/notification-admin",
+    "templateUrl": "views/notifications/notification-admin.html",
+    "type": "resolveState",
+    "src": "NotificationAdminCtrl"
+  },
+
+  {
+    "name": "audit-project-data",
+    "url": "/audit/project-data",
+    "templateUrl": "views/audit/project-data.html",
+    "type": "resolveState",
+    "src": "AuditProjectDataCtrl"
+  },
+
+  {
+    "name": "config-setting",
+    "url": "/config/setting/:name",
+    "templateUrl": "views/configuration/config-setting.html",
+    "type": "resolveState",
+    "src": "ConfigSettingCtrl"
+  },
+
+  {
+    "name": "configuration-audit",
+    "url": "/configuration/audit",
+    "templateUrl": "views/configuration/audit.html",
+    "type": "resolveState",
+    "src": "ConfigurationAuditCtrl"
+  }
+]

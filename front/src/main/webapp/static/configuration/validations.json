@@ -1,0 +1,22 @@
+{
+  "LearnedLesson": {
+    "type": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "description": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "dateRaised": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "name": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "knowledgeArea": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "impactTime": { "digits": { "integer": 15, "fraction": 1, "message": "VALIDATION.WRONG_FORMAT" } },
+    "impactCost": { "digits": { "integer": 15, "fraction": 2, "message": "VALIDATION.WRONG_FORMAT" } }
+  },
+
+  "ActionLesson": {
+    "name": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "importance": { "required": { "message": "VALIDATION.REQUIRED" } }
+  },
+
+  "RecommendationLesson": {
+    "name": { "required": { "message": "VALIDATION.REQUIRED" } },
+    "importance": { "required": { "message": "VALIDATION.REQUIRED" } }
+  }
+
+}

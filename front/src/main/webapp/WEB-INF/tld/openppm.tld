@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: openppm.tld
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:48:27
+  -->
+
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+ <description>Openppm utils for JSTL</description>
+ <display-name>Openppm</display-name>
+ <tlib-version>1.1</tlib-version>
+ <short-name>op</short-name>
+ <uri>Openppm</uri>
+ <function>
+  <description>Get ES</description>
+  <name>getES</name>
+  <function-class>es.sm2.openppm.front.utils.OpenppmUtil</function-class>
+  <function-signature>int getES(java.util.List, es.sm2.openppm.core.model.impl.Projectfollowup)</function-signature>
+  <example>${op:getES(listFollowups, followup)}</example>
+ </function>
+ <function>
+  <description>return true if has permission</description>
+  <name>hasPermission</name>
+  <function-class>es.sm2.openppm.front.utils.SecurityUtil</function-class>
+  <function-signature>boolean hasPermission(es.sm2.openppm.core.model.impl.Employee, java.lang.String, int)</function-signature>
+  <example>${op:hasPermission(userRol,statusProject,projectTab)}</example>
+ </function>
+  <function>
+  <description>return true if has permission</description>
+  <name>hasPermissionSetting</name>
+  <function-class>es.sm2.openppm.front.utils.SecurityUtil</function-class>
+  <function-signature><![CDATA[boolean hasPermissionSetting(java.util.HashMap, es.sm2.openppm.core.model.impl.Employee, java.lang.String, int)]]></function-signature>
+  <example>${hasPermissionSetting(settings, userRol,statusProject,projectTab)}</example>
+ </function>
+ <function>
+  <description>return true if is Exception Day</description>
+  <name>isExceptionDay</name>
+  <function-class>es.sm2.openppm.front.utils.OpenppmUtil</function-class>
+  <function-signature>boolean isExceptionDay(java.util.Date, java.lang.Integer, java.lang.Integer, java.lang.Integer)</function-signature>
+  <example>${op:isException(initDate,dayOfWeek,idActivity,idEmployee)}</example>
+ </function>
+ <function>
+  <description>return true if is Work Day</description>
+  <name>isWorkDay</name>
+  <function-class>es.sm2.openppm.front.utils.OpenppmUtil</function-class>
+  <function-signature>boolean isWorkDay(java.util.Date, java.lang.Integer, java.lang.Integer, es.sm2.openppm.core.model.impl.Employee)</function-signature>
+  <example>${op:isWorkDay(initDate,dayOfWeek,idActivity, employee)}</example>
+ </function>
+ <function>
+  <description>Get status actual level</description>
+  <name>getStatusResource</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>java.lang.String getStatusResource(java.lang.Integer, java.lang.Integer,java.util.Date, java.util.Date, java.lang.String, java.lang.String, es.sm2.openppm.core.model.impl.Employee)</function-signature>
+  <example>${op:getStatusResource(idEmployee,idProject,initDate, endDate, status, approveLevel, filterUser)}</example>
+ </function>
+ <function>
+  <description>Get Hours resource</description>
+  <name>getHoursResource</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>double getHoursResource(java.lang.Integer, java.lang.Integer,java.util.Date, java.util.Date, es.sm2.openppm.core.model.impl.Employee, int)</function-signature>
+  <example>${op:getHoursResource(idEmployee,idProject,initDate, endDate, filterUser, approveLevel)}</example>
+ </function>
+ 
+ <function>
+  <description>Get Hours resource by operation</description>
+  <name>getHoursResourceOperation</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>double getHoursResourceOperation(java.lang.Integer,java.util.Date, java.util.Date)</function-signature>
+  <example>${op:getHoursResource(idEmployee,initDate, endDate)}</example>
+ </function>
+ 
+ <function>
+  <description>Get status actual level for Expenses</description>
+  <name>getStatusResourceExpense</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>java.lang.String getStatusResourceExpense(java.lang.Integer, java.lang.Integer, java.util.Date, java.lang.String, java.lang.String, es.sm2.openppm.core.model.impl.Employee)</function-signature>
+  <example>${op:getStatusResourceExpense(idEmployee,idProject,sheetDate, status, approveLevel, filterUser)}</example>
+ </function>
+ <function>
+  <description>Get Cost resource Expense Sheet</description>
+  <name>getCostResource</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>int getCostResource(java.lang.Integer, java.lang.Integer, java.util.Date, es.sm2.openppm.core.model.impl.Employee, int)</function-signature>
+  <example>${op:getCostResource(idEmployee,idProject,sheetDate, filterUser, approveRol)}</example>
+ </function>
+ <function>
+  <description>Check if plugin is activated</description>
+  <name>isPluginActivated</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>boolean isPluginActivated(java.lang.String, java.util.HashMap)</function-signature>
+  <example>${op:isPluginActivated(keyPlugin,plugins)}</example>
+ </function>
+  <function>
+  <description>Check if char equals</description>
+  <name>isCharEquals</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>boolean isCharEquals(char, char)</function-signature>
+  <example>${op:isCharEquals(char1,char2)}</example>
+ </function>
+ <function>
+  <description>Check if String equals</description>
+  <name>isStringEquals</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>boolean isStringEquals(java.lang.String, java.lang.String)</function-signature>
+  <example>${op:isStringEquals(string1,string2)}</example>
+ </function>
+
+  <function>
+  <description>Generate breaks</description>
+  <name>generateBreak</name>
+  <function-class>es.sm2.openppm.front.utils.JstlUtil</function-class>
+  <function-signature>java.lang.String generateBreak(java.lang.String)</function-signature>
+  <example>${op:generateBreak(value)}</example>
+ </function>
+</taglib>

@@ -1,0 +1,412 @@
+
+<!--
+~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+~ This program is free software: you can redistribute it and/or modify
+~ it under the terms of the GNU General Public License as published by
+~ the Free Software Foundation, either version 3 of the License, or
+~ (at your option) any later version.
+~
+~ This program has been created in the hope that it will be useful.
+~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+~ without even the implied warranty of
+~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+~ See the GNU General Public License for more details.
+~
+~ You should have received a copy of the GNU General Public License
+~ along with this program. If not, see http://www.gnu.org/licenses/.
+~
+~ For more information, please contact SM2 Software & Services Management.
+~ Mail: info@talaia-openppm.com
+~ Web: http://www.talaia-openppm.com
+~
+~ Module: front
+~ File: learned-lesson-detail.html
+~ Create User: francisco.bisquerra
+~ Create Date: 06/08/2015 9:39:21
+-->
+
+
+  <div class="container-fluid top-row-buffer bottom-row-buffer">
+
+    <div class="row container-fluid top-row-buffer bottom-row-buffer" ng-show="learnedLesson.project !== undefined" >
+      <fieldset class="fieldset">
+        <legend class="scheduler-border">{{learnedLesson.project.name}}</legend>
+        <div class="row">
+          <div class="form-group col-md-2 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.STATUS.NAME"></label>
+            <div translate="VIEW.PROJECT.STATUS.{{learnedLesson.project.status}}"></div>
+          </div>
+          <div class="form-group col-md-3 text-center">
+            <label class="old-label-letter" translate="RESOURCE_PROFILES.PROGRAM_MANAGER"></label>
+            <div>{{learnedLesson.project.program.programManager.name}}</div>
+          </div>
+          <div class="form-group col-md-2 text-center">
+            <label class="old-label-letter" translate="RESOURCE_PROFILES.PROJECT_MANAGER"></label>
+            <div>{{learnedLesson.project.projectManager.name}}</div>
+          </div>
+          <div class="form-group col-md-3 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.EXECUTION_MANAGER"></label>
+            <div>{{learnedLesson.project.sponsor.name}}</div>
+          </div>
+          <div class="form-group col-md-2 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.PERFORMING_ORGANIZATION"></label>
+            <div>{{learnedLesson.project.performingorg.name}}</div>
+          </div>
+        </div>
+        <div class="row top-row-buffer">
+          <div class="form-group col-md-2 text-center ">
+            <label class="old-label-letter" translate="VIEW.PROJECT.BAC"></label>
+            <div>{{(learnedLesson.project.bac | toCurrency) }}</div>
+          </div>
+          <div class="form-group col-md-3 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.PROGRAM"></label>
+            <div>{{learnedLesson.project.program.name}}</div>
+          </div>
+          <div class="form-group col-md-2 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.CUSTOMER"></label>
+            <div>{{learnedLesson.project.customer.name}}</div>
+          </div>
+          <div class="form-group col-md-3 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.GEOGRAPHY"></label>
+            <div>{{learnedLesson.project.geography.name}}</div>
+          </div>
+          <div class="form-group col-md-2 text-center">
+            <label class="old-label-letter" translate="VIEW.PROJECT.CONTRACT_TYPE"></label>
+            <div>{{learnedLesson.project.contracttype.name}}</div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class=" panel panel-default">
+
+      <div class="panel-heading">
+        <div ng-if="learnedLesson.project === undefined" translate="VIEW.LEARNED_LESSON.GLOBAL"></div>
+        <div ng-if="learnedLesson.project !== undefined" translate="VIEW.LEARNED_LESSON.SPECIFIC"></div>
+      </div>
+
+      <div class="panel-body">
+        <form name="validationForm" ng-class="{'ng-submitted': lessonSubmit}" novalidate valdr-type="LearnedLesson">
+        <div class="row top-row-buffer">
+          <div class="form-group col-md-1" ng-show="learnedLesson.code">
+            <label class="old-label-letter"><span translate="VIEW.LEARNED_LESSON.ID"></span>*</label>
+            <input type="text" disabled class="form-control old-text-inputs old-input-height" name="code" ng-model="learnedLesson.code">
+          </div>
+          <div class="form-group col-md-2" valdr-form-group>
+            <label class="old-label-letter"><span translate="VIEW.LEARNED_LESSON.DATE_RAISED"></span> *</label>
+            <div class="form-inline datepicker">
+              <input name="dateRaised" show-button-bar="false" show-weeks="false" date-type="string"
+                     type="text" class="col-md-10 col-sm-11 col-xs-11 old-input-height old-text-inputs" datepicker-popup="dd/MM/yyyy"
+                     ng-model="learnedLesson.dateRaised" is-open="filters.create.untilOpened" datepicker-options="{'starting-day': 1}"
+                     close-text="Close" ng-disabled='notEditable'/>
+              <img src="images/openppm-old/calendar/calendar.png" ng-click="filters.create.untilOpened = true" ng-hide="notEditable">
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label class="old-label-letter"><span translate="VIEW.PROJECT.OWNER"></span>*</label>
+            <input type="text" disabled class="form-control old-text-inputs old-input-height" ng-model="learnedLesson.owner.name" name="owner.name">
+          </div>
+          <div class="form-group col-md-3">
+            <label class="old-label-letter"><span translate="VIEW.LEARNED_LESSON.JOB_PROFILE"></span></label>
+            <select  ng-model="learnedLesson.profile" ng-options="profile.name for profile in profiles track by profile.code" type=""
+                     class="form-control old-text-inputs old-input-height" name="profile" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row top-row-buffer" ng-show="!projectRelated">
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.PROJECT.PROGRAM"></label>
+            <select ng-model="learnedLesson.program" ng-options="program.name for program in programs track by program.code" type=""
+                    class="form-control old-text-inputs old-input-height" name="program" ng-disabled='isDisabledProgramManager()'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.PROJECT.CUSTOMER"></label>
+            <select  ng-model="learnedLesson.customer" ng-options="customer.name for customer in customers track by customer.code" type=""
+                     class="form-control old-text-inputs old-input-height" name="customer" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.PROJECT.SELLER"></label>
+            <select  ng-model="learnedLesson.seller" ng-options="seller.name for seller in sellers track by seller.code" type=""
+                     class="form-control old-text-inputs old-input-height" name="seller" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.PROJECT.CONTRACT_TYPE"></label>
+            <select  ng-model="learnedLesson.contractType" ng-options="contractType.description for contractType in contractTypes track by contractType.code" type=""
+                     class="form-control old-text-inputs old-input-height" name="contractType" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.PROJECT.GEOGRAPHY"></label>
+            <select  ng-model="learnedLesson.geography" ng-options="geography.name for geography in geographies track by geography.code" type=""
+                     class="form-control old-text-inputs old-input-height" name="geography" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+
+          <!-- does not exist in DTO -->
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.PROJECT.FUNDING_SOURCE"></label>
+            <select  ng-model="learnedLesson.fundingSource"
+                     ng-options="fundingSource.name for fundingSource in fundingSources track by fundingSource.code"
+                     class="form-control old-text-inputs old-input-height" name="fundingSource" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row top-row-buffer">
+          <div class="form-group col-md-3" valdr-form-group>
+            <label class="old-label-letter" ><span translate="VIEW.LEARNED_LESSON.SUBJECT"></span> *</label>
+            <input  type="text" name="name"
+                    class="form-control old-text-inputs old-input-height"
+                    ng-model="learnedLesson.name" ng-disabled='notEditable'>
+
+          </div>
+          <div class="form-group col-md-3" valdr-form-group>
+            <label class="old-label-letter" ><span translate="TYPE.NAME"></span>*</label>
+            <select name="type"
+                    ng-model="learnedLesson.type"
+                    ng-options="type as 'TYPE.'+type | translate for type in types track by type"
+                    class="form-control old-text-inputs old-input-height" ng-disabled='notEditable'>
+              <option value=""translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-3" valdr-form-group>
+            <label class="old-label-letter"><span translate="VIEW.LEARNED_LESSON.KNOWLEDGE_AREA"></span> *</label>
+            <select  ng-model="learnedLesson.knowledgeArea" ng-options="knowledgeArea.name for knowledgeArea in knowledgeAreas track by knowledgeArea.code"
+                     class="form-control old-text-inputs old-input-height" name="knowledgeArea" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label class="old-label-letter" translate="PROCESS_GROUP.NAME"></label>
+            <select  ng-model="learnedLesson.processGroup"
+                     ng-options="processGroup as 'PROCESS_GROUP.'+processGroup | translate for processGroup in processGroups track by processGroup"
+                     class="form-control old-text-inputs old-input-height" name="processGroup" ng-disabled='notEditable'>
+                <option value="" translate="FORM.SELECT_ONE"></option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row top-row-buffer">
+          <div class="form-group col-md-12" valdr-form-group>
+            <label class="old-label-letter"><span translate="VIEW.LEARNED_LESSON.DESCRIPTION"></span>*</label>
+                  <textarea name="description" class="form-control old-text-inputs old-non-resizable"
+                             rows="5" ng-model="learnedLesson.description" ng-required="true" ng-disabled='notEditable'>
+                  </textarea>
+          </div>
+        </div>
+
+        <div class="row top-row-buffer">
+          <div class="form-group col-md-2" valdr-form-group>
+            <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPACT_TIME"></label>
+            <input ng-class=""
+                   type="number" class="form-control old-text-inputs old-input-height" name="impactTime"
+                   ng-model="learnedLesson.impactTime" novalidate ng-disabled='notEditable'>
+          </div>
+          <div class="form-group col-md-2" valdr-form-group>
+            <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPACT_COST"></label>
+            <input type="number" class="form-control old-text-inputs old-input-height" name="impactCost"
+                   ng-model="learnedLesson.impactCost" ng-disabled='notEditable'>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="old-label-letter" translate="VIEW.LEARNED_LESSON.IMPACT_SATISFACTION"></label>
+            <select class="form-control old-text-inputs old-input-height" name="impactSatisfaction"
+                    ng-options="impactSatisfaction as 'IMPACT_ON_SATISFACTION.'+impactSatisfaction | translate for impactSatisfaction in impactSatisfactions track by impactSatisfaction"
+                    ng-class="{'low-color': learnedLesson.impactSatisfaction == 'MINOR', 'medium-color': learnedLesson.impactSatisfaction == 'MODERATE',
+                                 'high-color': learnedLesson.impactSatisfaction == 'HIGH'}"
+                    ng-model="learnedLesson.impactSatisfaction" ng-disabled='notEditable'>
+              <option value="" translate="FORM.SELECT_ONE" ></option>
+            </select>
+          </div>
+        </div>
+
+      </form>
+
+        <table class="table top-row-buffer" id="idActionsTable"  ng-table="actionsTableParams"  template-pagination="custom/pager">
+
+          <thead>
+            <th class="hidden"></th>
+            <th ng-repeat="actionLessonField in columnNamesActions" class="sortable"
+                ng-class="getSortingClassActions(actionLessonField)" ng-click="sortTableAcitons(actionLessonField)">
+              <div>
+                <span><span translate="{{actionLessonField}}"></span>*<i ng-class="actionLessonSortIndicator(actionLessonField)"></i></span>
+              </div>
+            </th>
+            <th class="old-top-right-border-round table-buttons-width" rowspan="2" ng-hide="notEditable">
+              <div>
+                <img title="New" class="link" src="images/openppm-old/table/add.png" ng-click="addActionLesson()">
+                </nobr>
+              </div>
+            </th>
+          </thead>
+
+          <tbody>
+            <tr ng-form ="actionValidation" ng-class="{'ng-submitted': actionSubmit}" ng-class-even="'even'" ng-repeat = "actionLesson in $data" valdr-type="ActionLesson">
+              <td class="hidden" >{{actionLesson.code}}</td>
+              <td class="text-left table-description-width">
+                <span ng-show="!actionLesson.$edit">{{actionLesson.name}}</span>
+                <div valdr-form-group>
+                  <textarea ng-show="actionLesson.$edit" class="form-control old-text-inputs"
+                         ng-model="actionLesson.name" name="name" rows="3">
+                  </textarea>
+                </div>
+              </td>
+              <td class="text-center table-importance-width">
+                <div ng-class="{'low-color': actionLesson.importance    == 'MINOR',
+                                'medium-color': actionLesson.importance == 'MODERATE',
+                                'high-color': actionLesson.importance   == 'HIGH'}"
+                     ng-show="!actionLesson.$edit"
+                     translate="IMPORTANCE.{{actionLesson.importance}}">
+                </div>
+                <div valdr-form-group>
+                  <select ng-show="actionLesson.$edit" class="form-control old-select-field old-input-height"
+                          ng-class="{ 'low-color': actionLesson.importance    == 'MINOR',
+                                      'medium-color': actionLesson.importance == 'MODERATE',
+                                      'high-color': actionLesson.importance   == 'HIGH'}"
+                          ng-model="actionLesson.importance" name="importance"
+                          ng-options="importance as 'IMPORTANCE.'+importance | translate for importance in importance track by importance">
+                        <option value="" translate="FORM.SELECT_ONE" ></option>
+                  </select>
+                </div>
+              </td>
+              <td class = "text-center table-buttons-width" ng-hide="notEditable">
+                <div ng-show="!actionLesson.$edit" class="buttons">
+                  <img title="view" class="link" src="images/openppm-old/table/view.png" ng-click="actionLesson.$edit = true">
+                  &nbsp;&nbsp;&nbsp;
+                  <img title="delete" class="link" src="images/openppm-old/table/delete.jpg" ng-click="deleteActionLesson(actionLesson)">
+                </div>
+                <div class="form-inline" ng-show="actionLesson.$edit">
+                  <button class="btn-xs" type="button" ng-click="saveActionLesson(actionLesson, actionValidation.$valid); actionSubmit = true" ><span translate="BUTTON.SAVE"></span></button>
+                  <button class="btn-xs" type="button" ng-click="cancelActionLesson(actionLesson)" ><span translate="BUTTON.CANCEL"></span></button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <table class="table top-row-buffer" id="idRecommendationsFuture" ng-table="recommendationsTableParams"  template-pagination="custom/pager">
+          <thead>
+
+          <th class="hidden"></th>
+          <th ng-repeat="recommendationsField in columnNamesRecommendations"
+              class="sortable"
+              ng-class="getSortingClassRecommendations(recommendationsField)"
+              ng-click="sortTableRecommendations(recommendationsField)">
+            <div>
+              <span><span translate="{{recommendationsField}}"></span>*<i ng-class="recommendationSortIndicator(recommendationsField)"></i></span>
+            </div>
+          </th>
+          <th class="old-top-right-border-round table-buttons-width" ng-hide="notEditable" rowspan="2">
+            <div>
+              <img title="New" class="link" src="images/openppm-old/table/add.png" ng-click="addRecommendationLesson()">
+              <nobr />
+            </div>
+          </th>
+          </thead>
+
+          <tbody>
+
+          <tr ng-form ="recommendationValidation" ng-class="{'ng-submitted': recommendationSubmit}"
+              ng-class-even="'even'" ng-repeat = "recommendation in $data" valdr-type="RecommendationLesson">
+            <td class="hidden">{{recommendation.code}}</td>
+            <td class="text-left table-description-width">
+              <span ng-show="!recommendation.$edit">{{recommendation.name}}</span>
+              <div valdr-form-group>
+                <textarea ng-show="recommendation.$edit" class="form-control old-text-inputs"
+                          ng-model="recommendation.name" name="name" rows="3">
+                </textarea>
+              </div>
+            </td>
+            <td class="text-center table-importance-width">
+              <div  ng-class="{'low-color': recommendation.importance == 'MINOR', 'medium-color': recommendation.importance == 'MODERATE',
+                               'high-color': recommendation.importance == 'HIGH'}" ng-show="!recommendation.$edit"
+                    translate="IMPORTANCE.{{recommendation.importance}}">
+              </div>
+              <div valdr-form-group>
+                <select ng-show="recommendation.$edit" class="form-control old-select-field old-input-height"
+                        ng-class="{'low-color': recommendation.importance == 'MINOR', 'medium-color': recommendation.importance == 'MODERATE',
+                                   'high-color': recommendation.importance == 'HIGH'}" ng-model="recommendation.importance" name="importance"
+                        ng-options="importance as 'IMPORTANCE.'+importance | translate for importance in importance track by importance">
+                      <option value="" translate="FORM.SELECT_ONE" ></option>
+                </select>
+              </div>
+            </td>
+            <td class = "text-center table-buttons-width" ng-hide="notEditable">
+              <div ng-show="!recommendation.$edit" class="buttons">
+                <img title="view" class="link" src="images/openppm-old/table/view.png" ng-click="recommendation.$edit = true">
+                &nbsp;&nbsp;&nbsp;
+                <img title="delete" class="link" src="images/openppm-old/table/delete.jpg" ng-click="deleteRecommendationLesson(recommendation)">
+              </div>
+              <div class="form-inline" ng-show="recommendation.$edit">
+                <button class="btn-xs " type="button" ng-click="saveRecommendationChanges(recommendation, recommendationValidation.$valid); recommendationSubmit = true;" ><span translate="BUTTON.SAVE"></span></button>
+                <button class="btn-xs" type="button" ng-click="cancelRecommendationChanges(recommendation)"><span translate="BUTTON.CANCEL"></span> </button>
+              </div>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+        <div class="row top-row-buffer">
+          <div class="col-md-offset-10 col-md-2">
+            <div class="form-inline pull-right">
+              <button class="btn-xs old-button" type="button"
+                      ng-click="save(validationForm.$valid);
+                                lessonSubmit = true; actionSubmit = true; recommendationSubmit = true"
+                      ng-hide="notEditable" ><span translate="BUTTON.SAVE"></span></button>
+              <button class="btn-xs old-button" ng-click="cancel()" ><span translate="BUTTON.CANCEL"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Form project link -->
+<form id="frm_projects" name="frm_projects" method="post" >
+  <input type="hidden" name="accion" value="" />
+  <input type="hidden" id="id" name="id" />
+</form>
+
+<!-- Custom pagination template -->
+
+<script type="text/ng-template" id="custom/pager">
+
+  <div class="">
+    <div class="row">
+      <ul class="pager col-md-2 pull-right ng-cloak table-pager-position">
+        <li ng-repeat="page in pages"
+            ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+            ng-show="page.type == 'first' || page.type == 'prev' || page.type == 'more' || page.type == 'page'
+                        || page.type == 'next' || page.type == 'last'" ng-switch="page.type">
+
+          <label id="firstLabel" ng-switch-when="first" class="underline-text"  ng-click="params.page(page.number)">First</label>
+          <img id="firstArrow" ng-switch-when="first" class="link" src="images/openppm-old/table/first.gif"  ng-click="params.page(page.number)">
+          <img id="previousArrow" ng-switch-when="prev" class="link" src="images/openppm-old/table/previous.gif"  ng-click="params.page(page.number)" >
+          <label id="pageNumber" ng-switch-when="page" ng-click="params.page(page.number)" href="">
+            <label class="underline-text" ng-bind="page.number"></label>
+          </label>
+          <label id="morePages" ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</label>
+          <img id="nextArrow" ng-switch-when="next" class="link" src="images/openppm-old/table/next.gif" ng-click="params.page(page.number)">
+          <img id="lastArrow" ng-switch-when="last" class="link" src="images/openppm-old/table/last.gif"  ng-click="params.page(page.number)">
+          <label id="lastLabel" ng-switch-when="last" class="underline-text"  ng-click="params.page(page.number)">Last</label>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</script>
+

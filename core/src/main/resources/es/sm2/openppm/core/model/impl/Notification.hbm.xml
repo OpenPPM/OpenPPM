@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Notification.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Notification" table="notification">
+        <id name="idNotification" type="java.lang.Integer">
+            <column name="idNotification" />
+            <generator class="native">
+                <param name="sequence">notification_SEQ</param>
+            </generator>
+        </id>
+        <property name="subject" type="string">
+            <column name="subject" length="100" not-null="true" />
+        </property>
+        <property name="body" type="string">
+            <column name="body" length="1500" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="100" not-null="true" />
+        </property>
+        <property name="direction" type="string">
+            <column name="direction" length="100" />
+        </property>
+        <property name="messageError" type="string">
+            <column name="messageError" length="200" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="100" not-null="true" />
+        </property>
+        <property name="modeNotification" type="string">
+            <column name="modeNotification" length="100" not-null="true" />
+        </property>
+        <property name="creationDate" type="timestamp">
+            <column name="creationDate" length="19" not-null="true" />
+        </property>
+        <property name="changeStatusDate" type="timestamp">
+            <column name="changeStatusDate" length="19" />
+        </property>
+        <property name="distributionList" type="string">
+            <column name="distributionList" length="1000" />
+        </property>
+        <set name="contactnotifications" inverse="true" lazy="true" table="contactnotification" fetch="select">
+            <key>
+                <column name="idNotification" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Contactnotification" />
+        </set>
+    </class>
+</hibernate-mapping>

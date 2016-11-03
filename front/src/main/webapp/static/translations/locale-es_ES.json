@@ -1,0 +1,445 @@
+{
+  "TITLE": "OpenPPM",
+  "HEADER": {
+    "DOCS_AND_MANUALS": "Documentación y manuales",
+    "PROFILE": "Perfil",
+    "USER": "Usuario",
+    "CONNECTION": {
+      "SWITCH_ROLE": "Cambiar",
+      "LOG_OFF": "Cierra sesión"
+    }
+  },
+  "MENU": {
+    "INVESTMENTS": "Inversiones",
+    "PROJECTS": "Proyectos",
+    "PROGRAMS": "Programas",
+    "APPROVALS": "Aprobaciones",
+    "TIME_APPROVALS": "Aprobaciones de horas",
+    "EXPENSE_APPROVALS": "Aprobación de gastos",
+    "RESOURCE_CAPACITY": "Gestión de los recursos",
+    "RESOURCE_CAPACITY_PLANNING": "Capacidad de planificación de recursos",
+    "RESOURCE_CAPACITY_RUNNING": "Capacidad de ejecución de recursos",
+    "PAYMENT_PROJECTS": "Pagos",
+    "LEARNED_LESSONS": "Lecciones Aprendidas",
+    "ORGANIZATIONAL_PROCESS_ASSETS": {
+      "ORGANIZATIONAL_PROCESS_ASSETS": "Activos de procesos de organización",
+      "BASE_CALENDARS": "Calendarios base",
+      "MAINTENANCE": "Mantenimientos"
+    },
+    "ASSIGNMENTS": "Asignaciones",
+    "TIME_SHEET": "Hoja horaria",
+    "EXPENSE_SHEET": "Hoja de gastos",
+    "RESOURCE_CALENDAR": "Calendario del recurso",
+    "PERFORMANCE_APPRAISALS": "Evaluaciones de rendimiento",
+    "KPI": "KPI",
+    "RESOURCE_POOL": "Pool de recursos",
+    "ASSIGNATIONS_APPROVALS": "Aprobación de asignaciones"
+  },
+  "TYPE": {
+    "OPPORTUNITY": "Oportunidad",
+    "THREAT": "Amenaza",
+    "NAME": "Tipo"
+  },
+  "PROCESS_GROUP": {
+    "INITIATION": "Iniciación",
+    "PLANNING": "Planificación",
+    "EXECUTION": "Ejecución",
+    "MONITORING_AND_CONTROL": "Monitoring and Controlling",
+    "CLOSURE": "Cierre",
+    "NAME": "Grupo de Proceso"
+  },
+  "IMPACT_ON_SATISFACTION": {
+    "MINOR": "Menor",
+    "MODERATE": "Moderado",
+    "HIGH": "Alto"
+  },
+  "IMPORTANCE": {
+    "MINOR": "Mínima",
+    "MODERATE": "Moderada",
+    "HIGH": "Alta"
+  },
+  "SEARCH": {
+    "ADVANCED": "Buscador Avanzado",
+    "SIMPLE": "Buscador Simple",
+    "PROJECT": "Búsqueda de proyecto",
+    "USER": "Búsqueda usuario",
+    "DEFAULT_MESSAGE": "Realice una búsqueda de proyectos mediante el filtro",
+    "NO_RESULTS": "La búsqueda realizada no ha devuelto ningún resultado",
+    "LABEL": "Buscar: "
+  },
+  "FORM": {
+    "SELECT_ONE": "-- Seleccionar --",
+    "DATE": "Fecha",
+    "USER": "Usuario",
+    "MODIFICATION_DATE":"Fecha Modificación",
+    "MODIFICATION_USER":"Usuario Modificación",
+    "ACTIVE_UNACTIVATED": "Activado/desactivado",
+    "INFO": "Información",
+    "VALUE": "Valor",
+    "ACTION": {
+      "SUCCESS": "<strong>Bien hecho!</strong> Se han guardado los cambios <strong>correctamente</strong>",
+      "DANGER": "<strong>Error!</strong> No ha sido posible guardar los cambios correctamente"
+    },
+    "ALL": "Todos"
+  },
+
+  "VALIDATION": {
+    "REQUIRED": "{{fieldName}} es requerido.",
+    "WRONG_FORMAT": "El formato de {{fieldName}} es incorrecto"
+  },
+  "LearnedLesson": {
+    "dateRaised": "Fecha de Creación",
+    "type": "Tipo",
+    "name": "Tema",
+    "description": "Descripción del contexto de la LLAA",
+    "knowledgeArea": "Área de Conocimiento",
+    "learnedLesson": "",
+    "impactTime": "Impacto en el tiempo",
+    "impactCost": "Impacto en el coste"
+  },
+
+  "ActionLesson":{
+    "name":  "Acciones o hechos ocurridos",
+    "importance": "Importancia"
+  },
+  "RecommendationLesson": {
+    "name": "Recomendaciones para el futuro",
+    "importance": "Importancia"
+  },
+  "Project": {
+    "name": "Nombre del proyecto",
+    "status": "Estado del proyecto",
+    "bac": "BAC",
+    "tcv": "Valor Total",
+    "duration": "Duración",
+    "priority": "Prioridad",
+    "netIncome": "Valor Neto",
+    "effort": "Esfuerzo interno",
+    "chartLabel": "Nombre corto del Proyecto",
+    "projectManager": "Project Manager",
+    "initDate": "Fecha de inicio",
+    "plannedFinishDate": "Fin de la línea base",
+    "planDate": "Fecha de planificación",
+    "execDate": "Fecha de ejecución",
+    "plannedInitDate": "Inicio de la línea base",
+    "internalProject": "Proyecto no previsto",
+    "budgetYear": "Año del presupuesto",
+    "probability": "Probabilidad",
+    "isGeoSelling": "Proyecto estratégico",
+    "investmentStatus": "Estado de la inversión",
+    "numCompetitors": "Número de Competidores",
+    "finalPosition": "Posición de inversión",
+    "clientComments": "Comentarios de los clientes",
+    "linkDoc": "Enlace",
+    "accountingCode": "Código transversal",
+    "statusDate": "Fecha de estado del proyecto",
+    "scopeStatement": "Enunciado del Alcance",
+    "startDate": "Fecha de inicio",
+    "finishDate": "Fecha de fin",
+    "poc": "% Completado",
+    "functionalManager": "Functional Manager",
+    "investmentManager": "Investment Manager",
+    "sponsor": "Sponsor",
+    "category": "Categoría",
+    "customer": "Equipo",
+    "contract_type": "Tipo de contrato",
+    "geography": "Fase",
+    "stagegate": "Agrupación",
+    "classification_level": "Línea de negocio estratégica",
+    "performingOrganization": "Organización Ejecutante",
+    "Program": "Programa",
+    "STATUS_TYPE": {
+      "INITIATING": "Iniciando",
+      "PLANNING": "Planificando",
+      "CONTROL": "Ejecutando",
+      "CLOSED": "Cerrado",
+      "ARCHIVED": "Archivado"
+    }
+  },
+  "RESOURCE_PROFILES": {
+    "RESOURCE": "Recurso",
+    "PROJECT_MANAGER": "Jefe de Proyecto",
+    "INVESTMENT_MANAGER": "Investment Manager",
+    "FUNCTIONAL_MANAGER": "Functional Manager",
+    "PROGRAM_MANAGER": "Program Manager",
+    "RESOURCE_MANAGER": "Resource Manager",
+    "PMO": "PMO",
+    "SPONSOR": "Sponsor",
+    "PORFOLIO_MANAGER": "Porfolio Manager",
+    "ADMIN": "Admin",
+    "STAKEHOLDER": "Stakeholder",
+    "LOGISTIC": "Logistic"
+  },
+  "NOTIFICATION": {
+    "MODE": {
+      "MAIL" : "E-Mail",
+      "APPLICATION": "Aplicación",
+      "BOTH": "Ambos"
+    },
+    "ChangeStageGateNotification": {
+      "NAME": "Change Stage Gate Notification",
+      "DESCRIPTION": "Change Stage Gate Notification descripcion"
+    },
+    "UpdateTimesheetNotification": {
+      "NAME": "UpdateTimesheetNotification",
+      "DESCRIPTION": "UpdateTimesheetNotification descripcion"
+    }
+  },
+  "BUTTON": {
+    "EXPORT_CSV": "Exportar a CSV",
+    "SAVE_CHANGES": "Guardar cambios",
+    "SEARCH": "Buscar",
+    "RESET": "Borrar filtros",
+    "CANCEL": "Cancelar",
+    "APPLY": "Aplicar",
+    "APPLY_FILTER": "Aplicar filtro",
+    "SHOW_ADVANCED": "(Avanzado)",
+    "SAVE": "Guardar",
+    "CLOSE": "Cerrar",
+    "APPROVE": "Aprobar",
+    "REJECT": "Rechazar"
+  },
+  "MODEL": {
+    "STATUS": "Estado",
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripción",
+    "FILE": "Archivo",
+    "EMPLOYEE": {
+      "NAME": "Empleado",
+      "SUGGEST_REJECT_COMMENT": "Información de petición de desaprobación"
+    },
+    "OPERATION": {
+      "NAME": "Operación"
+    },
+    "POOL": {
+      "NAME": "Pool"
+    },
+    "JOB_CATEGORY": {
+      "NAME": "Categoría profesional"
+    },
+    "SKILL": {
+      "NAME": "Habilidad"
+    }
+  },
+  "VIEW": {
+    "NOTIFICATION": {
+      "NAME" : "Notificación",
+      "PLURAL_NAME": "Notificaciones",
+      "ADMIN": {
+        "TITLE": "Administración de notificaciones",
+        "HELP": "Para ver la descripción de la notificación sitúe el ratón sobre el nombre"
+      },
+      "USER": {
+        "TITLE": "Configuración de notificaciones",
+        "HELP": "Para ver la descripción de la notificación situe el ratón encima del nombre. Solo podrás modificar las notificaciones que tengas permiso"
+      },
+      "ACTIVE": "Activa",
+      "ACTIVE_FOR": "Activo para:",
+      "ACTIVE_FOR_HELP": "Solo los perfiles seleccionados tendrán activa la notificación",
+      "ALLOW_EDIT": "Permitir Editar:",
+      "ALLOW_EDIT_HELP": "Si se permite editar, el usuario podrá decidir si recibe o no la notificación",
+      "DISTRIBUTION_LIST": "Lista de distribución",
+      "MODE": "Modo",
+      "MODE_HELP": "Identifica el modo en que se generará la notificación, solo en la aplicación, por email o en los dos casos"
+    },
+    "AUDIT": {
+      "NAME": "Auditoría",
+      "COLUMNS_TO_SHOW": "Selecciona las columnas que desea mostrar",
+      "COLUMNS_TO_SHOW_HELP": "Puede cambiar la selección una vez realizada la búsqueda y las columnas aparecerán y desaparecerán en la tabla dinámicamente",
+      "PROJECT_DATA": {
+        "HELP": "A continuación se muestra por orden cronológico los cambios que se han ido produciendo y quien los ha realizado.",
+        "TITLE": "Auditoría de datos básicos del proyecto",
+        "QUOTA_EXCEEDED": "<strong>Error:</strong> La búsqueda está devolviendo un número excesivo de resultados, por favor restrinja la consulta utilizando los parámetros de búsqueda"
+      }
+    },
+    "LEARNED_LESSON": {
+      "ID": "#ID",
+      "NAME": "Lección Aprendida",
+      "ID_LLAA": "ID LLAA",
+      "SUBJECT": "Tema",
+      "ACTIONS": "#Act",
+      "RECOMMENDATIONS": "#Rec",
+      "RANK": "#Rnk",
+      "FILTERS": "Filtros LLAA:",
+      "IMPORTANCE_ACTIONS": "Importancia en acciones",
+      "IMPORTANCE_RECOMMENDATIONS": "Importancia en Recomendaciones",
+      "JOB_PROFILE": "Perfil de Trabajo",
+      "IMPACT_SATISFACTION": "Impacto en la satisfacción",
+      "IMPACT_TIME": "Impacto en el tiempo (dias)",
+      "IMPACT_COST": "Impacto en el coste (euros)",
+      "RANKING": "Ranking",
+      "DATE_RAISED": "Fecha de Creación",
+      "KNOWLEDGE_AREA": "Área de Conocimento",
+      "INCLUDE":{
+        "ONLY_GLOBAL": "Sólo LLAA Globales",
+        "GLOBAL": "Todas las LLAA",
+        "NOT_GLOBAL": "Sólo LLAA de Proyectos"
+      },
+      "ACTIONS_DETAIL": "Acciones o hechos ocurridos",
+      "RECOMMENDATIONS_DETAIL": "Recomendaciones para el futuro",
+      "IMPORTANCE": "Importancia",
+      "DESCRIPTION": "Descripción del contexto de la LLAA",
+      "SPECIFIC": "Lección Aprendida de Proyecto",
+      "GLOBAL": "Lección Aprendida Global",
+      "WARNING": {
+        "LINKED": "La lección aprendida está vinculada con {{ranking}} proyectos. La eliminación de esta también borrará sus vinculaciones."
+      },
+      "LINK_PANEL_TITLE": "Enlazar Proyectos"
+    },
+    "PROJECT": {
+      "ID_PROJECT": "ID Pr",
+      "PROJECT_OR_DOMAIN": "Proyecto o Dominio",
+      "PROJECT_MANAGER": "Project Manager",
+      "STATUS": {
+        "NAME": "Estado",
+        "INITIATING": "Iniciando",
+        "PLANNING": "Planificando",
+        "CONTROL": "Ejecución",
+        "CLOSED": "Cerrado",
+        "ARCHIVED": "Archivado"
+      },
+      "%COMPLETE": "%Completado",
+      "BAC": "BAC",
+      "PROJECT_FILTERS": "Filtros de Proyecto:",
+      "CUSTOMER_TYPE": "Tipo de Cliente",
+      "PROGRAM": "Programa",
+      "CATEGORY": "Categoria",
+      "PERFORMING_ORGANIZATION": "Organización Ejecutora",
+      "FOLLOW_UP_TYPE": "Criticidad",
+      "TYPES": "Tipos de Proyectos",
+      "CLASSIFICATION_LEVEL": "Nivel de classificación",
+      "PRIORITY_ADJUSTMENT": "Ajuste de prioridad",
+      "RISK_RATING": "Índice de Riesgo",
+      "CUSTOMER": "Cliente",
+      "SELLER": "Proveedor",
+      "GEOGRAPHY": "Área Geográfica",
+      "OWNER": "Responsable",
+      "CONTRACT_TYPE": "Tipo de Contrato",
+      "CONTRACT_TYPE_SELLER": "Tipo de Contrato (Principal Vendedor)",
+      "TECHNOLOGY": "Tecnología",
+      "EXECUTION_MANAGER": "Execution Manager",
+      "FUNDING_SOURCE": "Iniciativa Estratégica",
+      "UNFORESEEN": "Incluir Imprevistos",
+      "PROCUREMENT": "Requiere Adquisicion",
+      "RAG": "RAG",
+      "STRATEGIC_ALIGNMENT": "Alineamiento Estrategico",
+      "BUDGET_YEAR": "Año del presupuesto"
+    },
+    "CONFIGURATION" : {
+      "NAME": "Configuración",
+      "AUDIT": {
+        "TITLE": "Configurar datos para ser auditados",
+        "INFO_HELP": "Selecciona los datos que se quieren auditar para poder llevar el control de los cambios que se producen",
+        "TYPE": {
+          "PROJECT_DATA": "Panel de datos basicos de proyecto",
+          "PROJECT_DATA_HELP": "Si se activa esta opción se procederá a auditar los datos del panel de datos basicos de proyecto"
+        }
+      },
+      "REDMINE_SETTING": {
+        "TITLE": "Continuación de Redmine",
+        "INFO_HELP": "A continuación puedes configurar las opciones de integración con Redmine",
+        "REDMINE_URL": {
+          "NAME": "URL de Redmine",
+          "INFO": "URL de acceso a la aplicación de Redmine"
+        },
+        "REDMINE_PROJECT_PREFIX": {
+          "NAME": "Prefijo del identificador",
+          "INFO": "Prefijo con el cual se crearán los identificadores de los proyectos en Redmine"
+        },
+        "REDMINE_API_ACCESS_KEY": {
+          "NAME": "Clave de acceso",
+          "INFO": "Clave de acceso con permisos de administrador para poder crear proyectos y actualizarlos"
+        },
+        "REDMINE_RESOURCE_MAPPING": {
+          "NAME": "Nombre del Rol Resource",
+          "INFO": "Nombre del Rol Resource en Redmine con el cual se asignarán los recursos a los proyectos"
+        },
+        "REDMINE_PM_MAPPING": {
+          "NAME": "Nombre del Rol PM",
+          "INFO": "Nombre del Rol PM en Redmine con el cual se asignarán los recursos a los proyectos"
+        }
+      }
+    },
+    "ERROR": {
+      "TITLE": "<strong>Error:</strong> ",
+      "NOT_ALLOWED": {
+        "TITLE": "No tiene permisos",
+        "DESCRIPTION": "No puede consultar la sección, es un <strong>área restringida</strong>. Contacte con el administrador de la aplicación."
+      },
+      "UNEXPECTED": {
+        "TITLE": "Error inesperado",
+        "DESCRIPTION": "Se ha producido un error inesperado, si el problema persiste <strong>contacte con el administrador de la aplicación.</strong>"
+      }
+    },
+    "DOCUMENT": {
+      "TITLE": "Documentación y manuales",
+      "HELP": "Haz clic en el nombre para descargar el documento"
+    },
+    "MANAGEMENT": {
+      "OPERATION": {
+        "HELP": "Para seleccionar o deseleccionar pulse en el nombre o en cada celda de forma individual.",
+        "TITLE": "Aprobación de operaciones",
+        "SHOW_WEEKEND": "Mostrar fin de semana",
+        "STATUS": {
+          "REJECT": "Petición de desaprobación",
+          "COMPLETED": "Proceso de aprobación completado",
+          "FOR_APPROVE": "A la espera de aprobación por LOG/PMO",
+          "INCOMPLETE": "Pendiente de aprobación por RM",
+          "SAVED": "Pendiente de aprobación por TM"
+        }
+      }
+    },
+    "STATE": {
+      "OPERATION": {
+        "TITLE": "Estado de Aprobaciones"
+      }
+    }
+  },
+
+  "DATE": {
+    "NAME": "Fecha",
+    "HOURS": "Horas",
+    "RANGE": "Rango de fechas",
+    "MAX_MONTHS": "<strong>Alerta!</strong> El rango de fechas seleccionado retorna demasiados registros e impactará en el rendimiento de la aplicación.",
+    "DAYS": {
+      "MO": "lu",
+      "TU": "ma",
+      "WE": "mi",
+      "TH": "ju",
+      "FR": "vi",
+      "SA": "sá",
+      "SU": "do"
+    },
+    "SINCE": "Desde: ",
+    "UNTIL": "Hasta: "
+  },
+  "TABLE": {
+    "NO_DATA_FOUND": "<strong>No se han encontrado resultados.</strong> Cambie los criterios de búsqueda e inténtelo de nuevo.",
+    "FIND_DATA": "<strong>Información.</strong> Utiliza los filtros para realizar la busqueda.",
+    "LINK": "Enlazar {{field}}",
+    "NEW": "Crear una nueva {{field}}",
+    "VIEW": "Visualizar {{field}}",
+    "DELETE": "Borrar {{field}}",
+    "DISPLAY": "Mostrar:",
+    "FIRST": "Primero",
+    "LAST": "Último"
+  },
+  "CONFIRM": {
+    "DELETE": "¿Está seguro que desea eliminar el ítem seleccionado?"
+  },
+  "WARNING": {
+    "TITLE":"Alerta"
+  },
+  "ALERT": {
+    "SUCCESS": "¡Proceso completado correctamente!"
+  },
+  "COMPARISON": {
+    "SHOW_ALL": "Mostrar todo",
+    "LESS_OR_EQUAL": "Menor o igual",
+    "BETWEEN": "Entre",
+    "GREATER_OR_EQUAL": "Mayor o igual"
+  },
+  "FIELD": {
+    "SHOW_ALL": "Mostrar todo"
+  }
+}

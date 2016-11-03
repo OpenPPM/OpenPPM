@@ -1,0 +1,103 @@
+/* Basic styling */
+
+.jOrgChart {
+  margin                : 10px;
+  padding               : 20px;
+}
+
+div.jOrgChart table {
+	margin:0 auto;
+}
+
+/* Draw the lines */
+.jOrgChart .line {
+  height                : 20px;
+  width                 : 4px;
+}
+
+.jOrgChart .down {
+  background-color 		: gray;	
+  margin 				: 0px auto;
+}
+
+.jOrgChart .top {
+  border-top          : 3px solid gray;
+}
+
+.jOrgChart .left {
+  border-right          : 2px solid gray;
+}
+
+.jOrgChart .right {
+  border-left           : 2px solid gray;
+}
+
+/* node cell */
+.jOrgChart td {
+  text-align            : center;
+  vertical-align        : top;
+  padding               : 0px 2px;
+}
+
+/* The node */
+.jOrgChart .node {
+  background-color 		: #FFFFFF;
+  display               : inline-block;
+  word-wrap				: break-word;
+  width                 : 96px;
+  min-height			: 60px;
+  border-radius 		: 8px;
+  border 				: 2px solid gray;
+  color 				: black;
+  -moz-border-radius 	: 8px;
+   padding-bottom		: 6px;
+}
+	.node p{
+		font-family		: Arial,Helvetica,sans-serif;
+		font-size 		: 11px;
+		line-height 	: 11px;
+		color			: #444444;
+		padding 		: 2px;
+		margin-bottom	: 3px;
+	}
+	
+	.jOrgChart span{
+	  color				: #FF0000;
+	  padding			: 2px 2px 4px;
+	  font-weight		: bold;	
+	}
+
+.expanded div {
+	background-image: url('../images/ico_menos.gif') !important;
+}
+div.expanded {
+	background-image: url('../images/ico_menos.gif') !important;
+}
+.contracted div {
+	background-image: url('../images/ico_mas.gif') !important;
+}
+
+.wbsParent{
+  background 		: #CDDBFF bottom center no-repeat !important;
+}
+
+.wbsIsCa {
+  background		: #FFD876 bottom center no-repeat !important;
+}
+
+.wbsNotCa {
+  background		: #FFFFFF bottom center no-repeat !important;
+}
+
+.wbsAssociatedSeller {
+  border: 2px solid #64D4FA !important;
+}
+
+.obsTeammember {
+  background		: #80DDFC bottom center no-repeat !important;
+}
+
+.noBudget {
+    border: 2px solid #fa9300 !important;
+    background		: #FFD876 bottom center no-repeat !important;
+}

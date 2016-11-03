@@ -1,0 +1,73 @@
+<ul class="nav nav-pills navbar-right">
+  <li id="notificationCenter">
+    <!--<a href="" popover-template="'notification-list-template.html'" popover-title="{{'Notifications'}}" popover-placement="bottom">-->
+    <a href ui-sref="notification-list">
+      <span class="glyphicon glyphicon-bell"></span><span class="badge" id="notificationBudget" style="">0</span>
+    </a>
+
+    <!--<script type="text/ng-template" id="notification-list-template.html">
+      <div class="text-center" style="margin-bottom: 8px;">
+
+        <div class="btn-group btn-group-xs">
+
+          <button type="button" style="font-size: 11px !important;" id="markAllRead"
+                  class="tooltipNotify btn btn-warning" data-toggle="tooltip" data-placement="top"
+                  title="Tooltip on top"><i class="glyphicon glyphicon-eye-close"></i> Mark all read
+          </button>
+
+          <button type="button" style="font-size: 11px !important;" id="toggleRead"
+                  class="tooltipNotify btn btn-info" data-toggle="tooltip" data-placement="top"
+                  title="Tooltip on top"><i class="glyphicon glyphicon-collapse-up"></i> <span>Show all</span>
+          </button>
+
+          <button type="button" style="font-size: 11px !important;" id="manage"
+                  class="tooltipNotify btn btn-success" data-toggle="tooltip" data-placement="top"
+                  title="Tooltip on top"><i class="glyphicon glyphicon-cog"></i> Manage
+          </button>
+
+        </div>
+
+      </div>
+
+      <div style="max-height: 700px; width: 248px; overflow:auto">
+        <table class="table table-striped table-hover">
+          <tr><td>Noti 1</td></tr>
+        </table>
+      </div>
+      <h6 class="text-muted">Last <strong>50</strong> notifications</h6>
+    </script>-->
+
+  </li>
+  <li dropdown>
+    <a href id="user-dropdown" dropdown-toggle>
+      <span class="glyphicon glyphicon-cog"></span> {{user.name}} - {{user.performingOrganization.name}} <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="user-dropdown">
+      <li class="dropdown-header"><span class="glyphicon glyphicon-user"></span> {{user.name}}</li>
+      <li><a href="../myaccount"><span class="glyphicon glyphicon-cog"></span> <span translate="VIEW.CONFIGURATION.NAME"></span></a></li>
+      <li>
+        <a href="" ui-sref="notification-user"
+            ng-if="settings[CONSTANTS.SETTING.SHOW.NOTIFICATIONS]">
+          <span class="glyphicon glyphicon-bell"></span> <span translate="NOTIFICATION.PLURAL_NAME"></span>
+        </a>
+      </li>
+      <li class="dropdown-header">
+        <span class="glyphicon glyphicon-briefcase"></span> <span translate="HEADER.CONNECTION.SWITCH_ROLE"></span>
+      </li>
+      <li ng-repeat="profile in profiles | orderBy:'-performingOrganization.name'"
+          ng-class="{'disabled':profile.codeEmployee === user.code}">
+        <a href ng-click="changeProfile(profile.codeEmployee)">
+          <span class="glyphicon"
+                ng-class="{'glyphicon-refresh':profile.codeEmployee !== user.code,
+                  'glyphicon-ok': profile.codeEmployee === user.code}"></span>
+          <span ng-if="profile.performingOrganization !== undefined">{{profile.performingOrganization.name}} - </span>
+          {{profile.name}}
+        </a>
+      </li>
+      <li role="presentation" class="divider"></li>
+      <li><a href ui-sref="document"><span class="glyphicon glyphicon-book"></span> <span translate="HEADER.DOCS_AND_MANUALS"></span></a></li>
+      <li role="presentation" class="divider"></li>
+      <li><a href="../login?a=logoff"><span class="glyphicon glyphicon-off"></span> <span translate="HEADER.CONNECTION.LOG_OFF"></span></a></li>
+    </ul>
+  </li>
+</ul>

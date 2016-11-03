@@ -1,0 +1,107 @@
+
+div.modal-header{
+  background-color: #f8f8f8;
+  background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  text-shadow:0px 1px #fff;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  color: #666;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 15px;
+}
+div.modal-footer{
+  background-color: #f8f8f8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
+  background: -webkit-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-shadow:0px 1px #fff;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #ccc;
+  padding: 8px 15px;
+  font-size: 12px;
+  color: #555;
+  box-shadow: inset 0px 1px 1px #fff;
+}
+
+
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+  /* used for overriding the padding used by ngDialog */
+  padding: 0;
+  border-radius: 5px;
+}
+
+html.ngdialog-open {
+/*deactivates auto-scrolling when opening confirmation dialog*/
+overflow: visible;
+}
+
+.ngdialog.ngdialog-theme-plain .ngdialog-content{
+
+  width: 300px;
+}
+.modal-footer{
+
+  background: #ffffff !important;
+  border-top: 1px solid #a6c9e2 !important;
+}
+
+.modal-header .btn-xs{
+
+  background: transparent;
+  border: 0;
+  color: #dfeffc;
+  padding: 2px 3px 0px 4px;
+}
+
+.modal-header > div {
+
+  padding: 5px 7px 0px 0px;
+  border: 1px solid #4297d7;
+  background: #5c9ccc url("redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") 50% 50% repeat-x !important;
+  color: #ffffff;
+  font-weight: bold;
+  min-height: 30px;
+  margin-top: -7px;
+  margin-bottom: -9px;
+  margin-right: -13px;
+  margin-left: -13px;
+  border-radius: 5px;
+}
+
+.modal-header > div > span {
+
+  padding: .5em 1em;
+  margin: .1em 16px .2em 0;
+  font-size: 0.9em;
+  font-weight: lighter;
+}
+.modal-header {
+
+  border-bottom: 0px !important;
+}
+
+.modal-body > p{
+
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  line-height: 15px;
+  color: #222222;
+  padding-left: 15px;
+  text-align: justify;
+}
+
+.modal-body .glyphicon{
+    color: #469BDD;
+}
+

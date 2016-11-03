@@ -1,0 +1,22 @@
+.navbar{
+  min-height: 26px;
+  position: inherit;
+}
+.navbar-nav > li > a, .navbar-brand {
+  padding-top:4px !important;
+  padding-bottom:0 !important;
+  height: 28px;
+}
+.navbar {
+  min-height:28px !important;
+  margin-bottom: 0 !important;
+}
+.navbar-nav > li > ul > li >a, .navbar-nav > li > ul > li{
+  height: inherit;
+  padding: 0 0;
+  padding-left: 5px;
+}
+.navbar-nav > li > a:hover, .navbar-nav > li > ul > li >a:hover{
+  background-color: inherit !important;
+  color: #CFD3E1 !important;
+}

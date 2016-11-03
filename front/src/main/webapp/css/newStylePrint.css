@@ -1,0 +1,141 @@
+
+html,body{
+	margin:0px;
+	height:100%;
+	-webkit-print-color-adjust:exact; /* background colors in chrome */
+}
+
+#up-page{
+}
+
+#page-wrap{
+	min-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#wrapper{
+}
+
+#header{
+}
+
+#login{
+	display: none;
+}
+
+#header-image{
+	height: 80px;
+}
+
+#logo-left{
+	height: 70px;
+  float: left;
+  margin: 5px;
+  text-align: left;
+}
+
+#logo-left img {
+  max-height: 70px;
+  max-width: 500px;
+  float: left;
+  margin: 5px;
+  text-align: left;
+}
+
+#logo-right{
+	max-height: 70px;
+  max-width: 500px;
+  float: right;
+  margin: 5px;
+  text-align: right;
+}
+
+#logo-right img{
+}
+
+#menu{
+	display: none;
+}
+
+#container{
+	background: white;
+	padding: 10px 18px;
+}
+
+#footer{
+	background: white !important;
+	text-align: center;
+}
+
+#footer a{
+	color: black;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+#window-login{
+	margin:30px 0;	
+}
+
+#login-error{
+	margin:30px auto;	
+  text-align: center;
+  width: 32%;
+}
+
+.spacer{
+	clear: both;
+  height: 30px;
+}
+
+.hidePrint{
+	display: none;	
+}
+
+.pageBreak{
+	page-break-before: always;
+}
+
+.page-break-after {
+  page-break-after: always;
+}
+
+div.panel {
+	border-color: transparent;
+	background-color: transparent;
+}
+
+div.panel .legend {
+  background: none repeat scroll 0 0 transparent;
+  border: 1px solid transparent;
+}
+
+div.panel .legend div {
+  margin-left: 0;
+}
+
+div.panel .legend div img {
+  display: none;
+}
+
+div.panel .content[style="display: none"]{
+    
+}
+
+.landscape {
+  -webkit-transform-origin: right top;
+  -ms-transform-origin: right top;
+  -moz-transform-origin: right top;
+  -o-transform-origin: right top;
+  transform-origin: right top;
+
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+  position: absolute;
+  right: 100%;
+}

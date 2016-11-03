@@ -1,0 +1,164 @@
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: master
+  ~ File: pom.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:44:59
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>es.sm2.openppm</groupId>
+	<artifactId>master</artifactId>
+	<version>4.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>OpenPPM Project</name>
+	
+	<properties>
+		<resources-plugin-version>2.5</resources-plugin-version>
+		<compiler-plugin-version>2.5.1</compiler-plugin-version>
+		<utiles-version>0.7.11</utiles-version>
+		<jasperVersion>4.7.1</jasperVersion>
+		<jerseyVersion>2.19</jerseyVersion>
+		<maven-antrun-plugin-version>1.7</maven-antrun-plugin-version>
+        <maven-jar-plugin>2.5</maven-jar-plugin>
+		<maven-war-plugin-version>2.2</maven-war-plugin-version>
+        <junit-version>4.8.1</junit-version>
+        <mockito-all-version>1.10.19</mockito-all-version>
+        <powermock-module-junit4-version>1.6.3</powermock-module-junit4-version>
+        <powermock-api-mockito-version>1.6.3</powermock-api-mockito-version>
+        <gson-version>2.4</gson-version>
+
+		<!-- FRONT -->
+		<approl>*</approl>
+		<clientDepencency>community</clientDepencency>
+	</properties>
+
+	<modules>
+		<module>core</module>
+		<module>front</module>
+		<module>plugins</module>
+		<module>clients</module>
+		<module>integration</module>
+		<module>utils</module>
+	</modules>
+
+    <dependencies>
+
+        <!-- REST CLIENT -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>${jerseyVersion}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>${jerseyVersion}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jerseyVersion}</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito-all-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock-module-junit4-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock-api-mockito-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <profiles>
+        <profile>
+            <id>production</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>${maven-jar-plugin}</version>
+                        <configuration>
+                            <excludes>
+                                <exclude>rebel.xml</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<inherited>true</inherited>
+				<version>${compiler-plugin-version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${resources-plugin-version}</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+</project>

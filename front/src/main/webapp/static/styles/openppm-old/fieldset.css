@@ -1,0 +1,43 @@
+
+legend.scheduler-border {
+  width:inherit; /* Or auto */
+  padding:0 10px; /* To give a bit of padding on the left and right */
+  border-bottom:none;
+}
+
+.fieldset {
+  padding-bottom:14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-top: 3px;
+  border-radius: 5px;
+  border: 1px solid #CCCCC4;
+}
+.legend {
+  background: none repeat scroll 0 0 white;
+  color: #2F67AD;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 3px;
+  padding-right: 3px;
+  position: relative;
+  top: -8px;
+}
+
+fieldset legend {
+  font-size: 15px;
+  color: #2F67AD;
+  font-weight: bold;
+}
+
+fieldset div.buttons {
+  margin-top:-18px;
+  *margin-top:-15px !important; /* IE7 */
+  margin-top /*\**/:-16px\9; /* IE8 */
+  text-align:right;
+  padding-right: 5px;
+}
+
+fieldset span{
+  margin-right: 0.6em;
+}

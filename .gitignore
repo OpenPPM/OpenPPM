@@ -1,0 +1,15 @@
+.idea/
+*.iml
+*/*/target/
+*/target/
+front/src/main/webapp/images/cabecera.jpg
+front/src/main/webapp/images/head/*
+front/src/main/webapp/WEB-INF/web.xml
+front/src/main/resources/hibernate.properties
+front/src/main/resources/log4j.properties
+front/src/main/resources/es/sm2/openppm/front/common/*
+**/rebel.xml
+target/
+**/*.orig
+resources/nodejs/node_modules
+front/src/main/webapp/static/bower_components

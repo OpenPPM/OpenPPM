@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Projectfollowup.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:04
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Projectfollowup" table="projectfollowup">
+        <id name="idProjectFollowup" type="java.lang.Integer">
+            <column name="IdProjectFollowup" />
+            <generator class="native">
+                <param name="sequence">projectfollowup_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="project" class="es.sm2.openppm.core.model.impl.Project" fetch="select">
+            <column name="IdProject" />
+        </many-to-one>
+        <property name="followupDate" type="date">
+            <column name="FollowupDate" length="10" />
+        </property>
+        <property name="ev" type="java.lang.Double">
+            <column name="EV" precision="22" scale="0" />
+        </property>
+        <property name="pv" type="java.lang.Double">
+            <column name="PV" precision="22" scale="0" />
+        </property>
+        <property name="ac" type="java.lang.Double">
+            <column name="AC" precision="22" scale="0" />
+        </property>
+        <property name="generalComments" type="string">
+            <column name="GeneralComments" length="3000" />
+        </property>
+        <property name="risksComments" type="string">
+            <column name="RisksComments" length="3000" />
+        </property>
+        <property name="costComments" type="string">
+            <column name="CostComments" length="3000" />
+        </property>
+        <property name="scheduleComments" type="string">
+            <column name="ScheduleComments" length="3000" />
+        </property>
+        <property name="generalFlag" type="java.lang.Character">
+            <column name="GeneralFlag" length="1" />
+        </property>
+        <property name="riskFlag" type="java.lang.Character">
+            <column name="RiskFlag" length="1" />
+        </property>
+        <property name="costFlag" type="java.lang.Character">
+            <column name="CostFlag" length="1" />
+        </property>
+        <property name="scheduleFlag" type="java.lang.Character">
+            <column name="ScheduleFlag" length="1" />
+        </property>
+        <property name="performanceDoc" type="string">
+            <column name="PerformanceDoc" length="50" />
+        </property>
+        <property name="riskRating" type="java.lang.Integer">
+            <column name="riskRating" />
+        </property>
+    </class>
+</hibernate-mapping>

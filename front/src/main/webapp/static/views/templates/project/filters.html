@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: filters.html
+  ~ Create User: javier.hernandez
+  ~ Create Date: 21/09/2015 10:33:32
+  -->
+<!-- ADVANCED PROJECT FILTER -->
+<fieldset class="container-fluid top-row-buffer fieldset" ng-init="showAdvanced = false">
+  <legend class="scheduler-border">
+    <b translate="VIEW.PROJECT.PROJECT_FILTERS"></b>
+    <a class="advanced-filter" ng-click="showAdvanced = !showAdvanced">
+      <span translate="BUTTON.SHOW_ADVANCED"></span>
+    </a>
+  </legend>
+  <div class = "row">
+    <div class="col-md-9">
+      <div class="form-inline">
+        <div class="form-group">
+          <label class="control-label" translate="SEARCH.LABEL"></label>
+          <input type="text" class="search-width old-text-inputs old-input-height" ng-model="ngModel.projectName">
+        </div>
+        <label ng-repeat="status in availableStatus" ng-if="((linking && status !== 'ARCHIVED' && status !== 'CLOSED') || !linking)"
+               class="checkbox checkbox-inline">
+          <input type="checkbox" ng-model="selectedStatus[status]" ng-change="changeStatus(status)">
+          <span translate="{{'VIEW.PROJECT.STATUS.'+status}}"></span>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="btn-group col-md-10 pull-right">
+        <div class="col-md-6">
+          <button type="button" class="btn-xs old-button col-md-12" ng-click="find();" translate="BUTTON.APPLY_FILTER" ng-show="linking"></button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn-xs old-button col-md-12" ng-click="reset()" translate="BUTTON.RESET"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p ng-show="showAdvanced">&nbsp;</p>
+
+  <div class="" id="idAdvancedProjectFilter" ng-show="showAdvanced">
+  <div class="row top-row-buffer">
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.CUSTOMER_TYPE"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.customerTypes"
+                  ng-options="customerType as customerType.name for customerType in customerTypes track by customerType.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.CUSTOMER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.customers"
+                  ng-options="customer as customer.name for customer in customers track by customer.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.PROGRAM"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.programs"
+                  ng-options="program as program.name for program in programs track by program.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.CATEGORY">Category</label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field" ng-model="ngModel.categories"
+                  ng-options="category as category.name for category in categories track by category.code">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row top-row-buffer">
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.PERFORMING_ORGANIZATION"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field" ng-model="ngModel.performingOrganizations"
+                  ng-options="performingOrganization as performingOrganization.name for performingOrganization in performingOrganizations track by performingOrganization.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="RESOURCE_PROFILES.PROJECT_MANAGER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field" ng-model="ngModel.projectManagers"
+                  ng-options="projectManager as projectManager.name for projectManager in projectManagers track by projectManager.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="RESOURCE_PROFILES.FUNCTIONAL_MANAGER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field" ng-model="ngModel.functionalManagers"
+                  ng-options="functionalManager as functionalManager.name for functionalManager in functionalManagers track by functionalManager.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.SELLER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.sellers"
+                  ng-options="seller as seller.name for seller in sellers track by seller.code">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row top-row-buffer">
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.FOLLOW_UP_TYPE"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.labels"
+                  ng-options="label as label.name for label in labels track by label.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.TYPES">Project Types</label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.stageGates"
+                  ng-options="stageGate as stageGate.name for stageGate in stageGates track by stageGate.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.CONTRACT_TYPE_SELLER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.contractTypes"
+                  ng-options="contractType as contractType.description for contractType in contractTypes track by contractType.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.GEOGRAPHY"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class=" col-md-12 old-field"
+                  ng-model="ngModel.geographies"
+                  ng-options="geography as geography.name for geography in geographies track by geography.code">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row top-row-buffer">
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter"translate="VIEW.PROJECT.CLASSIFICATION_LEVEL"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select class=" col-md-12 old-field" multiple="multiple"
+                  ng-model="ngModel.classificationLevels"
+                  ng-options="classificationLevel as classificationLevel.name for classificationLevel in classificationLevels track by classificationLevel.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.TECHNOLOGY"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class="col-md-12 old-field"
+                  ng-model="ngModel.technologies"
+                  ng-options="technology as technology.name for technology in technologies track by technology.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.EXECUTION_MANAGER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select multiple="multiple" class="col-md-12 old-field"
+                  ng-model="ngModel.sponsors"
+                  ng-options="sponsor as sponsor.name for sponsor in sponsors track by sponsor.code">
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.FUNDING_SOURCE"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select class="col-md-12 old-field" multiple="multiple"
+                  ng-model="ngModel.fundingSources"
+                  ng-options="fundingSource as fundingSource.name for fundingSource in fundingSources track by fundingSource.code">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row top-row-buffer">
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.UNFORESEEN"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select  class=" col-md-12 input-sm  old-text-inputs old-input-height" ng-model="ngModel.internalProject">
+            <option value="">All</option>
+            <option value="false">Not including PIA</option>
+            <option value="true">Only including PIA</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.PROCUREMENT"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select class=" col-md-12 input-sm  old-text-inputs old-input-height" ng-model="ngModel.isGeoSelling">
+            <option value="">All</option>
+            <option value="false">Not including Procurement</option>
+            <option value="true">Only including Procurement</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.RAG"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select class=" col-md-12 input-sm  old-text-inputs old-input-height" ng-model="ngModel.rag"
+                  ng-class="{'low-color': ngModel.rag == 'M',
+                             'medium-color': ngModel.rag == 'N',
+                             'high-color': ngModel.rag == 'H'}">
+            <option class="white-background" value="" selected translate="FIELD.SHOW_ALL"></option>
+            <option value="H">&nbsp;&nbsp;&nbsp;</option>
+            <option value="M">&nbsp;&nbsp;&nbsp;</option>
+            <option value="N">&nbsp;&nbsp;&nbsp;</option>
+            <option value="L">&nbsp;&nbsp;&nbsp;</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.STRATEGIC_ALIGNMENT"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-3"  style="margin: 0px -20px 0px 20px">
+          <input ng-show = "ngEngine.$priority == CONSTANTS.BETWEEN" type="text"
+                 class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                 ng-model="ngModel.minPriority" numbers-only>
+        </div>
+        <div class="col-md-6">
+          <select ng-model="ngEngine.$priority" class="col-md-12 old-text-inputs old-input-height bottom-row-buffer" ng-change="resetPriority()"
+                  ng-options="comparison as 'COMPARISON.'+comparison | translate for comparison in comparisons track by comparison">
+          </select>
+        </div>
+        <div class="col-md-3" style="margin-left: -20px">
+          <input ng-show="ngEngine.$priority == CONSTANTS.GREATER_OR_EQUAL" type="text"
+                 class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                 ng-model="ngModel.minPriority" numbers-only>
+          <input ng-show = "ngEngine.$priority == CONSTANTS.BETWEEN || ngEngine.$priority == CONSTANTS.LESS_OR_EQUAL" type="text"
+                 class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                 ng-model="ngModel.maxPriority" numbers-only>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row top-row-buffer">
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.SELLER"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select class="col-md-12 input-sm old-text-inputs old-input-height" ng-model="ngModel.isIndirectSeller">
+            <option value="">All</option>
+            <option value="true">Indirect</option>
+            <option value="false">Direct</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.RISK_RATING"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-3" style="margin: 0px -20px 0px 20px">
+          <input ng-show="ngEngine.$riskRating == CONSTANTS.BETWEEN" type="text"
+                 class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                 ng-model="ngModel.minRiskRating" numbers-only>
+        </div>
+        <div class="col-md-6">
+          <select ng-model="ngEngine.$riskRating" class="col-md-12 old-text-inputs old-input-height bottom-row-buffer" ng-change="resetRisk()"
+                  ng-options="comparison as 'COMPARISON.'+comparison | translate for comparison in comparisons track by comparison">
+          </select>
+        </div>
+        <div class="col-md-3" style="margin-left: -20px">
+          <input ng-show="ngEngine.$riskRating == CONSTANTS.GREATER_OR_EQUAL" type="text"
+                 class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                 ng-model="ngModel.minRiskRating" numbers-only>
+          <input ng-show="ngEngine.$riskRating == CONSTANTS.BETWEEN || ngEngine.$riskRating == CONSTANTS.LESS_OR_EQUAL" type="text"
+                 class="col-md-12 old-text-inputs old-input-height" autocomplete="off"
+                 ng-model="ngModel.maxRiskRating" numbers-only>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.PRIORITY_ADJUSTMENT"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select  class="input-sm old-text-inputs old-input-height" ng-model="ngModel.includingAdjustment">
+            <option value="">All</option>
+            <option value="false">Not including adjustment</option>
+            <option value="true">Only including adjustment</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="row text-center">
+        <label class="old-label-letter" translate="VIEW.PROJECT.BUDGET_YEAR"></label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="col-md-12 old-text-inputs old-input-height" maxlength="4" numbers-only ng-model="ngModel.budgetYear">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row top-row-buffer bottom-row-buffer">
+    <div class="col-md-6">
+      <div class="form-inline">
+        <div class="form-group datepicker">
+          <label class="control-label" translate="DATE.SINCE"></label>
+          <input type="text" name="filter_start" class="form-control input-sm old-text-inputs old-input-height"
+                 show-button-bar="false" show-weeks="false" datepicker-options="{'starting-day': 1}"  datepicker-popup="dd/MM/yyyy"
+                 is-open="filters.create.untilOpenedSince" close-text="Close" ng-disabled='notEditable'
+                 ng-model="ngModel.since">
+          <img src="images/openppm-old/calendar/calendar.png" alt="..." title="..." ng-click="filters.create.untilOpenedSince = true"
+               ng-hide="notEditable">
+        </div>
+        <div style="padding-left: 10px;" class="form-group datepicker">
+          <label class="control-label" translate="DATE.UNTIL"></label>
+          <input type="text" name="filter_finish" class="form-control input-sm old-text-inputs old-input-height"
+                 show-button-bar="false" show-weeks="false" datepicker-options="{'starting-day': 1}"  datepicker-popup="dd/MM/yyyy"
+                 is-open="filters.create.untilOpenedUntil" close-text="Close" ng-disabled='notEditable'
+                 ng-model="ngModel.until">
+          <img src="images/openppm-old/calendar/calendar.png" alt="..." title="..." ng-click="filters.create.untilOpenedUntil = true"
+               ng-hide="notEditable">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- END ADVANCED PROJECT FILTER -->
+</fieldset>

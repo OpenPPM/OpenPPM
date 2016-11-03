@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Timesheet.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Timesheet" table="timesheet">
+        <id name="idTimeSheet" type="java.lang.Integer">
+            <column name="idTimeSheet" />
+            <generator class="native">
+                <param name="sequence">timesheet_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="operation" class="es.sm2.openppm.core.model.impl.Operation" fetch="select">
+            <column name="idOperation" />
+        </many-to-one>
+        <many-to-one name="projectactivity" class="es.sm2.openppm.core.model.impl.Projectactivity" fetch="select">
+            <column name="idActivity" />
+        </many-to-one>
+        <many-to-one name="employee" class="es.sm2.openppm.core.model.impl.Employee" fetch="select">
+            <column name="idEmployee" not-null="true" />
+        </many-to-one>
+        <property name="initDate" type="date">
+            <column name="initDate" length="10" not-null="true" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="endDate" length="10" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" />
+        </property>
+        <property name="hoursDay1" type="java.lang.Double">
+            <column name="hoursDay1" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay2" type="java.lang.Double">
+            <column name="hoursDay2" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay3" type="java.lang.Double">
+            <column name="hoursDay3" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay4" type="java.lang.Double">
+            <column name="hoursDay4" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay5" type="java.lang.Double">
+            <column name="hoursDay5" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay6" type="java.lang.Double">
+            <column name="hoursDay6" precision="22" scale="0" />
+        </property>
+        <property name="hoursDay7" type="java.lang.Double">
+            <column name="hoursDay7" precision="22" scale="0" />
+        </property>
+        <property name="suggestReject" type="java.lang.Boolean">
+            <column name="suggestReject" />
+        </property>
+        <property name="suggestRejectComment" type="string">
+            <column name="suggestRejectComment" length="1000" />
+        </property>
+        <set name="timesheetcomments" inverse="true" lazy="true" table="timesheetcomment" fetch="select">
+            <key>
+                <column name="idTimeSheet" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Timesheetcomment" />
+        </set>
+    </class>
+</hibernate-mapping>

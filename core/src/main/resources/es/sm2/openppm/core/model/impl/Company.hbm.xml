@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Company.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Company" table="company">
+        <id name="idCompany" type="java.lang.Integer">
+            <column name="IdCompany" />
+            <generator class="native">
+                <param name="sequence">company_SEQ</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="disable" type="java.lang.Boolean">
+            <column name="disable" />
+        </property>
+        <set name="stakeholderclassifications" inverse="true" lazy="true" table="stakeholderclassification" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Stakeholderclassification" />
+        </set>
+        <set name="classificationlevels" inverse="true" lazy="true" table="classificationlevel" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Classificationlevel" />
+        </set>
+        <set name="plugins" inverse="true" lazy="true" table="plugin" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Plugin" />
+        </set>
+        <set name="customertypes" inverse="true" lazy="true" table="customertype" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Customertype" />
+        </set>
+        <set name="performingorgs" inverse="true" lazy="true" table="performingorg" fetch="select">
+            <key>
+                <column name="IdCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Performingorg" />
+        </set>
+        <set name="companyfiles" inverse="true" lazy="true" table="companyfile" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Companyfile" />
+        </set>
+        <set name="riskregistertemplates" inverse="true" lazy="true" table="riskregistertemplate" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Riskregistertemplate" />
+        </set>
+        <set name="skills" inverse="true" lazy="true" table="skill" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Skill" />
+        </set>
+        <set name="contracttypes" inverse="true" lazy="true" table="contracttype" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Contracttype" />
+        </set>
+        <set name="labels" inverse="true" lazy="true" table="label" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Label" />
+        </set>
+        <set name="calendarbases" inverse="true" lazy="true" table="calendarbase" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Calendarbase" />
+        </set>
+        <set name="currencies" inverse="true" lazy="true" table="currency" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Currency" />
+        </set>
+        <set name="contacts" inverse="true" lazy="true" table="contact" fetch="select">
+            <key>
+                <column name="IdCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Contact" />
+        </set>
+        <set name="milestonetypes" inverse="true" lazy="true" table="milestonetype" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Milestonetype" />
+        </set>
+        <set name="milestonecategories" inverse="true" lazy="true" table="milestonecategory" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Milestonecategory" />
+        </set>
+        <set name="expenseaccountses" inverse="true" lazy="true" table="expenseaccounts" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Expenseaccounts" />
+        </set>
+        <set name="problemchecks" inverse="true" lazy="true" table="problemcheck" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Problemcheck" />
+        </set>
+        <set name="budgetaccountses" inverse="true" lazy="true" table="budgetaccounts" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Budgetaccounts" />
+        </set>
+        <set name="metrickpis" inverse="true" lazy="true" table="metrickpi" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Metrickpi" />
+        </set>
+        <set name="sellers" inverse="true" lazy="true" table="seller" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Seller" />
+        </set>
+        <set name="categories" inverse="true" lazy="true" table="category" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Category" />
+        </set>
+        <set name="closurechecks" inverse="true" lazy="true" table="closurecheck" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Closurecheck" />
+        </set>
+        <set name="stagegates" inverse="true" lazy="true" table="stagegate" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Stagegate" />
+        </set>
+        <set name="businessdriversets" inverse="true" lazy="true" table="businessdriverset" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Businessdriverset" />
+        </set>
+        <set name="resourcepools" inverse="true" lazy="true" table="resourcepool" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Resourcepool" />
+        </set>
+        <set name="bscdimensions" inverse="true" lazy="true" table="bscdimension" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Bscdimension" />
+        </set>
+        <set name="operationaccounts" inverse="true" lazy="true" table="operationaccount" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Operationaccount" />
+        </set>
+        <set name="geographies" inverse="true" lazy="true" table="geography" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Geography" />
+        </set>
+        <set name="riskcategories" inverse="true" lazy="true" table="riskcategory" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Riskcategory" />
+        </set>
+        <set name="documentations" inverse="true" lazy="true" table="documentation" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Documentation" />
+        </set>
+        <set name="customers" inverse="true" lazy="true" table="customer" fetch="select">
+            <key>
+                <column name="IdCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Customer" />
+        </set>
+        <set name="wbstemplates" inverse="true" lazy="true" table="wbstemplate" fetch="select">
+            <key>
+                <column name="IdCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Wbstemplate" />
+        </set>
+        <set name="fundingsources" inverse="true" lazy="true" table="fundingsource" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Fundingsource" />
+        </set>
+        <set name="settings" inverse="true" lazy="true" table="setting" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Setting" />
+        </set>
+        <set name="jobcategories" inverse="true" lazy="true" table="jobcategory" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Jobcategory" />
+        </set>
+        <set name="changetypes" inverse="true" lazy="true" table="changetype" fetch="select">
+            <key>
+                <column name="idCompany" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Changetype" />
+        </set>
+        <set name="businessdrivers" inverse="true" lazy="true" table="businessdriver" fetch="select">
+            <key>
+                <column name="idCompany" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Businessdriver" />
+        </set>
+    </class>
+</hibernate-mapping>

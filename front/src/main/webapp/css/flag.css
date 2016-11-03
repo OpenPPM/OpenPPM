@@ -1,0 +1,16 @@
+option.es_ES,select.es_ES  {
+	background: url("../images/flag/spanish.png") no-repeat scroll 5px center #FFFFFF !important;
+}
+option.en_US,select.en_US {
+	background: url("../images/flag/usa.png") no-repeat scroll 5px center #FFFFFF !important;
+}
+option.en_GB,select.en_GB {
+	background: url("../images/flag/english.png") no-repeat scroll 5px center #FFFFFF !important;
+}
+option.de_DE,select.de_DE {
+	background: url("../images/flag/de_DE.png") no-repeat scroll 5px center #FFFFFF !important;
+}
+
+option.flag, select.flag {
+	padding-left: 25px;
+}

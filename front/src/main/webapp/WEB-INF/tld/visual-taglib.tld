@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: front
+  ~ File: visual-taglib.tld
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:48:27
+  -->
+
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+ <description>JSTL Visual Library</description>
+ <display-name>JSTL XML</display-name>
+ <tlib-version>1.0</tlib-version>
+ <short-name>visual</short-name>
+ <uri>Visual</uri>
+ <tag>
+  <description>Generar un panel visual con multiples opciones</description>
+  <name>panel</name>
+  <tag-class>es.sm2.openppm.front.tags.visual.PanelTag</tag-class>
+  <body-content>JSP</body-content>
+  <attribute>
+   <description>
+				Titulo del panel
+			</description>
+   <name>title</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>
+				Este campo se usa para la funcionalidad de minimizar y maximizar.
+			</description>
+   <name>id</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>
+				Clase css que se introduce en la cabecera del panel
+			</description>
+   <name>cssClass</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>
+				Codigo javascript que se ejecutara cuando se abra el panel.
+				Depende del atributo "id"
+			</description>
+   <name>callback</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>
+		Add buttons to panel. Example;&lt;when&gt;s
+		Añadir JavaScript para la funcionalidad del icono:
+		$('#execute').on('click',function(event) {
+			event.stopPropagation();
+			//funcionality
+		});
+		HTML del boton
+		img id="execute" style="float:right;" src="images/ico.png" title="Titulo"
+	</description>
+   <name>buttons</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+    <attribute>
+   <description>
+		Muestra el titulo en el panel de contenido.
+	</description>
+   <name>showTiltePanel</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
+ 
+  <tag>
+  <description>Generador de settings dinamicamente</description>
+  <name>settings</name>
+  <tag-class>es.sm2.openppm.front.tags.visual.SettingsTag</tag-class>
+  <body-content>JSP</body-content>
+  <attribute>
+   <description>
+		Settings
+	</description>
+   <name>fields</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>
+		Columna a partir de la cual empezaremos a anyadir
+	</description>
+   <name>startColumn</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>
+		Total de columnas
+	</description>
+   <name>numberOfColumns</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
+</taglib>

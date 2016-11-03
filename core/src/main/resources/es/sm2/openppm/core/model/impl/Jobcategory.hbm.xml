@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Jobcategory.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Jobcategory" table="jobcategory">
+        <id name="idJobCategory" type="java.lang.Integer">
+            <column name="idJobCategory" />
+            <generator class="native">
+                <param name="sequence">jobcategory_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="company" class="es.sm2.openppm.core.model.impl.Company" fetch="select">
+            <column name="idCompany" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="100" />
+        </property>
+        <set name="jobcatemployees" inverse="true" lazy="true" table="jobcatemployee" fetch="select">
+            <key>
+                <column name="idJobCategory" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Jobcatemployee" />
+        </set>
+        <set name="teammembers" inverse="true" lazy="true" table="teammember" fetch="select">
+            <key>
+                <column name="idJobCategory" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Teammember" />
+        </set>
+    </class>
+</hibernate-mapping>

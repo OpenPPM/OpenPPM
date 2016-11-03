@@ -1,0 +1,81 @@
+/*
+ * Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program has been created in the hope that it will be useful.
+ * It is distributed WITHOUT ANY WARRANTY of any Kind,
+ * without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ *
+ * For more information, please contact SM2 Software & Services Management.
+ * Mail: info@talaia-openppm.com
+ * Web: http://www.talaia-openppm.com
+ *
+ * Module: front
+ * File: colors.css
+ * Create User: javier.hernandez
+ * Create Date: 25/09/2015 10:52:47
+ */
+
+.label-success {
+    background-color: #5cb85c !important;
+}
+
+.label-danger {
+    background-color: #d9534f !important;
+}
+
+.label-warning {
+    background-color: #f0ad4e !important;
+}
+
+.label-info {
+    background-color: #5bc0de !important;
+}
+
+.label-light {
+    background-color: #ffd438 !important;
+}
+
+.table-select-mode td:hover {
+    background-color: #e4e4e4 !important;
+    cursor: pointer;
+}
+.table-select-mode td.not-select {
+    cursor: auto !important;
+}
+
+.caption {
+    color: #777;
+    text-align: left;
+    padding: 8px 15px;
+}
+
+.low-color, select > option[value="MINOR"], select > option[value="M"] {
+
+  background-color: #66BB6A !important;
+}
+
+
+.medium-color, select > option[value="MODERATE"], select > option[value="N"]{
+
+  background-color: #FFEE58 !important;
+}
+
+
+.high-color, select > option[value="HIGH"], select > option[value="H"]{
+
+  background-color: #E53935 !important;
+}
+
+.white-background, select > option[value="L"]{
+
+  background-color: white !important;
+}

@@ -1,0 +1,166 @@
+ul.noty_container {
+	position: fixed;
+	z-index: 9999999;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 400px;
+	top: 20px;
+}
+ul.noty_container li {
+	position: relative;
+	float: left;
+	clear: both;
+	list-style: none;
+	padding: 0px;
+	margin: 10px 0 0 0;
+}
+ul.noty_container.topLeft {
+	left: 20px;
+}
+ul.noty_container.topRight {
+	right: 40px;
+}
+ul.noty_container.topRight li {
+	float: right;
+}
+
+/* Fix for: http://bugs.jquery.com/ticket/2278 */
+ul.noty_container.topLeft li, ul.noty_container.topRight li {
+	width: 400px;
+}
+
+div.noty_modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index: 10000;
+	opacity: 0.6;
+	display: none;
+}
+
+.noty_bar {
+	position: fixed;
+	display: none;
+	z-index: 9999999;
+	background: url(../images/noty/alert-lines.png) repeat-x scroll left top #fff;
+	-moz-box-shadow: 0px 20px 15px #000;
+	-webkit-box-shadow: 0px 20px 15px #000;
+	box-shadow: 0px 5px 5px #ccc;
+}
+.noty_bar.top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 3px solid #eee;
+}
+.noty_bar.bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-top: 3px solid #eee;
+}
+.noty_bar.center {
+	top: 40%;
+	left: 19.5%;
+	width: 60%;
+	padding: 4px;
+	border: 3px solid #eee;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.noty_bar.topLeft, .noty_bar.topRight {
+	width: 100%;
+	clear:both;
+	position: relative;
+	padding: 4px;
+	border: 3px solid #eee;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.noty_bar .noty_message {
+	padding: 10px 30px 10px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	width: 96%;
+}
+
+.noty_bar .noty_message .noty_buttons {
+	float: right;
+	font-size: 13px;
+	margin-top: -6px;
+	margin-left: -25px;
+}
+
+.noty_bar .noty_message .noty_buttons button {
+	margin-left: 5px;
+}
+
+.noty_bar .noty_close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-image: url(../images/noty/closelabel.png);
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.noty_bar.alert {
+	background-color: #FBEC88;
+	border-color: #FAD42E;
+}
+
+.noty_bar.error {
+	background-color: red;
+	color: #fff;
+	border-color: darkred;
+}
+
+.noty_bar.success {
+	background-color: lightgreen;
+	color: #fff;
+	border-color: darkgreen;
+}
+
+/*********NOTY QUEUE**********/
+div#noty_queue {
+    left: 10px;
+    position: fixed;
+    text-align: center;
+    top: 200px;
+    width: 100px;
+}
+div#noty_queue span {
+    border-bottom: 2px dotted #CCCCCC;
+    display: block;
+    padding-bottom: 5px;
+}
+div#noty_queue ul {
+    border-radius: 5px 5px 5px 5px;
+    list-style: none outside none;
+    padding: 0;
+}
+div#noty_queue ul li {
+    background: url("../images/noty/alert-lines.png") repeat-x scroll left top #FFFFFF;
+    border-bottom: 2px solid #CCCCCC;
+    padding: 3px 25px;
+    text-align: center;
+}
+div#noty_queue ul li.alert {
+    background-color: #FBEC88;
+    border-color: #FAD42E;
+}
+div#noty_queue ul li.success {
+    background-color: lightgreen;
+    border-color: darkgreen;
+    color: #fff;
+}
+div#noty_queue ul li.error {
+    background-color: red;
+    border-color: darkred;
+    color: #FFFFFF;
+}

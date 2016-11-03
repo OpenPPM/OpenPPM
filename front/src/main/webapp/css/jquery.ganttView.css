@@ -1,0 +1,221 @@
+/*
+jQuery.ganttView v.0.8.0
+Copyright (c) 2010 JC Grubbs - jc.grubbs@devmynd.com
+MIT License Applies
+*/
+
+div.ganttview-hzheader-month,
+div.ganttview-hzheader-day,
+div.ganttview-vtheader,
+div.ganttview-vtheader-item-name,
+div.ganttview-vtheader-item-poc,
+div.ganttview-vtheader-series,
+div.ganttview-grid,
+div.ganttview-grid-row-cell {
+	float: left;
+}
+
+div.ganttview-hzheader-month,
+div.ganttview-hzheader-day {
+	text-align: center;
+}
+
+div.ganttview-grid-row-cell.last,
+div.ganttview-hzheader-day.last,
+div.ganttview-hzheader-month.last {
+	border-right: none;
+}
+
+div.ganttview {
+  	border: 1px solid #cccccc;
+  	color: #444444;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+
+/* Vertical Header */
+
+div.ganttview-vtheader {
+	margin-top: 21px;
+	width: 132px;
+	overflow: hidden;
+}
+
+div.ganttview-vtheader-item {
+	overflow: hidden;
+}
+
+div.ganttview-vtheader-item-name, div.ganttview-vtheader-item-poc {
+	width: 127px;
+	padding-left: 5px;
+	border-top: 1px solid #d0d0d0;
+	line-height: 16px;
+	padding-top: 2px;
+	word-wrap: break-word;
+	height: 33px;  /* modificar en el js*/
+}
+div.ganttview-vtheader-item-poc {
+    width: 50px;
+}
+
+div.ganttview-vtheader-series-name {
+	/*width: 130px;*/
+	width: 60px;
+	height: 15px;
+	border-top: 1px solid #d0d0d0;
+	line-height: 16px;
+	padding-left: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	font-size: 10px;
+	word-wrap: break-word;
+}
+
+
+/* Horizontal Header */
+
+div.ganttview-hzheader-month {
+	width: 60px;
+	height: 21px;
+	border-right: 1px solid #d0d0d0;
+	line-height: 20px;
+	font-weight: bold;
+	background: #688BB4;
+	color: #ffffff;
+}
+
+div.ganttview-hzheader-day {
+	/*
+	width: 20px;
+	height: 20px;
+	border-right: 1px solid #f0f0f0;
+	border-top: 1px solid #d0d0d0;
+	line-height: 20px;
+	font-size: 10px;
+	background: #E3E3E3;
+	*/
+}
+
+
+/* Slider */
+
+div.ganttview-slide-container {
+	overflow: auto;
+	border-left: 1px solid #999;
+}
+
+
+/* Grid */
+
+div.ganttview-grid-row-cell {
+	width: 20px;
+	height: 17px;
+	border-right: 1px solid #f0f0f0;
+	border-top: 1px solid #f0f0f0;
+}
+
+div.ganttview-grid-row-cell.ganttview-weekend {
+	/*background-color: #fafafa;*/
+}
+
+
+/* Blocks */
+
+div.ganttview-blocks {
+	margin-top: 22px;
+}
+
+div.ganttview-block-container {
+	height: 18px;
+}
+
+div.separator{
+ 	height: 18px;
+}
+
+div.ganttview-block {
+	position: relative;
+	height: 13px;
+	background-color: #E5ECF9;
+	border: 1px solid #FFFFFF;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	top: 1px;
+}
+
+div.ganttview-block-text {
+	position: absolute;
+	height: 12px;
+	font-size: 0.8em;
+	color: #999;
+	padding: 2px 3px;
+}
+
+/* Adjustments for jQuery UI Styling */
+
+div.ganttview-block div.ui-resizable-handle.ui-resizable-s {
+	bottom: -0;
+}
+
+/* Milestones */
+
+div.milestone {
+    position: absolute;
+    z-index: 1;
+}
+
+div.milestone img{
+	width: 14px;
+	height: 13px;
+}
+
+/* Time Line */
+div.control-line {
+	border-right: 2px solid black;
+}
+div.time-line {
+	border-right: 2px solid red;
+}
+div.control-line, div.time-line {
+	float: left;
+}
+
+/* Percentage Complete */
+div.gantview-block-complete{
+	height:7px;
+	position:relative;
+	top:-10px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+/* Legend */
+div.legendGantt{
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Status Date */
+div.statusDate{
+	position:absolute;
+	top: -2px;
+}
+div.statusDate img {
+    height: 12px;
+    width: 12px;
+}
+
+/* Control Line */
+div.controlLine{
+	position:absolute;
+	z-index: 1;
+}
+
+div.controlLine img {
+    height: 12px;
+    width: 12px;
+}

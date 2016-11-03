@@ -1,0 +1,15 @@
+[
+  {
+  "description": "01.- No se solicitó a QA & Gobierno presupuesto de recursos de Testing en el proyecto.",
+  "importance": "green"
+  },
+  {
+  "description": "02.- Description 2.",
+  "importance": "yellow"
+  },
+  {
+  "description": "03.- Description 3.",
+  "importance": "red"
+  }
+]
+

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProjectChangeOpenPPM" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d27b0ba-3a97-4536-85e7-5c69803e41c5">
+	<property name="ireport.zoom" value="1.8150000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="padding_1">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+	</style>
+	<style name="header" forecolor="#2F6CBF" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontName="Verdana" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="text" style="padding_1" forecolor="#333333" isBlankWhenNull="true" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="headerBox" style="padding_1" forecolor="#000000" fill="Solid" pattern="" fontName="Verdana" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="box" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#F2F2F2" fill="Solid" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.25" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="footer" style="padding_1" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="importantBox" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#DBE5F1" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="0.25"/>
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+			<leftPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineStyle="Solid" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#F2F2F2" isBold="true">
+		<pen lineWidth="0.0" lineColor="#333333"/>
+		<box>
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.25" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="box_1" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#F2F2F2" fill="Solid" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="0">
+			<pen lineWidth="0.25" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.0" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.25" lineColor="#333333"/>
+		</box>
+	</style>
+	<style name="box_1_1" style="padding_1" mode="Opaque" forecolor="#333333" backcolor="#F2F2F2" fill="Solid" fontName="Verdana" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+			<pen lineWidth="0.5" lineColor="#333333"/>
+			<topPen lineWidth="0.25" lineColor="#333333"/>
+			<leftPen lineWidth="0.0" lineColor="#333333"/>
+			<bottomPen lineWidth="0.25" lineColor="#333333"/>
+			<rightPen lineWidth="0.5" lineColor="#333333"/>
+		</box>
+	</style>
+	<subDataset name="activities" uuid="7fd1c96f-7807-4c2e-aab6-3b1ba0b74883">
+		<parameter name="TOTAL" class="java.lang.String"/>
+		<parameter name="TRANSLATION_MAP" class="java.util.Map">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<field name="name" class="java.lang.String"/>
+		<field name="estimatedEffort" class="java.lang.String"/>
+		<field name="estimatedCost" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="IMG_DIR" class="java.lang.String"/>
+	<field name="projectName" class="java.lang.String"/>
+	<field name="projectManager" class="java.lang.String"/>
+	<field name="program" class="java.lang.String"/>
+	<field name="po" class="java.lang.String"/>
+	<field name="functionalManager" class="java.lang.String"/>
+	<field name="originator" class="java.lang.String"/>
+	<field name="activities" class="java.lang.Object"/>
+	<field name="budget" class="java.lang.String"/>
+	<field name="logo" class="java.io.InputStream"/>
+	<field name="priority" class="java.lang.String"/>
+	<field name="customer" class="java.lang.String"/>
+	<field name="requestDate" class="java.lang.String"/>
+	<field name="changeType" class="java.lang.String"/>
+	<field name="changeDescription" class="java.lang.String"/>
+	<field name="recommendedSolution" class="java.lang.String"/>
+	<field name="impactDescription" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="validatedBy" class="java.lang.String"/>
+	<field name="resolutionDate" class="java.lang.String"/>
+	<field name="comments" class="java.lang.String"/>
+	<field name="translationMap" class="java.util.Map"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="74" splitType="Stretch">
+			<image vAlign="Bottom" isUsingCache="true">
+				<reportElement uuid="b03274aa-f30d-4c6e-9437-8982e7f81da6" x="0" y="2" width="231" height="58"/>
+				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="b587f462-01fd-40b1-9125-39eb20b06379" style="header" x="231" y="16" width="324" height="24"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{po}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a54fd90-e51d-45d3-889a-866fbce57060" style="headerBox" x="231" y="40" width="324" height="25"/>
+				<textElement textAlignment="Right" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("CHANGE_REQUEST_FORM").toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="10"/>
+	</columnHeader>
+	<detail>
+		<band height="85" splitType="Prevent">
+			<textField>
+				<reportElement uuid="6bb67cd6-61ad-46d7-8db4-9150ff5c6914" style="headerBox" x="0" y="0" width="328" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("PROJECT_NAME").toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d7414f6f-7599-4ca8-811e-86480856e204" style="headerBox" x="469" y="0" width="86" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("BUDGET").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="007ebc1e-e058-4ac4-adb4-d246b15f5674" style="importantBox" mode="Opaque" x="0" y="14" width="328" height="14" backcolor="#DBE5F1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{projectName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f9133308-7f07-40a6-82fb-d52bbd77132c" style="box" x="328" y="14" width="141" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fa23e846-0e24-41dd-a6dc-645526443431" style="headerBox" x="328" y="0" width="141" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("CUSTOMER").toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a92c1de8-e275-49d5-b517-9d498eed5a3a" style="headerBox" x="185" y="28" width="183" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("FUNCTIONAL_MANAGER").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6ebb9374-bccb-4217-b40a-52aa7266d05e" style="box" x="185" y="42" width="183" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{functionalManager}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="19e0e8f8-2201-4778-bf79-ff36ec96d494" style="box" x="469" y="14" width="86" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{budget}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3c670fef-09ba-4451-ae29-0561d06f0707" style="headerBox" x="0" y="28" width="185" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("PROJECT_MANAGER").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3286f509-10a5-45fd-87f8-4e1ca7b797de" style="box" x="0" y="42" width="185" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{projectManager}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="62d39d22-75d5-4844-9874-a10097fa1d53" style="headerBox" x="368" y="28" width="187" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("PROGRAM").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="82960715-2984-4b88-b198-d2b2d367e095" style="box" x="368" y="42" width="187" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{program}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dc51434c-d35b-4178-86ad-0d0a83eb7b6f" style="headerBox" x="0" y="56" width="185" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("PRIORITY").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fde279d0-0e45-45e3-9755-acbf24fc49e4" style="box" x="0" y="70" width="185" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{priority}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0ef8bd38-31ff-4e3e-af43-eb88cd65cc77" style="headerBox" x="185" y="56" width="183" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("ORIGINATOR").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6b397542-8fe5-4dcb-b177-b76368f6f528" style="box" x="185" y="70" width="183" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{originator}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="835e08c5-082b-415a-84eb-8a61bb1b9946" style="headerBox" x="368" y="56" width="187" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("REQUEST_DATE").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="118d70d2-d2ee-448c-a550-2f99decfc584" style="box" x="368" y="70" width="187" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{requestDate}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="10" splitType="Prevent"/>
+		<band height="210" splitType="Prevent">
+			<textField>
+				<reportElement uuid="e774ca82-3482-4425-be09-36c32e59adbd" style="headerBox" x="0" y="67" width="555" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("CHANGE_DESCRIPTION").toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="758bdc1b-d2b1-4c00-a89f-bf817a6ab583" style="box" x="0" y="81" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{changeDescription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1973c206-0696-4a84-a703-3ecd050aeca0" style="headerBox" x="0" y="0" width="279" height="25"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("INFORMATION").toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0eeb1818-83ac-446b-aa13-50e636d4c006" style="headerBox" x="0" y="25" width="555" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("CHANGE_TYPE").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f98c7946-8167-4949-afd9-87df85cd9fd5" style="box" x="0" y="39" width="555" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{changeType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="40112503-ee94-47ab-b318-6afdf462767b" style="headerBox" x="0" y="145" width="555" height="14"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("RECOMMENDED_SOLUTION").toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="84a4bdd8-9fb6-40ca-b0e0-5b2fdfeb359c" style="box" x="0" y="159" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{recommendedSolution}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="68557cf7-0a95-499b-b9ad-e1f68e18f6b5" style="headerBox" x="0" y="53" width="555" height="14"/>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="687e32c6-472c-4cde-81d7-67710dba76f0" style="headerBox" x="0" y="131" width="555" height="14"/>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="10" splitType="Prevent"/>
+		<band height="41">
+			<printWhenExpression><![CDATA[$F{activities} != null]]></printWhenExpression>
+			<componentElement>
+				<reportElement uuid="ffabca41-b9e2-4fa1-b5f2-15407e450855" key="AffectedActivities" x="0" y="0" width="555" height="40"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="activities" uuid="75f763a6-2c4c-4dd1-8eb9-bffa85f928da">
+						<parametersMapExpression><![CDATA[$F{translationMap}]]></parametersMapExpression>
+						<datasetParameter name="TRANSLATION_MAP">
+							<datasetParameterExpression><![CDATA[$F{translationMap}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$F{activities}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="355" uuid="cfbdee97-065f-44ae-a89d-2b1652ccf541">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="7adeeceb-9b3f-4fdf-a223-c734fca57743" style="headerBox" x="0" y="0" width="355" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get("AFFECTED_ACTIVITIES").toString()]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="1ae84e28-2d0f-4306-9178-49916084d656" style="text" mode="Transparent" x="0" y="0" width="355" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="4fc66797-e311-4c74-8c0c-3b0192d983c3">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="6875e724-048a-4993-9797-e7a15b00bea7" style="headerBox" x="0" y="0" width="100" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get("ESTIMATED_EFFORT").toString()]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="00e657a8-eee0-4b3f-97fc-15e1de353f19" style="text" mode="Transparent" x="0" y="0" width="100" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{estimatedEffort}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="6015315c-f110-491f-a528-ef36fcf68eed">
+						<jr:columnHeader height="14" rowSpan="1">
+							<textField>
+								<reportElement uuid="6daf6e88-f71f-4c40-bb54-f6de3e8415b9" style="headerBox" x="0" y="0" width="100" height="14"/>
+								<textElement markup="none"/>
+								<textFieldExpression><![CDATA[$P{TRANSLATION_MAP}.get("ESTIMATED_COST").toString()]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="15" rowSpan="1">
+							<textField>
+								<reportElement uuid="34592a1f-190e-4be6-8ed6-982923ef64f2" style="text" mode="Transparent" x="0" y="0" width="100" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{estimatedCost}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="10">
+			<printWhenExpression><![CDATA[$F{activities} != null]]></printWhenExpression>
+		</band>
+		<band height="64">
+			<textField>
+				<reportElement uuid="24d43eb2-9b3a-415e-bb95-974cc3eeba06" style="headerBox" x="0" y="0" width="555" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("IMPACT_DESCRIPTION").toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e1a60f2a-aeb0-490c-a32c-7e1176727e18" style="box" x="0" y="14" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{impactDescription}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="10"/>
+		<band height="133">
+			<textField>
+				<reportElement uuid="8dc8fd5f-66c0-476a-addc-8b5b7e025701" style="headerBox" x="0" y="0" width="279" height="25"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("FINAL_DISPOSITION").toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ce1d4f17-2c72-48ee-9661-84fee1a2f183" style="headerBox" x="0" y="25" width="185" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("STATUS").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="8e2f7fd1-e48a-4789-ad6d-44e580e82a3b" style="box" x="0" y="39" width="185" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6c4799b9-7320-4fb2-bfd3-73c2d06ce9ef" style="headerBox" x="185" y="25" width="183" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("VALIDATE_BY").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="916b7afe-8178-4ef6-bfa7-722c0d26af37" style="box" x="185" y="39" width="183" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{validatedBy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d8c29b1c-f564-4a40-8ddd-6c8508ba0bb3" style="headerBox" x="368" y="25" width="187" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("RESOLUTION_DATE").toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c1bfb92c-c9e4-4526-bb16-d592fc730ea3" style="box" x="368" y="39" width="187" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resolutionDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9a228bf1-a876-432e-b0b5-dd66e15980d8" style="headerBox" x="0" y="67" width="555" height="14"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("COMMENTS").toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cce5c866-ea3c-443a-9110-dd620efef0be" style="box" x="0" y="81" width="555" height="50"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{comments}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5aef4d60-5768-48bf-ad54-0fd72fb37843" style="headerBox" x="0" y="53" width="555" height="14"/>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="10"/>
+		<band height="88">
+			<rectangle>
+				<reportElement uuid="0a321640-09c2-45dc-b6ac-62a2d0e8a23e" x="185" y="28" width="180" height="49" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement uuid="04ef6764-0511-4f02-aa7a-91942d6f0955" style="footer" x="0" y="0" width="555" height="18"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA[$F{translationMap}.get("SIGN_OFF").toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="27">
+			<staticText>
+				<reportElement uuid="22ff9d48-0d89-4da5-a574-6ffd76fb72bb" x="0" y="0" width="555" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OPEN PPM - Open Project Portfolio Management (OpenPPM)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22b8ba66-bcc5-4c14-9671-e260b7c3fd55" x="0" y="11" width="555" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[www.sourceforge.net/openppm]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

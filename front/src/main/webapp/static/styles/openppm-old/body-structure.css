@@ -1,0 +1,26 @@
+
+html,body{
+  margin:0px;
+  height:100%;
+}
+
+body,td,th {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #444444;
+  line-height:15px;
+}
+
+body {
+  background: rgb(227, 236, 247);
+}
+
+*{ border:0px}
+input[type='text'] {
+  background: transparent;
+}
+
+/* Hide message Loading... */
+.block-ui-message.ng-binding {
+    display: none;
+}

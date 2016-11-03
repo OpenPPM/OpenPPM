@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: utils
+  ~ File: utils.tld
+  ~ Create User: javier.hernandez
+  ~ Create Date: 06/03/2015 14:35:37
+  -->
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    
+  <description>Uilidades para JSTL</description>
+  <display-name>Utilidades</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>tl</short-name>
+  <uri>Utilidades</uri>
+
+  <function>
+    <description>Format number in currency format</description>
+    <name>toCurrency</name>
+    <function-class>es.sm2.openppm.utils.functions.ValidateUtil</function-class>
+    <function-signature>String toCurrency(java.lang.Object)</function-signature>
+    <example>${tl:toCurrency(double)}</example>
+  </function>
+  
+  <function>
+    <description>Remove decimals</description>
+    <name>toNumber</name>
+    <function-class>es.sm2.openppm.utils.functions.ValidateUtil</function-class>
+    <function-signature>String toNumber(java.lang.Double)</function-signature>
+    <example>${tl:toNumber(double)}</example>
+  </function>
+  
+  <function>
+    <description>Format number in percent format</description>
+    <name>toPercent</name>
+    <function-class>es.sm2.openppm.utils.functions.ValidateUtil</function-class>
+    <function-signature>String toPercent(java.lang.Double)</function-signature>
+    <example>${tl:toPercent(double)}</example>
+  </function>
+  
+  <function>
+    <description>Parse null boolean to false</description>
+    <name>defBoolean</name>
+    <function-class>es.sm2.openppm.utils.functions.ValidateUtil</function-class>
+    <function-signature>boolean defBoolean(java.lang.Boolean)</function-signature>
+    <example>${tl:defBoolean(value)}</example>
+  </function>
+  
+  <function>
+    <description>Replace special characters</description>
+    <name>escape</name>
+    <function-class>es.sm2.openppm.utils.functions.HtmlUtil</function-class>
+    <function-signature>String escape(java.lang.String)</function-signature>
+    <example>${tl:escape(value)}</example>
+  </function>
+
+  <function>
+    <description>Replace special characters to unicode</description>
+    <name>escapeUnicode</name>
+    <function-class>es.sm2.openppm.utils.functions.HtmlUtil</function-class>
+    <function-signature>String escapeUnicode(java.lang.String)</function-signature>
+    <example>${tl:escape(value)}</example>
+  </function>
+  
+  <function>
+    <description>return true it is null or empty or "NULL"</description>
+    <name>isNull</name>
+    <function-class>es.sm2.openppm.utils.functions.ValidateUtil</function-class>
+    <function-signature>boolean isNull(java.lang.String)</function-signature>
+    <example>${tl:isNull(stringValue)}</example>
+  </function>
+</taglib>

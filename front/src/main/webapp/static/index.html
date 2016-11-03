@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html lang="es" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="es" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="es" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
+<head>
+  <title translate="TITLE"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <link href="bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="bower_components/ngDialog/css/ngDialog.min.css" rel="stylesheet"/>
+  <link href="bower_components/ngDialog/css/ngDialog-theme-default.min.css" rel="stylesheet"/>
+  <link href="bower_components/ngDialog/css/ngDialog-theme-plain.min.css" rel="stylesheet"/>
+  <link href="bower_components/ngDialog/css/ngDialog-custom-width.css" rel="stylesheet"/>
+
+
+  <!-- OPENPPM OLD -->
+  <link rel="stylesheet" href="styles/spacing.css">
+  <link rel="stylesheet" href="styles/input-validation.css">
+  <link rel="stylesheet" href="styles/openppm-old/advanced-filter.css">
+  <link rel="stylesheet" href="styles/openppm-old/panel.css">
+  <link rel="stylesheet" href="styles/openppm-old/button.css">
+  <link rel="stylesheet" href="styles/openppm-old/table.css">
+  <link rel="stylesheet" href="styles/openppm-old/fieldset.css">
+  <link rel="stylesheet" href="styles/openppm-old/modal.css">
+  <link rel="stylesheet" href="styles/openppm-old/input.css">
+  <link rel="stylesheet" href="styles/openppm-old/font.css">
+  <link rel="stylesheet" href="styles/openppm-old/logo.css">
+  <link rel="stylesheet" href="styles/openppm-old/nav-bar.css">
+  <link rel="stylesheet" href="styles/openppm-old/body-structure.css">
+  <link rel="stylesheet" href="styles/openppm-old/dropdown.css">
+  <link rel="stylesheet" href="styles/openppm-old/content.css">
+  <link type="text/css" href="styles/openppm-old/menu/menu.css" rel="stylesheet" />
+  <link type="text/css" href="styles/openppm-old/calendar.css" rel="stylesheet" />
+  <link href="styles/openppm-old/header-footer.css" rel="stylesheet" type="text/css" media="screen">
+  <link type="text/css" href="styles/openppm-old/notification/notification.css" rel="stylesheet" />
+  <link type="text/css" href="styles/openppm-old/alert.css" rel="stylesheet" />
+
+  <link type="text/css" href="styles/notifications/notifications.css" rel="stylesheet" />
+  <link type="text/css" href="styles/colors.css" rel="stylesheet" />
+  <link type="text/css" href="../css/redmond/jquery-ui-1.8rc3.custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/floating-message.css">
+</head>
+<body>
+
+<!--HEADER-->
+<form name="frm_menu" method="post" action="">
+  <input type="hidden" name="accion" value=""/>
+</form>
+
+<div class="panel-default" ng-controller="HeaderCtrl">
+  <div class="container-fluid">
+    <table class="table-header" width="100%">
+      <tr>
+        <td> <a href ng-click="docsAndManualsPopup();" translate="HEADER.DOCS_AND_MANUALS"></a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <form name="form_change_rol" method="post" action="../home">
+            <input name="accion" type="hidden" value="select-rol"/>
+            <span translate="HEADER.PROFILE"></span>: {{user.profile.name}} - {{user.performingOrganization.name}} &nbsp;|&nbsp;
+            <a href ng-click="selectRol()" translate="HEADER.CONNECTION.SWITCH_ROLE"></a>
+          </form>
+        </td>
+        <td class="pull-right text-right">
+          <ul class="list-unstyled list-inline">
+            <li class="notification-menu-item">
+              <span class="notification-bubble hidden" title="Notifications">50</span>
+              <img class="hidden" src="images/openppm-old/notification/bell.png">
+              |<a href="../myaccount"><span translate="HEADER.USER"></span>: {{user.name}}</a>
+              |<a href="../login?a=logoff" translate="HEADER.CONNECTION.LOG_OFF"></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <a href="../home" class="pull-left"><div id="logo-left"><img class="img-responsive" src="../imageData/headBySetting"></div></a>
+      <a href="../home" class="pull-right"><img class="img-responsive" src="images/logo-mini-talaia.jpg"></a>
+    </div>
+  </div>
+
+  <!--Options Menu (dynamic, different for every user)-->
+  <nav class="navbar navbar-default ">
+    <div class="">
+
+    <div ng-include="'./views/common/menu-old-inc.html'" ></div>
+
+    </div>
+  </nav>
+
+  <!--END OF MENU-->
+</div>
+
+<!--END OF HEADER-->
+<section ui-view="content" class="container-fluid"></section>
+
+<!--FOOTER-->
+<div ng-controller="FooterCtrl" class="panel-footer container-fluid text-center">
+  <a href="" ng-click="open('lg')"> OPEN PPM - Project Portfolio Management - </a>
+  <a href="{{settings.EASTER_EGG}}">
+    <b class="login_info">{{settings.VERSION_NAME_APP}}&nbsp;</b>
+    <span>v{{settings.VERSION_APP}}</span>
+  </a>
+</div>
+
+<script data-main="scripts/main.js" src="bower_components/requirejs/require.js"></script>
+
+</body>
+</html>

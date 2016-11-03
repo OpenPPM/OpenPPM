@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: build
+  ~ File: copyContent.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:42:42
+  -->
+
+<project name="CopyContent">
+
+	<target name="general" depends="clearDir">
+
+		<echo message="***************** INICIO ANT ********************" />
+		<echo message="Security: ${loginConfig}" />
+		<echo message="Client Web Config: ${clientWebConfig}" />
+		<echo message="Generic Web ConfigROL: ${genericWebConfig}" />
+
+		<available file="../${clientWebConfig}/config/web.cfg"  property="clientWebConfigFound"/>
+		<available file="../${genericWebConfig}/config/web.cfg" property="genericWebConfigFound"/>
+
+		<property name="approl" value="${approl}" />
+		<antcall target="createWebXml" />
+		<echo message="***************** FIN ANT ********************" />
+	</target>
+
+	<target name="loadClientWebConfig" if="${clientWebConfigFound}">
+		<echo message="Load CFG Specific" />
+		<loadfile property="webConfig" srcFile="../${clientWebConfig}/config/web.cfg" />
+	</target>
+
+	<target name="loadGenericWebConfig" if="${genericWebConfigFound}">
+		<echo message="Load CFG Generic" />
+		<loadfile property="webConfig" srcFile="../${genericWebConfig}/config/web.cfg" />
+	</target>
+
+	<target name="createWebXml" depends="loadClientWebConfig, loadGenericWebConfig">
+
+		<echo message="Load CFG:" />
+		<echo message="${webConfig}" />
+
+		<copy file="config/web.xml" toFile="../../front/src/main/webapp/WEB-INF/web.xml"
+			  overwrite="true">
+			<filterset begintoken="&lt;!--@" endtoken="@--&gt;">
+				<filter token="AppRol" value="${approl}" />
+				<filter token="LoginConfig" value="${webConfig}" />
+			</filterset>
+		</copy>
+	</target>
+
+	<target name="clearDir">
+		<delete includeEmptyDirs="true">
+			<fileset dir="../../front/src/main/webapp/WEB-INF" includes="jboss-web.xml" defaultexcludes="no"/>
+		</delete>
+	</target>
+
+</project>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Operation.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Operation" table="operation">
+        <id name="idOperation" type="java.lang.Integer">
+            <column name="IdOperation" />
+            <generator class="native">
+                <param name="sequence">operation_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="operationaccount" class="es.sm2.openppm.core.model.impl.Operationaccount" fetch="select">
+            <column name="IdOpAccount" />
+        </many-to-one>
+        <property name="operationName" type="string">
+            <column name="OperationName" length="18" />
+        </property>
+        <property name="operationCode" type="string">
+            <column name="OperationCode" length="18" />
+        </property>
+        <property name="availableForManager" type="java.lang.Boolean">
+            <column name="availableForManager" />
+        </property>
+        <property name="availableForApprove" type="java.lang.Boolean">
+            <column name="availableForApprove" />
+        </property>
+        <property name="excludeExternals" type="java.lang.Boolean">
+            <column name="excludeExternals" />
+        </property>
+        <set name="expensesheets" inverse="true" lazy="true" table="expensesheet" fetch="select">
+            <key>
+                <column name="idOperation" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Expensesheet" />
+        </set>
+        <set name="employeeoperationdates" inverse="true" lazy="true" table="employeeoperationdate" fetch="select">
+            <key>
+                <column name="idOperation" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Employeeoperationdate" />
+        </set>
+        <set name="timesheets" inverse="true" lazy="true" table="timesheet" fetch="select">
+            <key>
+                <column name="idOperation" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Timesheet" />
+        </set>
+    </class>
+</hibernate-mapping>

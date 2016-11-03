@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (C) 2009-2015 SM2 SOFTWARE & SERVICES MANAGEMENT
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program has been created in the hope that it will be useful.
+  ~ It is distributed WITHOUT ANY WARRANTY of any Kind,
+  ~ without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ~ See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program. If not, see http://www.gnu.org/licenses/.
+  ~
+  ~ For more information, please contact SM2 Software & Services Management.
+  ~ Mail: info@talaia-openppm.com
+  ~ Web: http://www.talaia-openppm.com
+  ~
+  ~ Module: core
+  ~ File: Seller.hbm.xml
+  ~ Create User: javier.hernandez
+  ~ Create Date: 15/03/2015 12:53:03
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Hibernate Generator by Javier Hernandez -->
+<hibernate-mapping>
+    <class name="es.sm2.openppm.core.model.impl.Seller" table="seller">
+        <id name="idSeller" type="java.lang.Integer">
+            <column name="idSeller" />
+            <generator class="native">
+                <param name="sequence">seller_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="company" class="es.sm2.openppm.core.model.impl.Company" fetch="select">
+            <column name="idCompany" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="selected" type="java.lang.Boolean">
+            <column name="selected" />
+        </property>
+        <property name="qualified" type="java.lang.Boolean">
+            <column name="qualified" />
+        </property>
+        <property name="qualificationDate" type="date">
+            <column name="qualificationDate" length="10" />
+        </property>
+        <property name="soleSource" type="java.lang.Boolean">
+            <column name="soleSource" />
+        </property>
+        <property name="singleSource" type="java.lang.Boolean">
+            <column name="singleSource" />
+        </property>
+        <property name="information" type="string">
+            <column name="information" length="100" />
+        </property>
+        <set name="procurementpaymentses" inverse="true" lazy="true" table="procurementpayments" fetch="select">
+            <key>
+                <column name="idSeller" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Procurementpayments" />
+        </set>
+        <set name="activitysellers" inverse="true" lazy="true" table="activityseller" fetch="select">
+            <key>
+                <column name="idSeller" not-null="true" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Activityseller" />
+        </set>
+        <set name="employees" inverse="true" lazy="true" table="employee" fetch="select">
+            <key>
+                <column name="idSeller" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.Employee" />
+        </set>
+        <set name="learnedLessons" inverse="true" lazy="true" table="learnedlesson" fetch="select">
+            <key>
+                <column name="idProgram" />
+            </key>
+            <one-to-many class="es.sm2.openppm.core.model.impl.LearnedLesson" />
+        </set>
+    </class>
+</hibernate-mapping>

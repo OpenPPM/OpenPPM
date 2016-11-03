@@ -1,0 +1,21 @@
+#logo-left{
+  height: 70px;
+  float: left;
+  margin: 5px;
+  text-align: left;
+}
+
+#logo-left img{
+  max-height: 70px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#logo-right{
+  height: 70px;
+  float: right;
+  margin: 5px;
+  text-align: right;
+}
+
+#logo-right img{
+}
