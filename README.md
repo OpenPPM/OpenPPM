@@ -1,50 +1,57 @@
+
 Dear OpenPPM Users,
 
-After many months of development, we are now releasing a complete new version of OpenPPM.
 
-Depending on your need and skills, We offer you two options to install your OpenPPM software:
-
--	Easy Installation (recommended for non-technical users): you deploy a virtual machine with all the components included. (Application Server, Data Base and OpenPPM)
-
-If you choose this option, than you need to download our virtual machine form the following link: 
-
-http://www.mediafire.com/download/w4to6124xc62ycw/Ubuntu-OpenppmCommunity.ova
-
-and follow the instructions from the Installation Guide (English or Spanish)
-
--	Customized Installation (recommended for advanced users only): you deploy all the elements separately allowing you to choose: 
-o	Virtual Machine 
-o	Data Base (Maria DB, MySQL or Oracle)
-o	Tomcat Version (v.7 or higher)
-
-If you choose this option, than you need the files included in the Bulma 4.2.9. Folder and follow the instruction from the Installation Guide (English or Spanish)
-
-For any help or support related to OpenPPM, please use our forum in the sourceforge website: 
-
-http://sourceforge.net/p/openppm/discussion/bulma/
+Thank you for choosing installing OpenPPM.
 
 
-WHAT´S NEW:
+OpenPPM is an Open Source  product, used for Project Management and Project Portfolio Management, 
+in accordance with the PMBOKÂ® (Project Management Body of Knowledge) guide,from PMIÂ® (Project Management Institute).
 
-We called it Bulma and this the version 4.2.9. It will bring to you a brand new experience with a new look and feel design.
 
-From a technical point of view, OpenPPM is now fully mobile device compatible incoporating a new graphic technology.
 
-From a Functional point of view, we added new features in all the areas of the Software such as:
+From a functional point of view: 
 
-- A New Admin Module to manage General Settings, Autentication mode (BBDD, LDAP, Mix, 3rd party Autentication software, Mail & Notification configuration
-- 2 New Roles: Stakeholder & Admin
-- New Maintenance Parameters in the OPA: Risk & Change Management and Template & Indicators
-- New Menu: Resource Capacity Planning, Resource Capacity Running and Payments
-- In the Project Overview: Risk Report, Milestone List, KPI´s and Performance Report
-- New Project & Investment Status: Archived
-- Project Initiation: Funding Source, Labels, Executive Reports and Process Logs
-- Project Planning: Organizational Breakdown Structure
-- Project Control: Log Book
-- Project Closing: A new Closing Repor and Closing Checklist 
-- Resource Management: Individual Resource Capacity in Assigment Approval, Resource Pool and Resource Pool Management, Resource Capacity Planning level, Resource Capacity Running
-- ...
+
+- We intended to create a solution for companies that need to manage a large amount of projects and need to have a single source to get an overview on what is happening.
+
+
+- We tried to offer a solution that would be intuitive, simple to administer for the users with a quick learning curve.
+
+
+
+
+From a more technical point of view
+
+
+- Open PPM is a MAVEN project with Java version 1.7
+
+
+- In order to compile the project you need to execute the following instruction:
+
+mvn clean package -P production -DclientDepencency=community
+
+
+- You can find the MySQL scheme in the following folder:
+
+OpenPPM/schemas/CreateDB.sql
+
+
+- In order to deploy the tool, please refer to our installation guide located in the installation guide folder. You will find there all the information you need to install the solution, 
+do a first configuration set up and as well as a section with a little user tutorial.
+
+
+
+We create a Demo environement that you can access using:
+
+URL:http://community.talaia-openppm.com/openppm/
+
+User: openppm
+
+Password:openppm
+
 
 We hope that you will enjoy this new version and look forward to your feedback in our community forums.
+
 
 OpenPPM Team
