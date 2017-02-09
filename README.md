@@ -26,6 +26,7 @@ From a more technical point of view
 
 - Open PPM is a MAVEN project with Java version 1.7
 
+- Install third party dependencies https://github.com/OpenPPM/OpenPPM/tree/master/thirdPartyLibs
 
 - In order to compile the project you need to execute the following instruction:
 
